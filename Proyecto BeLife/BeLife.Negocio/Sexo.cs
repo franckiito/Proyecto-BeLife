@@ -33,28 +33,11 @@ namespace BeLife.Negocio
         {
             Sexo sexo = new Sexo();
 
-            try
-            {
-                using (BeLifeEntity bbdd = new BeLifeEntity())
-                {
+            BeLifeEntity bbdd = new BeLifeEntity();
 
-                    var resultadoQuery = (from s in bbdd.Sexo
-                                          where s.IdSexo == id
-                                          select s).FirstOrDefault();
+            Entity.Sexo s = bbdd.Sexo.Where(x => x.IdSexo == id).FirstOrDefault();
 
-                    if (resultadoQuery != null)
-                    {
-                        sexo.Id = resultadoQuery.IdSexo;
-                        sexo.Descripcion = resultadoQuery.Descripcion;
-                    }
-                    else sexo = null;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al buscar el Sexo ID:{1} , {0}", ex.Message, id);
-            }
+            CommonBC.Syncronize(s, sexo);
 
             return sexo;
         }
@@ -67,30 +50,33 @@ namespace BeLife.Negocio
         {
             List<Sexo> sexos = new List<Sexo>();
 
-            try
-            {
-                using (BeLifeEntity bbdd = new BeLifeEntity())
-                {
+            BeLifeEntity bbdd = new BeLifeEntity();
 
-                    var resultadoQuery = from s in bbdd.Sexo
-                                         select s;
+            List<Entity.Sexo> listaDatos = bbdd.Sexo.ToList<Entity.Sexo>();
+            List<Sexo> list = SyncList(listaDatos);
 
-                    foreach (var x in resultadoQuery)
-                    {
-                        Sexo sexo = new Sexo();
-                        sexo.Id = x.IdSexo;
-                        sexo.Descripcion = x.Descripcion;
-                        sexos.Add(sexo);
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al buscar Sexos, {0}", ex.Message);
-            }
 
             return sexos;
+        }
+
+        /// <summary>
+        /// Sincroniza una lista Entity en una de Negocio
+        /// </summary>
+        /// <param name="listaDatos"></param>
+        /// <returns>List<Sexo></returns>
+        private List<Sexo> SyncList(List<Entity.Sexo> listaDatos)
+        {
+            List<Sexo> list = new List<Sexo>();
+
+            foreach (var x in listaDatos)
+            {
+                Sexo sexo = new Sexo();
+                CommonBC.Syncronize(x, sexo);
+                list.Add(sexo);
+
+            }
+
+            return list;
         }
     }
 }

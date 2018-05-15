@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Reflection;
 
-namespace Empresas.Negocio
+namespace BeLife.Negocio
 {
     public class CommonBC
     {
