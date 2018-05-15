@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="CommonBC.cs" />
     <Compile Include="Contrato.cs" />
     <Compile Include="EstadoCivil.cs" />
     <Compile Include="Plan.cs" />
