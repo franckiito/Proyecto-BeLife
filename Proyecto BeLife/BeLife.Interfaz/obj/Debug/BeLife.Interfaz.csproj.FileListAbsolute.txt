@@ -84,3 +84,9 @@ C:\Users\CETECOM\Downloads\Proyecto BeLife\BeLife.Interfaz\obj\Debug\Contratos.g
 C:\Users\CETECOM\Downloads\Proyecto BeLife\BeLife.Interfaz\obj\Debug\ListadoContratos.g.cs
 C:\Users\CETECOM\Downloads\Proyecto BeLife\BeLife.Interfaz\obj\Debug\Contratos.baml
 C:\Users\CETECOM\Downloads\Proyecto BeLife\BeLife.Interfaz\obj\Debug\ListadoContratos.baml
+C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\ListadoClientes.g.cs
+C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\ListadoContratos.g.cs
+C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\VentanaPrincipal.g.cs
+C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\ListadoClientes.baml
+C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\ListadoContratos.baml
+C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\VentanaPrincipal.baml

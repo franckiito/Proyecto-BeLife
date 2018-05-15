@@ -66,9 +66,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Contratos.xaml.cs">
-      <DependentUpon>Contratos.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ListadoClientes.xaml.cs">
       <DependentUpon>ListadoClientes.xaml</DependentUpon>
     </Compile>
@@ -78,10 +75,6 @@
     <Compile Include="VentanaPrincipal.xaml.cs">
       <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
-    <Page Include="Contratos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="ListadoClientes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -1,4 +1,4 @@
-﻿using BeLife.Entity;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,36 +35,7 @@ namespace BeLife.Interfaz
 
         private void CargaClientes()
         {
-
-
-            try
-            {
-                using (BeLifeEntities context = new BeLifeEntities())
-                {
-                    
-                    var query = (from c in context.Cliente
-
-                                 select new
-                                 {
-                                     c.RutCliente,
-                                     c.Nombres,
-                                     c.Apellidos,
-                                     FechaNacimiento = (c.FechaNacimiento.Day + "/" + ((c.FechaNacimiento.Month < 10) ? ("0" + c.FechaNacimiento.Month) : (c.FechaNacimiento.Month.ToString())) + "/" + c.FechaNacimiento.Year),
-                                     EstadoCivil = c.EstadoCivil.Descripcion,
-                                     Sexo = c.Sexo.Descripcion,
-                                 });
-                    var result = query.ToList();
-
-                    ClientesList.ItemsSource = result;
-                    
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
+            
 
 
         }
@@ -78,11 +49,11 @@ namespace BeLife.Interfaz
         private void CargaDatos()
         {
             Negocio.Sexo sexo = new Negocio.Sexo();
-            SexoList.ItemsSource = sexo.retornaSexos();
+            SexoList.ItemsSource = sexo.ReadAll();
             SexoList.SelectedIndex = -1;
 
             Negocio.EstadoCivil estadoCivil = new Negocio.EstadoCivil();
-            EstadoCivilList.ItemsSource = estadoCivil.RetornaEstadosCiviles();
+            EstadoCivilList.ItemsSource = estadoCivil.ReadAll();
             EstadoCivilList.SelectedIndex = -1;
         }
 

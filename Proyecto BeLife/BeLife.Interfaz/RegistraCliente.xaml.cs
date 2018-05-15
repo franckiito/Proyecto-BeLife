@@ -44,11 +44,11 @@ namespace BeLife.Interfaz
         private void cargaDatos()
         {
             Negocio.Sexo sexo = new Negocio.Sexo();
-            SexoList.ItemsSource = sexo.retornaSexos();
+            SexoList.ItemsSource = sexo.ReadAll();
             SexoList.SelectedIndex = -1;
 
             Negocio.EstadoCivil estadoCivil = new Negocio.EstadoCivil();
-            EstadoCivilList.ItemsSource = estadoCivil.RetornaEstadosCiviles();
+            EstadoCivilList.ItemsSource = estadoCivil.ReadAll();
             EstadoCivilList.SelectedIndex = -1;
         }
 
@@ -59,53 +59,7 @@ namespace BeLife.Interfaz
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            DateTime fecha = DateTime.Today;
-
-            string rut = txtRut.Text;
-            string nombres = txtNombres.Text;
-            string apellidos = txtApellidos.Text;
-            Negocio.Sexo s = new Negocio.Sexo();
-            Negocio.EstadoCivil est = new Negocio.EstadoCivil();
-
-            if (FechaNacimiento.SelectedDate.ToString() == "")
-            {
-                MessageBox.Show("Debe ingresar Fecha", "Registro Cliente", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-            else
-            {
-                fecha = (DateTime)FechaNacimiento.SelectedDate;
-
-                if (ValidaDatos(rut, nombres, apellidos, fecha, SexoList.SelectedIndex, EstadoCivilList.SelectedIndex))
-                {
-                    Negocio.Cliente cliente = new Negocio.Cliente();
-                    if (cliente.BuscarCliente(rut) == null)
-                    {
-                        s = (Negocio.Sexo)SexoList.SelectionBoxItem;
-                        est = (Negocio.EstadoCivil)EstadoCivilList.SelectionBoxItem;
-                        cliente.Rut = rut;
-                        cliente.Nombres = nombres;
-                        cliente.Apellidos = apellidos;
-                        cliente.FechaNacimiento = fecha;
-                        cliente.sexo = s;
-                        cliente.estadoCivil = est;
-
-                        if (cliente.AgregaCliente(cliente))
-                        {
-                            MessageBox.Show("El Cliente fue registrado exitosamente!!!", "Registro Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
-                            LimpiaDatos();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Hubo un error al registrar el cliente", "Registro Cliente", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ya existe el cliente ingresado", "Registro Cliente", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                   
-                }
-            }       
+            
         }
 
         private bool ValidaDatos(string rut, string nombres, string apellidos, DateTime fecha, int s, int est)
@@ -250,43 +204,15 @@ namespace BeLife.Interfaz
 
         private void btnBuscarCliente_Click(object sender, RoutedEventArgs e)
         {
-            string rut = txtRut.Text;
-
-            if (ValidaRut(rut) )
-            {
-
-                Negocio.Cliente cliente = new Negocio.Cliente();
-                cliente = cliente.BuscarCliente(rut);
-                if(cliente != null )
-                {
-                    txtNombres.Text = cliente.Nombres.ToString();
-                    txtApellidos.Text = cliente.Apellidos.ToString();
-                    FechaNacimiento.SelectedDate = cliente.FechaNacimiento;
-
-                    CargaSexo(cliente.sexo.IdSexo);
-                    CargaEstado(cliente.estadoCivil.IdEstadoCivil);
-
-                }
-                else
-                {
-                    MessageBox.Show("El rut ingresado no existe.", "Busca Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LimpiaDatos();
-                }
-                
-
-            }
-            else
-            {
-                MessageBox.Show("Debe ingresar Rut", "Registro Cliente", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
+            
         }
 
         private void CargaEstado(int idEstadoCivil)
         {
             Negocio.EstadoCivil estado = new Negocio.EstadoCivil();
-            estado = estado.BuscarEstado(idEstadoCivil);
+            estado = estado.Read(idEstadoCivil);
 
-            EstadoCivilList.SelectedIndex = estado.IdEstadoCivil - 1;
+            EstadoCivilList.SelectedIndex = estado.Id - 1;
             //for (int i = 0; i < EstadoCivilList.Items.Count; i++)
             //{
             //    SexoList.SelectedIndex = i;
@@ -300,9 +226,9 @@ namespace BeLife.Interfaz
         private void CargaSexo(int idSexo)
         {
             Negocio.Sexo sexo = new Negocio.Sexo();
-            sexo = sexo.buscarSexo(idSexo);
+            sexo = sexo.Read(idSexo);
 
-            SexoList.SelectedIndex = sexo.IdSexo - 1;
+            SexoList.SelectedIndex = sexo.Id - 1;
             //for (int i = 0; i < SexoList.Items.Count; i++)
             //{
             //    SexoList.SelectedIndex = i;
@@ -316,85 +242,12 @@ namespace BeLife.Interfaz
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            DateTime fecha = DateTime.Today;
-
-            string rut = txtRut.Text;
-            string nombres = txtNombres.Text;
-            string apellidos = txtApellidos.Text;
-            Negocio.Sexo s = (Negocio.Sexo)SexoList.SelectionBoxItem;
-            Negocio.EstadoCivil est = (Negocio.EstadoCivil)EstadoCivilList.SelectionBoxItem;
-
-            if (FechaNacimiento.SelectedDate.ToString() == "")
-            {
-                MessageBox.Show("Debe ingresar Fecha", "Actualiza Cliente", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-            else
-            {
-                fecha = (DateTime)FechaNacimiento.SelectedDate;
-
-                if (ValidaDatos(rut, nombres, apellidos, fecha, s.IdSexo, est.IdEstadoCivil))
-                {
-                    Negocio.Cliente cliente = new Negocio.Cliente();
-
-                    if(cliente.BuscarCliente(rut) != null)
-                    {
-                        //Cliente con los datos capturados para actualizar
-                        cliente.Rut = rut;
-                        cliente.Nombres = nombres;
-                        cliente.Apellidos = apellidos;
-                        cliente.FechaNacimiento = fecha;
-                        
-                        cliente.sexo = s;
-                        cliente.estadoCivil = est;
-
-                        if (cliente.ActualizarCliente(cliente))
-                        {
-                            MessageBox.Show("El Cliente fue actualizado exitosamente!!!", "Actualiza Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
-                            LimpiaDatos();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Hubo un error al actualiar el cliente", "Actualiza Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("El rut ingresado no existe.", "Actualiza Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    
-                }
-            }
+            
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            string rut = txtRut.Text;
-
-            if(ValidaRut(rut))
-            {
-                Negocio.Cliente cliente = new Negocio.Cliente();
-
-                //Existe Cliente, se puede eliminar
-                if(cliente.BuscarCliente(rut) != null)
-                {
-                    if (cliente.EliminaCliente(rut))
-                    {
-                        MessageBox.Show("El cliente a sido eliminado correctamente.", "Elimina Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
-                        LimpiaDatos();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Hubo un error al eliminar el cliente", "Elimina Cliente", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
-                else{
-                    MessageBox.Show("El cliente no existe", "Elimina Cliente", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Debe ingresar Rut", "Elimina Cliente", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
+            
         }
 
         private void btnIrPrincipal_Click(object sender, RoutedEventArgs e)

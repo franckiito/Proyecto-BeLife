@@ -9,7 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using BeLife.Entity;
 using BeLife.Interfaz;
 using System;
 using System.Diagnostics;

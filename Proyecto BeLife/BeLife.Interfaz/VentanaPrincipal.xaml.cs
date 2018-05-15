@@ -40,13 +40,7 @@ namespace BeLife.Interfaz
             listadoClientes.Show();
         }
 
-        private void btnIrContrato_Click(object sender, RoutedEventArgs e)
-        {
-            Contratos contratos = new Contratos();
-            App.Current.MainWindow = contratos;
-            this.Close();
-            contratos.Show();
-        }
+
 
         private void btnIrListaContratos_Click(object sender, RoutedEventArgs e)
         {
@@ -54,6 +48,11 @@ namespace BeLife.Interfaz
             App.Current.MainWindow = listadoContratos;
             this.Close();
             listadoContratos.Show();
+        }
+
+        private void btnIrContrato_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
