@@ -33,28 +33,11 @@ namespace BeLife.Negocio
         {
             EstadoCivil estado = new EstadoCivil();
 
-            try
-            {
-                using (BeLifeEntity bbdd = new BeLifeEntity())
-                {
+            BeLifeEntity bbdd = new BeLifeEntity();
 
-                    var resultadoQuery = (from e in bbdd.EstadoCivil
-                                          where e.IdEstado == id
-                                          select e).FirstOrDefault();
+            Entity.EstadoCivil e = bbdd.EstadoCivil.Where(x => x.IdEstado == id).FirstOrDefault();
 
-                    if (resultadoQuery != null)
-                    {
-                        estado.Id = resultadoQuery.IdEstado;
-                        estado.Descripcion = resultadoQuery.Descripcion;
-                    }
-                    else estado = null;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al buscar el Estado Civil con Id:{1}, {0}", ex.Message, id);
-            }
+            CommonBC.Syncronize(e, estado);
 
             return estado;
         }
@@ -65,31 +48,32 @@ namespace BeLife.Negocio
         /// <returns>List<EstadoCivil></returns>
         public List<EstadoCivil> ReadAll()
         {
-            List<EstadoCivil> estados = new List<EstadoCivil>();
+            BeLifeEntity bbdd = new BeLifeEntity();
 
-            try
-            {
-                using (BeLifeEntity bbdd = new BeLifeEntity())
-                {
+            List<Entity.EstadoCivil> Estados = bbdd.EstadoCivil.ToList<Entity.EstadoCivil>();
+            List<EstadoCivil> list = SyncList(Estados);
 
-                    var resultadoQuery = from e in bbdd.EstadoCivil
-                                         select e;
-                    foreach (var x in resultadoQuery)
-                    {
-                        EstadoCivil estado = new EstadoCivil();
-                        estado.Id = x.IdEstado;
-                        estado.Descripcion = x.Descripcion;
-                        estados.Add(estado);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al buscar los Estados Civiles, {0}", ex.Message);
-            }
-
-            return estados;
+            return list;
         }
 
+        /// <summary>
+        /// Sincroniza una lista Entity en una de Negocio
+        /// </summary>
+        /// <param name="listaDatos"></param>
+        /// <returns>List<EstadoCivil></returns>
+        private List<EstadoCivil> SyncList(List<Entity.EstadoCivil> listaDatos)
+        {
+            List<EstadoCivil> list = new List<EstadoCivil>();
+
+            foreach (var x in listaDatos)
+            {
+                EstadoCivil estadoCivil = new EstadoCivil();
+                CommonBC.Syncronize(x, estadoCivil);
+                list.Add(estadoCivil);
+
+            }
+
+            return list;
+        }
     }
 }

@@ -48,15 +48,12 @@ namespace BeLife.Negocio
         /// <returns>List<Sexo></returns>
         public List<Sexo> ReadAll()
         {
-            List<Sexo> sexos = new List<Sexo>();
-
             BeLifeEntity bbdd = new BeLifeEntity();
 
             List<Entity.Sexo> listaDatos = bbdd.Sexo.ToList<Entity.Sexo>();
             List<Sexo> list = SyncList(listaDatos);
 
-
-            return sexos;
+            return list;
         }
 
         /// <summary>

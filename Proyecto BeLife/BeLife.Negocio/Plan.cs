@@ -37,29 +37,11 @@ namespace BeLife.Negocio
         {
             Plan plan = new Plan();
 
-            try
-            {
-                using (BeLifeEntity bbdd = new BeLifeEntity())
-                {
+            BeLifeEntity bbdd = new BeLifeEntity();
 
-                    var resultadoQuery = (from p in bbdd.Plan
-                                          where p.IdPlan == id
-                                          select p).FirstOrDefault();
+            Entity.Plan p = bbdd.Plan.Where(x => x.IdPlan == id).FirstOrDefault();
 
-                    if (resultadoQuery != null)
-                    {
-                        plan.Id = resultadoQuery.IdPlan;
-                        plan.Nombre = resultadoQuery.Nombre;
-                        plan.PrimaBase = resultadoQuery.PrimaBase;
-                        plan.PolizaActual = resultadoQuery.PolizaActual;
-                    }
-                    else plan = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al buscar el Plan ID:{1} , {0}", ex.Message, id);
-            }
+            CommonBC.Syncronize(p, plan);
 
             return plan;
         }
@@ -70,33 +52,32 @@ namespace BeLife.Negocio
         /// <returns>List<Plan></returns>
         public List<Plan> ReadAll()
         {
-            List<Plan> planes = new List<Plan>();
+            BeLifeEntity bbdd = new BeLifeEntity();
 
-            try
+            List<Entity.Plan> listaDatos = bbdd.Plan.ToList<Entity.Plan>();
+            List<Plan> list = SyncList(listaDatos);
+
+            return list;
+        }
+
+        /// <summary>
+        /// Sincroniza una lista Entity en una de Negocio
+        /// </summary>
+        /// <param name="listaDatos"></param>
+        /// <returns>List<Sexo></returns>
+        private List<Plan> SyncList(List<Entity.Plan> listaDatos)
+        {
+            List<Plan> list = new List<Plan>();
+
+            foreach (var x in listaDatos)
             {
-                using (BeLifeEntity bbdd = new BeLifeEntity())
-                {
+                Plan plan = new Plan();
+                CommonBC.Syncronize(x, plan);
+                list.Add(plan);
 
-                    var resultadoQuery = from p in bbdd.Plan
-                                         select p;
-
-                    foreach (var x in resultadoQuery)
-                    {
-                        Plan plan = new Plan();
-                        plan.Id = x.IdPlan;
-                        plan.Nombre = x.Nombre;
-                        plan.PrimaBase = x.PrimaBase;
-                        plan.PolizaActual = x.PolizaActual;
-                        planes.Add(plan);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al buscar los Planes, {0}", ex.Message);
             }
 
-            return planes;
+            return list;
         }
 
     }
