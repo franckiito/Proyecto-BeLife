@@ -44,25 +44,119 @@ namespace BeLife.Negocio
             PrimaMensual = 0;
             Observaciones = string.Empty;
         }
-
-        public void Create()
+        /// <summary>
+        /// Agrega el objeto en la base de datos
+        /// </summary>
+        /// <returns></returns>
+        public bool Create()
         {
+            //Connexion a la base de datos
+            BeLifeEntity bbdd = new BeLifeEntity();
+            if (!this.Read())
+            {
+                try
+                {
+                    //sincronizacion de los datos, desde negocio a BD
+                    Entity.Contrato con = new Entity.Contrato();
+                    CommonBC.Syncronize(this, con);
+                    //agrega el contrato a DB y guarda los cambios
+                    bbdd.Contrato.Add(con);
+                    bbdd.SaveChanges();
+                    return true;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            else
+            {
+                return false;
+                
+            }
+            
 
         }
-
-        public void Read()
+        /// <summary>
+        /// Busca el contrato con el mismo numero de la clase
+        /// </summary>
+        /// <returns></returns>
+        public bool Read()
         {
+            BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                //busca en la BD el contrato por numero
+                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.NumeroContrato).FirstOrDefault();
+                if(con != null)
+                {
+                    //pasa los datos desde la entidad extraidad desde la BD a la clase de la aplicacion
+                    CommonBC.Syncronize(con, this);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
-        public void Update()
+        public bool Update()
         {
+            BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                //trae el contrato con el mismo numero de contrato
+                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.NumeroContrato).FirstOrDefault();
+                if (con != null)
+                {
+                    //sincroniza la clase de la aplicacion con la entidad de BD y modifica los cambios
+                    CommonBC.Syncronize(this, con);
+                    bbdd.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
-        public void Delete()
+        public bool Delete()
         {
+            BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                //trae el contrato con el mismo numero de contrato de la clase
+                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.NumeroContrato).FirstOrDefault();
+                if (con != null)
+                {
+                    //elimina el contrato de la BD y guarda los cambios
+                    bbdd.Contrato.Remove(con);
+                    bbdd.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
         /// <summary>
@@ -72,13 +166,9 @@ namespace BeLife.Negocio
         public List<Contrato> ReadAll()
         {
             List<Contrato> contrato = new List<Contrato>();
-
             BeLifeEntity bbdd = new BeLifeEntity();
-
             List<Entity.Contrato> listaDatos = bbdd.Contrato.ToList<Entity.Contrato>();
-            List<Contrato> list = SyncList(listaDatos);
-
-
+            List<Contrato> list = SyncList(listaDatos);            
             return list;
         }
 
@@ -102,19 +192,31 @@ namespace BeLife.Negocio
             return list;
         }
 
-        public void ReadAllByNumeroContrato()
+        public List<Contrato> ReadAllByNumeroContrato(string num)
         {
-
+            List<Contrato> contrato = new List<Contrato>();
+            BeLifeEntity bbdd = new BeLifeEntity();
+            List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x=> x.Numero == num).ToList<Entity.Contrato>();
+            List<Contrato> list = SyncList(listaDatos);
+            return list;
         }
 
-        public void ReadAllByRut()
+        public List<Contrato> ReadAllByRut(string rut)
         {
-
+            List<Contrato> contrato = new List<Contrato>();
+            BeLifeEntity bbdd = new BeLifeEntity();
+            List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x=> x.Rut == rut).ToList<Entity.Contrato>();
+            List<Contrato> list = SyncList(listaDatos);
+            return list;
         }
 
-        public void ReadAllByPoliza()
+        public List<Contrato> ReadAllByPoliza(string pol)
         {
-
+            List<Contrato> contrato = new List<Contrato>();
+            BeLifeEntity bbdd = new BeLifeEntity();
+            List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.Plan.PolizaActual == pol).ToList<Entity.Contrato>();
+            List<Contrato> list = SyncList(listaDatos);
+            return list;
         }
 
     }

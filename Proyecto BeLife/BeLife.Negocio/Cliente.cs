@@ -39,11 +39,9 @@ namespace BeLife.Negocio
         {
             bool crea = false;
 
-            if (Read(Rut) == null){
-
+            if (!this.Read()){
                 BeLifeEntity bbdd = new BeLifeEntity();
                 Entity.Cliente cli  = new Entity.Cliente();
-
                 try
                 {
                     //Sincroniza datos y guarda los cambios
@@ -70,19 +68,32 @@ namespace BeLife.Negocio
         /// </summary>
         /// <param name="rut"></param>
         /// <returns></returns>
-        public Cliente Read(string rut)
+        public bool Read()
         {
-            Cliente cliente = null;
-
+            
             BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
 
-            Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == rut).FirstOrDefault();
-
-            if(cli != null){
-                CommonBC.Syncronize(cli, cliente);
+                if (cli != null)
+                {
+                    CommonBC.Syncronize(cli, this);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
+            catch (Exception)
+            {
 
-            return cliente;
+                throw;
+            }
+            
+
+            
         }
 
         public void Update()
