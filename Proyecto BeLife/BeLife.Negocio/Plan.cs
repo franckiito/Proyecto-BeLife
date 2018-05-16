@@ -33,17 +33,27 @@ namespace BeLife.Negocio
         /// </summary>
         /// <param name="id">string Id del Plan</param>
         /// <returns>Plan plan</returns>
-        public Plan Read(string id)
-        {
-            Plan plan = new Plan();
-
+        public bool Read()
+        {           
             BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                Entity.Plan pla = bbdd.Plan.Where(x => x.IdPlan == this.Id).FirstOrDefault();
+                if (pla != null)
+                {
+                    CommonBC.Syncronize(pla, this);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
 
-            Entity.Plan p = bbdd.Plan.Where(x => x.IdPlan == id).FirstOrDefault();
-
-            CommonBC.Syncronize(p, plan);
-
-            return plan;
+                throw;
+            }
         }
 
         /// <summary>
@@ -53,10 +63,8 @@ namespace BeLife.Negocio
         public List<Plan> ReadAll()
         {
             BeLifeEntity bbdd = new BeLifeEntity();
-
             List<Entity.Plan> listaDatos = bbdd.Plan.ToList<Entity.Plan>();
             List<Plan> list = SyncList(listaDatos);
-
             return list;
         }
 

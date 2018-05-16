@@ -194,7 +194,7 @@ namespace BeLife.Negocio
 
         public List<Contrato> ReadAllByNumeroContrato(string num)
         {
-            List<Contrato> contrato = new List<Contrato>();
+            
             BeLifeEntity bbdd = new BeLifeEntity();
             List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x=> x.Numero == num).ToList<Entity.Contrato>();
             List<Contrato> list = SyncList(listaDatos);
@@ -203,7 +203,7 @@ namespace BeLife.Negocio
 
         public List<Contrato> ReadAllByRut(string rut)
         {
-            List<Contrato> contrato = new List<Contrato>();
+            
             BeLifeEntity bbdd = new BeLifeEntity();
             List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x=> x.Rut == rut).ToList<Entity.Contrato>();
             List<Contrato> list = SyncList(listaDatos);
@@ -212,7 +212,7 @@ namespace BeLife.Negocio
 
         public List<Contrato> ReadAllByPoliza(string pol)
         {
-            List<Contrato> contrato = new List<Contrato>();
+            
             BeLifeEntity bbdd = new BeLifeEntity();
             List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.Plan.PolizaActual == pol).ToList<Entity.Contrato>();
             List<Contrato> list = SyncList(listaDatos);
