@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Data.Linq;
 using System.ComponentModel;
 using System.Collections;
+using BeLife.Negocio;
 
 namespace BeLife.Interfaz
 {
@@ -59,7 +60,44 @@ namespace BeLife.Interfaz
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            Negocio.Cliente cliente = new Negocio.Cliente()
+            {
+                Rut = txtRut.Text,
+                Nombres = txtNombres.Text,
+                Apellidos = txtApellidos.Text,
+                FechaDeNacimiento = (DateTime)FechaNacimiento.SelectedDate,
+                Sexo = AsignaSexo(),
+                EstadoCivil = AsignaEstadoCivil(EstadoCivilList.SelectedIndex + 1)  
+            };
+
+            if (cliente.Create())
+            {
+                MessageBox.Show("Cliente agregado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                LimpiaDatos();
+            }
+            else
+            {
+                MessageBox.Show("El Cliente no se pudo agregar", "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
+        private EstadoCivil AsignaEstadoCivil(int id)
+        {
+            EstadoCivil estado = new EstadoCivil();
+
+            estado = estado.Read(id);
+
+            return estado;
+        }
+
+        private Sexo AsignaSexo()
+        {
+            Sexo sexo = new Sexo();
+
+            sexo = sexo.Read(SexoList.SelectedIndex + 1);
+
+            return sexo;
         }
 
         private bool ValidaDatos(string rut, string nombres, string apellidos, DateTime fecha, int s, int est)

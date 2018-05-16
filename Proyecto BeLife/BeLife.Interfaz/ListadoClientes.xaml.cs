@@ -35,9 +35,9 @@ namespace BeLife.Interfaz
 
         private void CargaClientes()
         {
+            Negocio.Cliente cliente = new Negocio.Cliente();
+            ClientesList.ItemsSource = cliente.ReadAll();
             
-
-
         }
 
         private void LimpiaDatos()

@@ -31,43 +31,55 @@ namespace BeLife.Negocio
             EstadoCivil = new EstadoCivil();
         }
 
-        public void Create()
+        /// <summary>
+        /// Crea un registro de Cliente en la BBDD
+        /// </summary>
+        /// <returns></returns>
+        public bool Create()
         {
+            bool crea = false;
 
+            if (Read(Rut) == null){
+
+                BeLifeEntity bbdd = new BeLifeEntity();
+                Entity.Cliente cli  = new Entity.Cliente();
+
+                try
+                {
+                    //Sincroniza datos y guarda los cambios
+                    CommonBC.Syncronize(this, cli);
+                    bbdd.Cliente.Add(cli);
+                    bbdd.SaveChanges();
+                    crea = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("ERROR!!! " + ex.Message);
+
+                }
+            }
+            else{
+                throw new Exception("El cliente ya existe.");
+            }
+
+            return crea;
         }
 
         /// <summary>
-        /// 
+        /// Buscar un cliente por el parametro rut en la tabla Cliente.
         /// </summary>
         /// <param name="rut"></param>
         /// <returns></returns>
         public Cliente Read(string rut)
         {
-            Cliente cliente = new Cliente();
+            Cliente cliente = null;
 
-            using (BeLifeEntity bbdd = new BeLifeEntity())
-            {
+            BeLifeEntity bbdd = new BeLifeEntity();
 
-                var resultadoQuery = (from c in bbdd.Cliente
-                                     where c.Rut == rut
-                                     select c).FirstOrDefault();
+            Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == rut).FirstOrDefault();
 
-                if (resultadoQuery != null)
-                {
-
-                    cliente.Rut = resultadoQuery.Rut;
-                    cliente.Nombres = resultadoQuery.Nombres;
-                    cliente.Apellidos = resultadoQuery.Apellidos;
-                    cliente.FechaDeNacimiento = resultadoQuery.FechaNacimiento;
-
-                    Sexo sexo = new Sexo();
-                    cliente.Sexo = sexo.Read(resultadoQuery.IdSexo);
-
-                    EstadoCivil estado = new EstadoCivil();
-                    cliente.EstadoCivil = estado.Read(resultadoQuery.IdEstado);
-
-                }
-                else cliente = null;
+            if(cli != null){
+                CommonBC.Syncronize(cli, cliente);
             }
 
             return cliente;
@@ -83,36 +95,38 @@ namespace BeLife.Negocio
 
         }
 
+        /// <summary>
+        /// Retorna todos los registros de la tabla Cliente.
+        /// </summary>
+        /// <returns>List<Cliente></returns>
         public List<Cliente> ReadAll()
         {
-            List<Cliente> clientes = new List<Cliente>();
+            BeLifeEntity bbdd = new BeLifeEntity();
 
-            using (BeLifeEntity bbdd = new BeLifeEntity())
+            List<Entity.Cliente> listaDatos = bbdd.Cliente.ToList<Entity.Cliente>();
+            List<Cliente> list = SyncList(listaDatos);
+
+            return list;
+        }
+
+        /// <summary>
+        /// Sincroniza una lista Entity en una de Negocio
+        /// </summary>
+        /// <param name="listaDatos"></param>
+        /// <returns>List<Cliente></returns>
+        private List<Cliente> SyncList(List<Entity.Cliente> listaDatos)
+        {
+            List<Cliente> list = new List<Cliente>();
+
+            foreach (var x in listaDatos)
             {
+                Cliente cliente = new Cliente();
+                CommonBC.Syncronize(x, cliente);
+                list.Add(cliente);
 
-                var resultadoQuery = from c in bbdd.Cliente
-                                     select c;
-
-                foreach (var x in resultadoQuery)
-                {
-                    Cliente cliente = new Cliente();
-                    cliente.Rut = x.Rut;
-                    cliente.Nombres = x.Nombres;
-                    cliente.Apellidos = x.Apellidos;
-                    cliente.FechaDeNacimiento = x.FechaNacimiento;
-
-                    Sexo sexo = new Sexo();
-                    cliente.Sexo = sexo.Read(x.IdSexo);
-
-                    EstadoCivil estado = new EstadoCivil();
-                    cliente.EstadoCivil = estado.Read(x.IdEstado);
-
-                    clientes.Add(cliente);
-
-                }
             }
 
-            return clientes;
+            return list;
         }
 
         public List<Cliente> ReadAllBySexo(int idSexo)
