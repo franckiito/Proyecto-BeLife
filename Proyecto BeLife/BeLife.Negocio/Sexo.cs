@@ -29,17 +29,27 @@ namespace BeLife.Negocio
         /// </summary>
         /// <param name="id">string Id del Sexo</param>
         /// <returns>Sexo sexo</returns>
-        public Sexo Read(int id)
+        public bool Read()
         {
-            Sexo sexo = new Sexo();
-
             BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                Entity.Sexo s = bbdd.Sexo.Where(x => x.Id == this.Id).FirstOrDefault();
+                if(s != null)
+                {
+                    CommonBC.Syncronize(s, this);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
 
-            Entity.Sexo s = bbdd.Sexo.Where(x => x.IdSexo == id).FirstOrDefault();
-
-            CommonBC.Syncronize(s, sexo);
-
-            return sexo;
+                throw;
+            }
         }
 
         /// <summary>

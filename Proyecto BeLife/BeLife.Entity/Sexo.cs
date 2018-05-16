@@ -20,7 +20,7 @@ namespace BeLife.Entity
             this.Cliente = new HashSet<Cliente>();
         }
     
-        public int IdSexo { get; set; }
+        public int Id { get; set; }
         public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

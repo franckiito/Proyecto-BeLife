@@ -29,17 +29,27 @@ namespace BeLife.Negocio
         /// </summary>
         /// <param name="id">string Id del Estado Civil</param>
         /// <returns>EstadoCivil estado</returns>
-        public EstadoCivil Read(int id)
+        public bool Read()
         {
-            EstadoCivil estado = new EstadoCivil();
-
             BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                Entity.EstadoCivil e = bbdd.EstadoCivil.Where(x => x.Id == this.Id).FirstOrDefault();
+                if (e !=null)
+                {
+                    CommonBC.Syncronize(e,this);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
 
-            Entity.EstadoCivil e = bbdd.EstadoCivil.Where(x => x.IdEstado == id).FirstOrDefault();
-
-            CommonBC.Syncronize(e, estado);
-
-            return estado;
+                throw;
+            }
         }
 
         /// <summary>

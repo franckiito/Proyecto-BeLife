@@ -39,11 +39,9 @@ namespace BeLife.Negocio
         {
             bool crea = false;
 
-            if (Read(Rut) == null){
-
+            if (!this.Read()){
                 BeLifeEntity bbdd = new BeLifeEntity();
                 Entity.Cliente cli  = new Entity.Cliente();
-
                 try
                 {
                     //Sincroniza datos y guarda los cambios
@@ -70,29 +68,84 @@ namespace BeLife.Negocio
         /// </summary>
         /// <param name="rut"></param>
         /// <returns></returns>
-        public Cliente Read(string rut)
+        public bool Read()
         {
-            Cliente cliente = null;
-
+            
             BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
 
-            Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == rut).FirstOrDefault();
-
-            if(cli != null){
-                CommonBC.Syncronize(cli, cliente);
+                if (cli != null)
+                {
+                    CommonBC.Syncronize(cli, this);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
+            catch (Exception)
+            {
 
-            return cliente;
+                throw;
+            }
+            
+
+            
         }
 
-        public void Update()
+        public bool Update()
         {
+            BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                //trae el contrato con el mismo numero de contrato
+                Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
+                if (cli != null)
+                {
+                    //sincroniza la clase de la aplicacion con la entidad de BD y modifica los cambios
+                    CommonBC.Syncronize(this,cli);
+                    bbdd.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
-        public void Delete()
+        public bool Delete()
         {
+            BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                //trae el contrato con el mismo numero de contrato
+                Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
+                if (cli != null)
+                {
+                    //sincroniza la clase de la aplicacion con la entidad de BD y modifica los cambios
+                    bbdd.Cliente.Remove(cli);
+                    bbdd.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
         /// <summary>
@@ -122,6 +175,29 @@ namespace BeLife.Negocio
             {
                 Cliente cliente = new Cliente();
                 CommonBC.Syncronize(x, cliente);
+
+                Sexo sexo = new Sexo();
+                sexo.Id = x.IdSexo;
+                if (sexo.Read())
+                {
+                    cliente.Sexo = sexo;
+                }
+                else
+                {
+                    throw new Exception("Error al leer el sexo.");
+                }
+
+                EstadoCivil estado = new EstadoCivil();
+                estado.Id = x.IdEstado;
+                if (estado.Read())
+                {
+                    cliente.EstadoCivil = estado;
+                }
+                else
+                {
+                    throw new Exception("Error al leer el sexo.");
+                }
+
                 list.Add(cliente);
 
             }
@@ -129,70 +205,24 @@ namespace BeLife.Negocio
             return list;
         }
 
-        public List<Cliente> ReadAllBySexo(int idSexo)
+
+
+        public List<Cliente> ReadAllBySexo(int id)
         {
-            List<Cliente> clientes = new List<Cliente>();
+            
+            BeLifeEntity bbdd = new BeLifeEntity();
+            List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Sexo.Id == id).ToList<Entity.Cliente>();
+            List<Cliente> list = SyncList(listaC);
+            return list;
 
-            using (BeLifeEntity bbdd = new BeLifeEntity())
-            {
-
-                var resultadoQuery = from c in bbdd.Cliente
-                                        where c.IdSexo == idSexo
-                                     select c;
-
-                foreach (var x in resultadoQuery)
-                {
-                    Cliente cliente = new Cliente();
-                    cliente.Rut = x.Rut;
-                    cliente.Nombres = x.Nombres;
-                    cliente.Apellidos = x.Apellidos;
-                    cliente.FechaDeNacimiento = x.FechaNacimiento;
-
-                    Sexo sexo = new Sexo();
-                    cliente.Sexo = sexo.Read(x.IdSexo);
-
-                    EstadoCivil estado = new EstadoCivil();
-                    cliente.EstadoCivil = estado.Read(x.IdEstado);
-
-                    clientes.Add(cliente);
-
-                }
-            }
-
-            return clientes;
         }
 
-        public List<Cliente> ReadAllByEstadoCivil(int idEstado)
+        public List<Cliente> ReadAllByEstadoCivil(int id)
         {
-            List<Cliente> clientes = new List<Cliente>();
-
-            using (BeLifeEntity bbdd = new BeLifeEntity())
-            {
-
-                var resultadoQuery = from c in bbdd.Cliente
-                                     where c.IdEstado == idEstado
-                                     select c;
-
-                foreach (var x in resultadoQuery)
-                {
-                    Cliente cliente = new Cliente();
-                    cliente.Rut = x.Rut;
-                    cliente.Nombres = x.Nombres;
-                    cliente.Apellidos = x.Apellidos;
-                    cliente.FechaDeNacimiento = x.FechaNacimiento;
-
-                    Sexo sexo = new Sexo();
-                    cliente.Sexo = sexo.Read(x.IdSexo);
-
-                    EstadoCivil estado = new EstadoCivil();
-                    cliente.EstadoCivil = estado.Read(x.IdEstado);
-
-                    clientes.Add(cliente);
-
-                }
-            }
-
-            return clientes;
+            BeLifeEntity bbdd = new BeLifeEntity();
+            List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.EstadoCivil.Id == id).ToList<Entity.Cliente>();
+            List<Cliente> list = SyncList(listaC);
+            return list;
         }
 
     }

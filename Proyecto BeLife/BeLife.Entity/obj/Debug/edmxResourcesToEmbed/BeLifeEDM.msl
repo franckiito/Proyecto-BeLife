@@ -18,7 +18,7 @@
         <MappingFragment StoreEntitySet="Contrato">
           <ScalarProperty Name="Numero" ColumnName="Numero" />
           <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-          <ScalarProperty Name="Rut" ColumnName="RutCliente" />
+          <ScalarProperty Name="RutCliente" ColumnName="RutCliente" />
           <ScalarProperty Name="CodigoPlan" ColumnName="CodigoPlan" />
           <ScalarProperty Name="FechaInicioVigencia" ColumnName="FechaInicioVigencia" />
           <ScalarProperty Name="FechaFinVigencia" ColumnName="FechaFinVigencia" />
@@ -33,7 +33,7 @@
     <EntitySetMapping Name="EstadoCivil">
       <EntityTypeMapping TypeName="BeLifeModel.EstadoCivil">
         <MappingFragment StoreEntitySet="EstadoCivil">
-          <ScalarProperty Name="IdEstado" ColumnName="IdEstadoCivil" />
+          <ScalarProperty Name="Id" ColumnName="IdEstadoCivil" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -51,7 +51,7 @@
     <EntitySetMapping Name="Sexo">
       <EntityTypeMapping TypeName="BeLifeModel.Sexo">
         <MappingFragment StoreEntitySet="Sexo">
-          <ScalarProperty Name="IdSexo" ColumnName="IdSexo" />
+          <ScalarProperty Name="Id" ColumnName="IdSexo" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -86,7 +86,7 @@ namespace BeLife.Interfaz
         {
             EstadoCivil estado = new EstadoCivil();
 
-            estado = estado.Read(id);
+            estado.Read();
 
             return estado;
         }
@@ -95,7 +95,7 @@ namespace BeLife.Interfaz
         {
             Sexo sexo = new Sexo();
 
-            sexo = sexo.Read(SexoList.SelectedIndex + 1);
+            sexo.Read();
 
             return sexo;
         }
@@ -248,33 +248,30 @@ namespace BeLife.Interfaz
         private void CargaEstado(int idEstadoCivil)
         {
             Negocio.EstadoCivil estado = new Negocio.EstadoCivil();
-            estado = estado.Read(idEstadoCivil);
+            estado.Id = idEstadoCivil;
+
+            if (!estado.Read())
+            {
+                throw new Exception("Error al leer estado.");
+            }
 
             EstadoCivilList.SelectedIndex = estado.Id - 1;
-            //for (int i = 0; i < EstadoCivilList.Items.Count; i++)
-            //{
-            //    SexoList.SelectedIndex = i;
-            //    if (EstadoCivilList.SelectionBoxItem.Equals(estado))
-            //    {
-            //        EstadoCivilList.SelectedIndex = i;
-            //    }
-            //}
+
         }
 
         private void CargaSexo(int idSexo)
         {
             Negocio.Sexo sexo = new Negocio.Sexo();
-            sexo = sexo.Read(idSexo);
+
+            sexo.Id = idSexo ;
+
+            if (!sexo.Read())
+            {
+                throw new Exception("Error al leer Sexo.");
+            }
 
             SexoList.SelectedIndex = sexo.Id - 1;
-            //for (int i = 0; i < SexoList.Items.Count; i++)
-            //{
-            //    SexoList.SelectedIndex = i;
-            //    if (SexoList.SelectionBoxItem.Equals(sexo))
-            //    {
-            //        SexoList.SelectedIndex = i;
-            //    }
-            //}
+
         }
 
 

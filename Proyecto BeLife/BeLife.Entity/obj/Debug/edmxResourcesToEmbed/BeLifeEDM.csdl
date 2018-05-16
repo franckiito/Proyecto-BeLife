@@ -17,12 +17,12 @@
   <EntityType Name="Contrato">
     <Key>
       <PropertyRef Name="Numero" />
-      <PropertyRef Name="Rut" />
+      <PropertyRef Name="RutCliente" />
       <PropertyRef Name="CodigoPlan" />
     </Key>
     <Property Name="Numero" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Rut" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RutCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CodigoPlan" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FechaInicioVigencia" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="FechaFinVigencia" Type="DateTime" Nullable="false" Precision="3" />
@@ -36,9 +36,9 @@
   </EntityType>
   <EntityType Name="EstadoCivil">
     <Key>
-      <PropertyRef Name="IdEstado" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="IdEstado" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Cliente" Relationship="Self.Cliente_EstadoCivil_FK1" FromRole="EstadoCivil" ToRole="Cliente" />
   </EntityType>
@@ -54,9 +54,9 @@
   </EntityType>
   <EntityType Name="Sexo">
     <Key>
-      <PropertyRef Name="IdSexo" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="IdSexo" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Cliente" Relationship="Self.Cliente_Sexo_FK1" FromRole="Sexo" ToRole="Cliente" />
   </EntityType>
@@ -65,7 +65,7 @@
     <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EstadoCivil">
-        <PropertyRef Name="IdEstado" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Cliente">
         <PropertyRef Name="IdEstado" />
@@ -77,7 +77,7 @@
     <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sexo">
-        <PropertyRef Name="IdSexo" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Cliente">
         <PropertyRef Name="IdSexo" />
@@ -92,7 +92,7 @@
         <PropertyRef Name="Rut" />
       </Principal>
       <Dependent Role="Contrato">
-        <PropertyRef Name="Rut" />
+        <PropertyRef Name="RutCliente" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
