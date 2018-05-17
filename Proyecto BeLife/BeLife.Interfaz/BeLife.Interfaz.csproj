@@ -70,19 +70,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistraCliente_V1.xaml.cs">
-      <DependentUpon>RegistraCliente_V1.xaml</DependentUpon>
+    <Compile Include="RegistraCliente.xaml.cs">
+      <DependentUpon>RegistraCliente.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VentanaPrincipal_V1.xaml.cs">
-      <DependentUpon>VentanaPrincipal_V1.xaml</DependentUpon>
+    <Compile Include="VentanaPrincipal.xaml.cs">
+      <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ListadoClientes_V1.xaml.cs">
-      <DependentUpon>ListadoClientes_V1.xaml</DependentUpon>
+    <Compile Include="ListadoClientes.xaml.cs">
+      <DependentUpon>ListadoClientes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ListadoContratos_V1.xaml.cs">
-      <DependentUpon>ListadoContratos_V1.xaml</DependentUpon>
+    <Compile Include="ListadoContratos.xaml.cs">
+      <DependentUpon>ListadoContratos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -113,6 +113,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BeLife.Entity\BeLife.Entity.csproj">
+      <Project>{1a450d46-2a99-4f7e-8c6f-ebb7ddafbcbe}</Project>
+      <Name>BeLife.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeLife.Negocio\BeLife.Negocio.csproj">
+      <Project>{8519e69d-7d43-46e8-a326-7c8dc5bbf3f6}</Project>
+      <Name>BeLife.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ClientAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Imagenes\ClientAdd.png" />
     <Resource Include="Imagenes\ClientDelete.png" />
     <Resource Include="Imagenes\Clientes.png" />
@@ -127,32 +140,19 @@
     <Resource Include="Imagenes\Logo BeLife.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BeLife.Entity\BeLife.Entity.csproj">
-      <Project>{1a450d46-2a99-4f7e-8c6f-ebb7ddafbcbe}</Project>
-      <Name>BeLife.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BeLife.Negocio\BeLife.Negocio.csproj">
-      <Project>{8519e69d-7d43-46e8-a326-7c8dc5bbf3f6}</Project>
-      <Name>BeLife.Negocio</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ClientAdd.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="ListadoClientes_V1.xaml">
+    <Page Include="ListadoClientes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ListadoContratos_V1.xaml">
+    <Page Include="ListadoContratos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="RegistraCliente_V1.xaml">
+    <Page Include="RegistraCliente.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="VentanaPrincipal_V1.xaml">
+    <Page Include="VentanaPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

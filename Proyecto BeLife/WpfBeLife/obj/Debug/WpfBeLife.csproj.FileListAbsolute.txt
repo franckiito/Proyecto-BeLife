@@ -1,0 +1,244 @@
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe.config
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.pdb
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.dll
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.dll
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.pdb
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.pdb
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.xml
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csprojResolveAssemblyReference.cache
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\Icons.baml
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.g.cs
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\App.g.cs
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.cache
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.lref
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\App.baml
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.baml
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.g.resources
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.Properties.Resources.resources
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.GenerateResource.cache
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.CoreCompileInputs.cache
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.exe
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.pdb
+D:\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe.config
+D:\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe
+D:\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.pdb
+D:\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.dll
+D:\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.dll
+D:\WpfBeLifeSol\WpfBeLife\bin\Debug\System.Windows.Interactivity.dll
+D:\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.pdb
+D:\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.pdb
+D:\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.xml
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csprojResolveAssemblyReference.cache
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\Icons.baml
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\IconsNonShared.baml
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.g.cs
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\App.g.cs
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.cache
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.lref
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\App.baml
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.baml
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.g.resources
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.Properties.Resources.resources
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.GenerateResource.cache
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.CoreCompileInputs.cache
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.CopyComplete
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.exe
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.pdb
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.g.cs
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.baml
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.g.cs
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.g.cs
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.baml
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.baml
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.g.cs
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.g.cs
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.baml
+D:\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife.csprojResolveAssemblyReference.cache
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\Resources\Icons.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\Resources\IconsNonShared.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\ListadoClientes.g.cs
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\ListadoContratos.g.cs
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\MainWindow.g.cs
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\MantenedorClientes.g.cs
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\MantenedorContratos.g.cs
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\Principal.g.cs
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\App.g.cs
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.cache
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.lref
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife.exe
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife.pdb
+D:\WpfBeLifeSolprueba\WpfBeLife\bin\Debug\WpfBeLife.exe.config
+D:\WpfBeLifeSolprueba\WpfBeLife\bin\Debug\WpfBeLife.exe
+D:\WpfBeLifeSolprueba\WpfBeLife\bin\Debug\WpfBeLife.pdb
+D:\WpfBeLifeSolprueba\WpfBeLife\bin\Debug\ControlzEx.dll
+D:\WpfBeLifeSolprueba\WpfBeLife\bin\Debug\MahApps.Metro.dll
+D:\WpfBeLifeSolprueba\WpfBeLife\bin\Debug\System.Windows.Interactivity.dll
+D:\WpfBeLifeSolprueba\WpfBeLife\bin\Debug\ControlzEx.pdb
+D:\WpfBeLifeSolprueba\WpfBeLife\bin\Debug\MahApps.Metro.pdb
+D:\WpfBeLifeSolprueba\WpfBeLife\bin\Debug\MahApps.Metro.xml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\App.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\ListadoClientes.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\ListadoContratos.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\MainWindow.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\MantenedorClientes.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\MantenedorContratos.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\Principal.baml
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife.g.resources
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife.Properties.Resources.resources
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife.csproj.GenerateResource.cache
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife.csproj.CoreCompileInputs.cache
+D:\WpfBeLifeSolprueba\WpfBeLife\obj\Debug\WpfBeLife.csproj.CopyComplete
+D:\WpfBeLifeSolprueba1\WpfBeLife\bin\Debug\WpfBeLife.exe.config
+D:\WpfBeLifeSolprueba1\WpfBeLife\bin\Debug\WpfBeLife.exe
+D:\WpfBeLifeSolprueba1\WpfBeLife\bin\Debug\WpfBeLife.pdb
+D:\WpfBeLifeSolprueba1\WpfBeLife\bin\Debug\ControlzEx.dll
+D:\WpfBeLifeSolprueba1\WpfBeLife\bin\Debug\MahApps.Metro.dll
+D:\WpfBeLifeSolprueba1\WpfBeLife\bin\Debug\System.Windows.Interactivity.dll
+D:\WpfBeLifeSolprueba1\WpfBeLife\bin\Debug\ControlzEx.pdb
+D:\WpfBeLifeSolprueba1\WpfBeLife\bin\Debug\MahApps.Metro.pdb
+D:\WpfBeLifeSolprueba1\WpfBeLife\bin\Debug\MahApps.Metro.xml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife.csprojResolveAssemblyReference.cache
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\Resources\Icons.baml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\Resources\IconsNonShared.baml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\ListadoClientes.g.cs
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\ListadoContratos.g.cs
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\MainWindow.g.cs
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\MantenedorClientes.g.cs
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\MantenedorContratos.g.cs
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\Principal.g.cs
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\App.g.cs
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.cache
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.lref
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\App.baml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\ListadoClientes.baml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\ListadoContratos.baml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\MainWindow.baml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\MantenedorClientes.baml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\MantenedorContratos.baml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\Principal.baml
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife.g.resources
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife.Properties.Resources.resources
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife.csproj.GenerateResource.cache
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife.csproj.CoreCompileInputs.cache
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife.csproj.CopyComplete
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife.exe
+D:\WpfBeLifeSolprueba1\WpfBeLife\obj\Debug\WpfBeLife.pdb
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe.config
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.pdb
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.dll
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.dll
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\bin\Debug\System.Windows.Interactivity.dll
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.pdb
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.pdb
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.xml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csprojResolveAssemblyReference.cache
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\Icons.baml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\IconsNonShared.baml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.g.cs
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.g.cs
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.g.cs
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.g.cs
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.g.cs
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.g.cs
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\App.g.cs
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.cache
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.lref
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\App.baml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.baml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.baml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.baml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.baml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.baml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.baml
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.g.resources
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.Properties.Resources.resources
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.GenerateResource.cache
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.CoreCompileInputs.cache
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.CopyComplete
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.exe
+D:\WPFREAL\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.pdb
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.g.cs
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.g.cs
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.g.cs
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.g.cs
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.g.cs
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.baml
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.baml
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.baml
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.baml
+C:\Users\CETECOM\Desktop\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe.config
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.pdb
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.dll
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.dll
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\bin\Debug\System.Windows.Interactivity.dll
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.pdb
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.pdb
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.xml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csprojResolveAssemblyReference.cache
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\Icons.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\IconsNonShared.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.g.cs
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.g.cs
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.g.cs
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.g.cs
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.g.cs
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.g.cs
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\App.g.cs
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.cache
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.lref
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\App.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.baml
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.g.resources
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.Properties.Resources.resources
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.GenerateResource.cache
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.CoreCompileInputs.cache
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.CopyComplete
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.exe
+D:\wpfrealfinal\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.pdb
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe.config
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.exe
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\bin\Debug\WpfBeLife.pdb
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.dll
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.dll
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\bin\Debug\ControlzEx.pdb
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.pdb
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\bin\Debug\MahApps.Metro.xml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csprojResolveAssemblyReference.cache
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\Icons.baml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.g.cs
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.g.cs
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.g.cs
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.g.cs
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.g.cs
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.g.cs
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\App.g.cs
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.cache
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife_MarkupCompile.lref
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\App.baml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoClientes.baml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\ListadoContratos.baml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\MainWindow.baml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorClientes.baml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\MantenedorContratos.baml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\Principal.baml
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.g.resources
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.Properties.Resources.resources
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.GenerateResource.cache
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.CoreCompileInputs.cache
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.csproj.CopyComplete
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.exe
+C:\Users\Franckito\Desktop\DUOC\Semestre 3\Desarrollo de Software de Escritorio y Gestion\Unidad 2\Proyecto Intefaz Engelberth\WpfBeLifeSol\WpfBeLife\obj\Debug\WpfBeLife.pdb

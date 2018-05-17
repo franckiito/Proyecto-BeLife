@@ -1,60 +1,68 @@
-﻿<Page
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WpfBeLife"
-      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="WpfBeLife.ListadoClientes"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="ListadoClientes" Width="1271" Height="629" Background="White">
-    <Grid Margin="169,76,10,157">
-        <Button x:Name="BtnMenuLateral" HorizontalAlignment="Left" Margin="-169,-76,0,0" VerticalAlignment="Top" Width="58" Click="BtnMenuLateral_Click" Height="49" Background="{x:Null}" BorderBrush="{x:Null}">
-            <Image Height="39" Width="34" Source="Images/MenuLateral.png"/>
-        </Button>
-        <TextBox x:Name="TxtRut" HorizontalAlignment="Left" Height="30" Margin="-13,420,0,-80" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167" BorderBrush="#91469a" BorderThickness="2"/>
-        <Rectangle HorizontalAlignment="Left" Height="121" Margin="-33,391,0,-142" Stroke="#FF833288" VerticalAlignment="Top" Width="348"/>
-        <Rectangle HorizontalAlignment="Left" Height="121" Margin="315,391,-2,-142" Stroke="#FF833288" VerticalAlignment="Top" Width="646"/>
-        <ComboBox HorizontalAlignment="Left" Margin="422,419,0,-49" VerticalAlignment="Top" Width="167" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"/>
-        <ComboBox HorizontalAlignment="Left" Margin="422,470,0,-100" VerticalAlignment="Top" Width="167" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"/>
-        <DataGrid HorizontalAlignment="Left" Height="360" Margin="-33,0,0,0" VerticalAlignment="Top" Width="992" BorderBrush="#FF833288" Foreground="#FF833288" Background="#FFBDBDBD" BorderThickness="1" HorizontalGridLinesBrush="#FF833288" VerticalGridLinesBrush="#FF1B1BA1" GridLinesVisibility="Vertical" OpacityMask="#FF833288"/>
-        <Label Content="Rut :" HorizontalAlignment="Left" Height="30" Margin="-13,391,0,-51" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Label Content="Estado civil :" HorizontalAlignment="Left" Height="30" Margin="422,394,0,-54" VerticalAlignment="Top" Width="95" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Label Content="Sexo :" HorizontalAlignment="Left" Height="30" Margin="422,445,0,-79" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Label Content="Listado clientes" HorizontalAlignment="Left" Margin="-33,-36,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <mah:Flyout x:Name="FlyMenu" Width="176" Margin="-169,-76,0,-157">
-            <mah:Flyout.Background>
-                <SolidColorBrush Color="#FF55317A" Opacity="0.9"/>
-            </mah:Flyout.Background>
-            <Grid>
-                <Image HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="177" Source="Images/Logo BeLife.png"/>
+﻿<Window x:Class="BeLife.Interfaz.ListadoClientes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeLife.Interfaz"
+        mc:Ignorable="d"
+        Title="ListadoClientes" Height="504.406" Width="800">
 
-                <Button x:Name="BtnClientes" Content="Clientes" HorizontalAlignment="Left" Margin="0,67,0,0" VerticalAlignment="Top" Width="177" Height="35" FontSize="14" Padding="-80,6,5,6" Focusable="False" IsHitTestVisible="False" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}"/>
-                <Button x:Name="BtnMantCliMenu" Content="Mantenedor Clientes" HorizontalAlignment="Left" Margin="12,102,0,0" VerticalAlignment="Top" Width="177" Height="27" FontSize="12" Padding="35,6,5,6" BorderBrush="{x:Null}" Click="BtnMantCliMenu_Click" IsHitTestVisible="True" Background="{x:Null}" Foreground="White"/>
-                <Button Content="Contratos" HorizontalAlignment="Left" Margin="0,156,0,0" VerticalAlignment="Top" Width="177" Height="35" FontSize="14" Padding="-60,6,5,6" BorderBrush="{x:Null}" Focusable="False" IsHitTestVisible="False" Background="{x:Null}" Foreground="White"/>
-                <Button x:Name="BtnListContr" Content="Listado contratos" HorizontalAlignment="Left" Margin="15,218,0,0" VerticalAlignment="Top" Width="177" BorderBrush="{x:Null}" Padding="46,6,5,6" Height="27" Click="BtnListContr_Click" Background="{x:Null}" Foreground="White" FontSize="12"/>
-                <Button x:Name="BtnListCliMenu" Content="Listado cliente" HorizontalAlignment="Left" Margin="12,129,0,0" VerticalAlignment="Top" Width="177" Height="27" FontSize="12" BorderBrush="{x:Null}" Padding="70,6,5,6" Click="BtnListCliMenu_Click" Background="{x:Null}" Foreground="White" Focusable="False" IsHitTestVisible="False"/>
-                <Button x:Name="BtnMantContr" Content="Mantenedor contratos" HorizontalAlignment="Left" Margin="16,191,0,0" VerticalAlignment="Top" Width="177" BorderBrush="{x:Null}" Padding="18,6,5,6" Height="27" Click="BtnMantContr_Click" Background="{x:Null}" Foreground="White" FontSize="12"/>
-            </Grid>
+    <Window.Resources>
 
-        </mah:Flyout>
-        <Button HorizontalAlignment="Left" Margin="1024,-76,-7,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
-            <Image Source="Images/contrast_icon.png" RenderTransformOrigin="0.5,0.5" Height="34" Width="45">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="1.081"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-        </Button>
-        <Button x:Name="BtnFiltrarRut" HorizontalAlignment="Left" Margin="189,422,0,-93" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587" >
-            <Label Content="Filtrar" Foreground="White" Height="26"  Margin="0,30                    ,0,0" />
-        </Button>
-        <Button x:Name="BtnFiltrar" HorizontalAlignment="Left" Margin="726,422,0,-93" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587">
-            <Label  Content="Filtrar" Foreground="White" Height="26"  Margin="0,30                    ,0,0" />
-        </Button>
+        <DataTemplate x:Key="SexoTemplate">
+            <StackPanel Orientation="Horizontal">
+                <!--<TextBlock Text="{Binding IdSexo}"/>
+                <TextBlock Text=" : "/>-->
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EstadoTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ClienteTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding RutCliente}"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding Nombres}"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding Apellidos}"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding FechaNacimiento}"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding }"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding }"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="61" Margin="667,10,0,0" VerticalAlignment="Top" Width="115" Source="Imagenes/Logo BeLife.png" Stretch="Fill"/>
+        <Label Content="Rut" HorizontalAlignment="Left" Margin="46,142,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="96,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Sexo" HorizontalAlignment="Left" Margin="257,142,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="SexoList" HorizontalAlignment="Left" Margin="320,146,0,0" VerticalAlignment="Top" Width="120"
+                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}"/>
+        <Label Content="Estado Civil" HorizontalAlignment="Left" Margin="486,142,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="EstadoCivilList" HorizontalAlignment="Left" Margin="588,146,0,0" VerticalAlignment="Top" Width="120"
+                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource EstadoTemplate}"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="344,182,0,0" VerticalAlignment="Top" Width="75" Click="btnBuscar_Click"/>
+
+
+        <GroupBox Header="Listado Clientes" HorizontalAlignment="Left" Height="229" Margin="10,234,0,0" VerticalAlignment="Top" Width="772">
+            <DataGrid x:Name="ClientesList" HorizontalAlignment="Left" Height="196" Margin="0,10,-2,0" VerticalAlignment="Top" Width="762"
+                      />
+        </GroupBox>
+        <GroupBox Header="Ventanas" HorizontalAlignment="Left" Height="56" Margin="10,15,0,0" VerticalAlignment="Top" Width="357">
+            <Button x:Name="btnIrRegistra" Content="Registrar Cliente" HorizontalAlignment="Left" Margin="118,10,0,0" VerticalAlignment="Top" Width="90" Click="btnIrRegistra_Click"/>
+        </GroupBox>
+        <Button x:Name="btnIrPrincipal" Content="Menu Principal" HorizontalAlignment="Left" Margin="24,42,0,0" VerticalAlignment="Top" Width="90" Click="btnIrPrincipal_Click"/>
+        <Label Content="/" HorizontalAlignment="Left" Margin="114,28,0,0" VerticalAlignment="Top" Width="17" FontSize="22"/>
+
     </Grid>
-</Page>
+</Window>

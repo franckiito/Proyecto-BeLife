@@ -13,47 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfBeLife
+namespace BeLife.Interfaz
 {
     /// <summary>
-    /// Lógica de interacción para ListadoContratos.xaml
+    /// Lógica de interacción para VentanaPrincipal.xaml
     /// </summary>
-    public partial class ListadoContratos : Page
+    public partial class ListadoContratos : Window
     {
         public ListadoContratos()
         {
             InitializeComponent();
         }
 
-        private void BtnMantCliMenu_Click(object sender, RoutedEventArgs e)
+        private void btnIrPrincipal_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MantenedorClientes());
-
-        }
-
-        private void BtnListCliMenu_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ListadoClientes());
-
-        }
-
-
-        private void BtnMantContr_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new MantenedorContratos());
-
-        }
-
-        private void BtnListContr_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ListadoContratos());
-
-        }
-
-        private void BtnMenuLateral_Click(object sender, RoutedEventArgs e)
-        {
-            FlyMenu.IsOpen = true;
-
+            VentanaPrincipal ventana = new VentanaPrincipal();
+            App.Current.MainWindow = ventana;
+            this.Close();
+            ventana.Show();
         }
     }
 }

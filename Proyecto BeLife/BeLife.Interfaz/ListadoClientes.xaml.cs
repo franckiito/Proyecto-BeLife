@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using BeLife.Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,50 +12,166 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfBeLife
+namespace BeLife.Interfaz
 {
     /// <summary>
     /// Lógica de interacción para ListadoClientes.xaml
     /// </summary>
-    public partial class ListadoClientes : Page
+    public partial class ListadoClientes : Window
     {
         public ListadoClientes()
         {
             InitializeComponent();
+            LimpiaDatos();
+            CargaClientes();
+
+            string rut = txtRut.Text;
+            string sexo = SexoList.Text;
+            string estado = EstadoCivilList.Text;
+
+
         }
 
-        private void BtnMantCliMenu_Click(object sender, RoutedEventArgs e)
+        private void CargaClientes()
         {
-            NavigationService.Navigate(new MantenedorClientes());
-
+            Negocio.Cliente cliente = new Negocio.Cliente();
+            ClientesList.ItemsSource = cliente.ReadAll();
+            
         }
 
-        private void BtnListCliMenu_Click(object sender, RoutedEventArgs e)
+        private void LimpiaDatos()
         {
-            NavigationService.Navigate(new ListadoClientes());
-
+            txtRut.Text = "";
+            CargaDatos();
         }
 
-
-        private void BtnMantContr_Click(object sender, RoutedEventArgs e)
+        private void CargaDatos()
         {
-            NavigationService.Navigate(new MantenedorContratos());
+            Negocio.Sexo sexo = new Negocio.Sexo();
+            SexoList.ItemsSource = sexo.ReadAll();
+            SexoList.SelectedIndex = -1;
 
+            Negocio.EstadoCivil estadoCivil = new Negocio.EstadoCivil();
+            EstadoCivilList.ItemsSource = estadoCivil.ReadAll();
+            EstadoCivilList.SelectedIndex = -1;
         }
 
-        private void BtnListContr_Click(object sender, RoutedEventArgs e)
+        private void btnIrPrincipal_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListadoContratos());
-
+            VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+            App.Current.MainWindow = ventanaPrincipal;
+            this.Close();
+            ventanaPrincipal.Show();
         }
 
-        private void BtnMenuLateral_Click(object sender, RoutedEventArgs e)
+        private void btnIrRegistra_Click(object sender, RoutedEventArgs e)
         {
-            FlyMenu.IsOpen = true;
-
+            RegistraCliente registraCliente = new RegistraCliente();
+            App.Current.MainWindow = registraCliente;
+            this.Close();
+            registraCliente.Show();
         }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //Lee los controles de la interfaz.
+                string rut = txtRut.Text;
+
+                Sexo sexo = new Sexo();
+                sexo.Id = SexoList.SelectedIndex + 1;
+
+                EstadoCivil estado = new EstadoCivil();
+                estado.Id = EstadoCivilList.SelectedIndex + 1;
+
+                Cliente cliente = new Cliente();
+
+                //Solo Rut
+                if (String.IsNullOrEmpty(rut) == false && !sexo.Read() && !estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAll(rut);
+                }
+                //Solo Sexo
+                if (String.IsNullOrEmpty(rut) != false && sexo.Read() && !estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAllBySexo(sexo.Id);
+                }
+                //Solo Estado
+                if (String.IsNullOrEmpty(rut) != false && !sexo.Read() && estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAllByEstadoCivil(estado.Id);
+                }
+                //Rut y Sexo
+                if (String.IsNullOrEmpty(rut) == false && sexo.Read() && !estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAllRutSexo(rut, sexo.Id);
+                }
+                //Rut y Estado
+                if (String.IsNullOrEmpty(rut) == false && !sexo.Read() && estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAllRutEstado(rut, estado.Id);
+                }
+                //Sexo y Estado
+                if (String.IsNullOrEmpty(rut) != false && sexo.Read() && estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAll(sexo.Id, estado.Id);
+                }
+                //Rut, Sexo y Estado
+                if (String.IsNullOrEmpty(rut) == false && sexo.Read() && estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAll(rut, sexo.Id, estado.Id);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
+
+
+        private bool ValidaRut(string _rut)
+        {
+            bool valida = false;
+
+            //Tiene datos rut
+            if (String.IsNullOrEmpty(_rut) == false)
+            {
+                valida = true;
+            }
+
+            return valida;
+        }
+
+        private bool ValidaSexo(string _sexo)
+        {
+            bool valida = false;
+
+            //Tiene datos rut
+            if (String.IsNullOrEmpty(_sexo) == false)
+            {
+                valida = true;
+            }
+
+            return valida;
+        }
+
+        private bool ValidaEstado(string _estado)
+        {
+            bool valida = false;
+
+            //Tiene datos rut
+            if (String.IsNullOrEmpty(_estado) == false)
+            {
+                valida = true;
+            }
+
+            return valida;
+        }
+
     }
 }
