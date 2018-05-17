@@ -66,41 +66,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ListadoClientes.xaml.cs">
-      <DependentUpon>ListadoClientes.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListadoContratos.xaml.cs">
-      <DependentUpon>ListadoContratos.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="VentanaPrincipal.xaml.cs">
-      <DependentUpon>VentanaPrincipal.xaml</DependentUpon>
-    </Compile>
-    <Page Include="ListadoClientes.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ListadoContratos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="RegistraCliente.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RegistraCliente.xaml.cs">
-      <DependentUpon>RegistraCliente.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="RegistraCliente_V1.xaml.cs">
+      <DependentUpon>RegistraCliente_V1.xaml</DependentUpon>
     </Compile>
-    <Page Include="VentanaPrincipal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="VentanaPrincipal_V1.xaml.cs">
+      <DependentUpon>VentanaPrincipal_V1.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ListadoClientes_V1.xaml.cs">
+      <DependentUpon>ListadoClientes_V1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoContratos_V1.xaml.cs">
+      <DependentUpon>ListadoContratos_V1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -155,6 +138,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ClientAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ListadoClientes_V1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ListadoContratos_V1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RegistraCliente_V1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VentanaPrincipal_V1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

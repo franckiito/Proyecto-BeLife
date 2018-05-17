@@ -12,17 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+using WpfBeLife.Properties;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace WpfBeLife
 {
     /// <summary>
-    /// Lógica de interacción para ListadoContratos.xaml
+    /// Lógica de interacción para MantenedorClientes.xaml
     /// </summary>
-    public partial class ListadoContratos : Page
+    public partial class MantenedorClientes : Page
     {
-        public ListadoContratos()
+        public MantenedorClientes()
         {
             InitializeComponent();
+            
+        }
+
+        private void Button_IsMouseCapturedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
 
         private void BtnMantCliMenu_Click(object sender, RoutedEventArgs e)
@@ -48,6 +57,12 @@ namespace WpfBeLife
         {
             NavigationService.Navigate(new ListadoContratos());
 
+        }
+
+        private void BtnRegistrar_Click(object sender, RoutedEventArgs e)
+        {
+            
+            
         }
 
         private void BtnMenuLateral_Click(object sender, RoutedEventArgs e)

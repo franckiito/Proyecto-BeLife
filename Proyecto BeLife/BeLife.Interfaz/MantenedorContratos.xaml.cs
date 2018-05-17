@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfBeLife
 {
     /// <summary>
-    /// Lógica de interacción para ListadoContratos.xaml
+    /// Lógica de interacción para MantenedorContratos.xaml
     /// </summary>
-    public partial class ListadoContratos : Page
+    public partial class MantenedorContratos : Page
     {
-        public ListadoContratos()
+        public MantenedorContratos()
         {
             InitializeComponent();
         }
@@ -55,5 +55,7 @@ namespace WpfBeLife
             FlyMenu.IsOpen = true;
 
         }
+
+        
     }
 }

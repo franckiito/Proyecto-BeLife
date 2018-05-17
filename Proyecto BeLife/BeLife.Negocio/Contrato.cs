@@ -68,8 +68,7 @@ namespace BeLife.Negocio
                 {
                     throw new Exception("ERROR!!! " + ex.Message);
 
-                }
-            }
+                }           }
             else
             {
                 throw new Exception("El contrato ya existe.");

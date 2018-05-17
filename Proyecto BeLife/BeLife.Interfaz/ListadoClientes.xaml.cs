@@ -1,6 +1,4 @@
-﻿
-using BeLife.Negocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,166 +10,50 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BeLife.Interfaz
+namespace WpfBeLife
 {
     /// <summary>
     /// Lógica de interacción para ListadoClientes.xaml
     /// </summary>
-    public partial class ListadoClientes : Window
+    public partial class ListadoClientes : Page
     {
         public ListadoClientes()
         {
             InitializeComponent();
-            LimpiaDatos();
-            CargaClientes();
-
-            string rut = txtRut.Text;
-            string sexo = SexoList.Text;
-            string estado = EstadoCivilList.Text;
-
-
         }
 
-        private void CargaClientes()
+        private void BtnMantCliMenu_Click(object sender, RoutedEventArgs e)
         {
-            Negocio.Cliente cliente = new Negocio.Cliente();
-            ClientesList.ItemsSource = cliente.ReadAll();
-            
+            NavigationService.Navigate(new MantenedorClientes());
+
         }
 
-        private void LimpiaDatos()
+        private void BtnListCliMenu_Click(object sender, RoutedEventArgs e)
         {
-            txtRut.Text = "";
-            CargaDatos();
+            NavigationService.Navigate(new ListadoClientes());
+
         }
 
-        private void CargaDatos()
+
+        private void BtnMantContr_Click(object sender, RoutedEventArgs e)
         {
-            Negocio.Sexo sexo = new Negocio.Sexo();
-            SexoList.ItemsSource = sexo.ReadAll();
-            SexoList.SelectedIndex = -1;
+            NavigationService.Navigate(new MantenedorContratos());
 
-            Negocio.EstadoCivil estadoCivil = new Negocio.EstadoCivil();
-            EstadoCivilList.ItemsSource = estadoCivil.ReadAll();
-            EstadoCivilList.SelectedIndex = -1;
         }
 
-        private void btnIrPrincipal_Click(object sender, RoutedEventArgs e)
+        private void BtnListContr_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
-            App.Current.MainWindow = ventanaPrincipal;
-            this.Close();
-            ventanaPrincipal.Show();
+            NavigationService.Navigate(new ListadoContratos());
+
         }
 
-        private void btnIrRegistra_Click(object sender, RoutedEventArgs e)
+        private void BtnMenuLateral_Click(object sender, RoutedEventArgs e)
         {
-            RegistraCliente registraCliente = new RegistraCliente();
-            App.Current.MainWindow = registraCliente;
-            this.Close();
-            registraCliente.Show();
+            FlyMenu.IsOpen = true;
+
         }
-
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                //Lee los controles de la interfaz.
-                string rut = txtRut.Text;
-
-                Sexo sexo = new Sexo();
-                sexo.Id = SexoList.SelectedIndex + 1;
-
-                EstadoCivil estado = new EstadoCivil();
-                estado.Id = EstadoCivilList.SelectedIndex + 1;
-
-                Cliente cliente = new Cliente();
-
-                //Solo Rut
-                if (String.IsNullOrEmpty(rut) == false && !sexo.Read() && !estado.Read())
-                {
-                    ClientesList.ItemsSource = cliente.ReadAll(rut);
-                }
-                //Solo Sexo
-                if (String.IsNullOrEmpty(rut) != false && sexo.Read() && !estado.Read())
-                {
-                    ClientesList.ItemsSource = cliente.ReadAllBySexo(sexo.Id);
-                }
-                //Solo Estado
-                if (String.IsNullOrEmpty(rut) != false && !sexo.Read() && estado.Read())
-                {
-                    ClientesList.ItemsSource = cliente.ReadAllByEstadoCivil(estado.Id);
-                }
-                //Rut y Sexo
-                if (String.IsNullOrEmpty(rut) == false && sexo.Read() && !estado.Read())
-                {
-                    ClientesList.ItemsSource = cliente.ReadAllRutSexo(rut, sexo.Id);
-                }
-                //Rut y Estado
-                if (String.IsNullOrEmpty(rut) == false && !sexo.Read() && estado.Read())
-                {
-                    ClientesList.ItemsSource = cliente.ReadAllRutEstado(rut, estado.Id);
-                }
-                //Sexo y Estado
-                if (String.IsNullOrEmpty(rut) != false && sexo.Read() && estado.Read())
-                {
-                    ClientesList.ItemsSource = cliente.ReadAll(sexo.Id, estado.Id);
-                }
-                //Rut, Sexo y Estado
-                if (String.IsNullOrEmpty(rut) == false && sexo.Read() && estado.Read())
-                {
-                    ClientesList.ItemsSource = cliente.ReadAll(rut, sexo.Id, estado.Id);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-        }
-
-
-
-        private bool ValidaRut(string _rut)
-        {
-            bool valida = false;
-
-            //Tiene datos rut
-            if (String.IsNullOrEmpty(_rut) == false)
-            {
-                valida = true;
-            }
-
-            return valida;
-        }
-
-        private bool ValidaSexo(string _sexo)
-        {
-            bool valida = false;
-
-            //Tiene datos rut
-            if (String.IsNullOrEmpty(_sexo) == false)
-            {
-                valida = true;
-            }
-
-            return valida;
-        }
-
-        private bool ValidaEstado(string _estado)
-        {
-            bool valida = false;
-
-            //Tiene datos rut
-            if (String.IsNullOrEmpty(_estado) == false)
-            {
-                valida = true;
-            }
-
-            return valida;
-        }
-
     }
 }
