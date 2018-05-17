@@ -64,16 +64,16 @@ namespace BeLife.Negocio
                     bbdd.SaveChanges();
                     return true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    throw new Exception("ERROR!!! " + ex.Message);
 
-                    throw;
                 }
             }
             else
             {
-                return false;
-                
+                throw new Exception("El contrato ya existe.");
+
             }
             
 

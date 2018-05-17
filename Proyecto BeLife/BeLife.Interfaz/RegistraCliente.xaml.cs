@@ -60,29 +60,47 @@ namespace BeLife.Interfaz
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-
-            Negocio.Cliente cliente = new Negocio.Cliente()
+            try
             {
-                Rut = txtRut.Text,
-                Nombres = txtNombres.Text,
-                Apellidos = txtApellidos.Text,
-                FechaDeNacimiento = (DateTime)FechaNacimiento.SelectedDate,
-                Sexo = AsignaSexo(),
-                EstadoCivil = AsignaEstadoCivil(EstadoCivilList.SelectedIndex + 1)  
-            };
+                Negocio.Cliente cliente = new Negocio.Cliente()
+                {
+                    Rut = txtRut.Text,
+                    Nombres = txtNombres.Text,
+                    Apellidos = txtApellidos.Text,
+                    FechaNacimiento = (DateTime)FechaNacimiento.SelectedDate
+                };
 
-            if (cliente.Create())
-            {
-                MessageBox.Show("Cliente agregado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                LimpiaDatos();
+                Sexo sexo = new Sexo();
+                sexo.Id = SexoList.SelectedIndex + 1;
+                if (sexo.Read()){
+                    cliente.Sexo = sexo;
+                }
+
+                EstadoCivil estado = new EstadoCivil();
+                estado.Id = EstadoCivilList.SelectedIndex + 1;
+                if (estado.Read())
+                {
+                    cliente.EstadoCivil = estado;
+                }
+
+                if (cliente.Create())
+                {
+                    MessageBox.Show("Cliente agregado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LimpiaDatos();
+                }
+                else
+                {
+                    MessageBox.Show("El Cliente no se pudo agregar", "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("El Cliente no se pudo agregar", "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
-        private EstadoCivil AsignaEstadoCivil(int id)
+        private EstadoCivil AsignaEstadoCivil()
         {
             EstadoCivil estado = new EstadoCivil();
 

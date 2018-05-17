@@ -56,7 +56,7 @@
 
         <GroupBox Header="Listado Clientes" HorizontalAlignment="Left" Height="229" Margin="10,234,0,0" VerticalAlignment="Top" Width="772">
             <DataGrid x:Name="ClientesList" HorizontalAlignment="Left" Height="196" Margin="0,10,-2,0" VerticalAlignment="Top" Width="762"
-                      IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource ClienteTemplate}"/>
+                      />
         </GroupBox>
         <GroupBox Header="Ventanas" HorizontalAlignment="Left" Height="56" Margin="10,15,0,0" VerticalAlignment="Top" Width="357">
             <Button x:Name="btnIrRegistra" Content="Registrar Cliente" HorizontalAlignment="Left" Margin="118,10,0,0" VerticalAlignment="Top" Width="90" Click="btnIrRegistra_Click"/>

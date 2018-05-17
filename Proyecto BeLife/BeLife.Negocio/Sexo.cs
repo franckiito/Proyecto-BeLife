@@ -45,10 +45,9 @@ namespace BeLife.Negocio
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception("Error al leer sexo.");
             }
         }
 

@@ -12,7 +12,7 @@ namespace BeLife.Negocio
         public string Rut { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
-        public DateTime FechaDeNacimiento { get; set; }
+        public DateTime FechaNacimiento { get; set; }
         public Sexo Sexo { get; set; }
         public EstadoCivil EstadoCivil { get; set; }
 
@@ -26,7 +26,7 @@ namespace BeLife.Negocio
             Rut = string.Empty;
             Nombres = string.Empty;
             Apellidos = string.Empty;
-            FechaDeNacimiento = DateTime.Today;
+            FechaNacimiento = DateTime.Today;
             Sexo = new Sexo();
             EstadoCivil = new EstadoCivil();
         }
@@ -39,25 +39,34 @@ namespace BeLife.Negocio
         {
             bool crea = false;
 
-            if (!this.Read()){
-                BeLifeEntity bbdd = new BeLifeEntity();
-                Entity.Cliente cli  = new Entity.Cliente();
-                try
+            try
+            {
+                if (!Read())
                 {
+
+                    BeLifeEntity bbdd = new BeLifeEntity();
+                    Entity.Cliente cli = new Entity.Cliente();
+
                     //Sincroniza datos y guarda los cambios
                     CommonBC.Syncronize(this, cli);
+                    CommonBC.Syncronize(this.Sexo, cli.Sexo);
+                    cli.IdSexo = this.Sexo.Id;
+                    CommonBC.Syncronize(this.EstadoCivil, cli.EstadoCivil);
+                    cli.IdEstado = this.EstadoCivil.Id;
                     bbdd.Cliente.Add(cli);
                     bbdd.SaveChanges();
                     crea = true;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("ERROR!!! " + ex.Message);
 
                 }
+                else
+                {
+                    throw new Exception("El cliente ya existe.");
+                }
             }
-            else{
-                throw new Exception("El cliente ya existe.");
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error. " + ex.Message);
             }
 
             return crea;
@@ -112,13 +121,13 @@ namespace BeLife.Negocio
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("El cliente ya existe.");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw new Exception("Error. " + ex.Message);
             }
         }
 
