@@ -42,21 +42,25 @@
     </Page.Resources>
 
     <Grid Margin="169,76,10,157">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="1021*"/>
+        </Grid.ColumnDefinitions>
         <Button x:Name="BtnMenuLateral" HorizontalAlignment="Left" Margin="-169,-76,0,0" VerticalAlignment="Top" Width="58" Click="BtnMenuLateral_Click" Height="49" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Height="39" Width="34" Source="Images/MenuLateral.png"/>
         </Button>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="30" Margin="-13,420,0,-80" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167" BorderBrush="#91469a" BorderThickness="2"/>
-        <Rectangle HorizontalAlignment="Left" Height="121" Margin="-33,391,0,-116" Stroke="#FF833288" VerticalAlignment="Top" Width="992"/>
-        <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="268,429,0,-59" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
-                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource EstadoTemplate}"/>
-        <ComboBox x:Name="cboSexo" HorizontalAlignment="Left" Margin="522,434,0,-64" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
-                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="30" Margin="-13,420,0,-54" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="2"/>
+        <Rectangle HorizontalAlignment="Left" Height="121" Margin="-33,391,0,-116" Stroke="#FF833288" VerticalAlignment="Top" Width="992" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="197,429,0,-59" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
+                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource EstadoTemplate}" Grid.Column="1"/>
+        <ComboBox x:Name="cboSexo" HorizontalAlignment="Left" Margin="451,434,0,-64" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
+                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}" Grid.Column="1"/>
         <DataGrid x:Name="grdClientes" HorizontalAlignment="Left" Height="360" Margin="-33,0,0,0" VerticalAlignment="Top" Width="992" BorderBrush="#FF833288" Foreground="#FF833288" Background="#FFBDBDBD" BorderThickness="1" HorizontalGridLinesBrush="#FF833288" VerticalGridLinesBrush="#FF1B1BA1" GridLinesVisibility="Vertical" OpacityMask="#FF833288"
-                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource ClienteTemplate}"/>
-        <Label Content="Rut :" HorizontalAlignment="Left" Height="30" Margin="-13,391,0,-51" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Label Content="Estado civil :" HorizontalAlignment="Left" Height="30" Margin="268,404,0,-38" VerticalAlignment="Top" Width="96" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Label Content="Sexo :" HorizontalAlignment="Left" Height="30" Margin="522,409,0,-43" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Label Content="Listado clientes" HorizontalAlignment="Left" Margin="-33,-36,0,0" VerticalAlignment="Top" FontSize="16"/>
+                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource ClienteTemplate}" Grid.ColumnSpan="2"/>
+        <Label Content="Rut :" HorizontalAlignment="Left" Height="30" Margin="-13,391,0,-25" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <Label Content="Estado civil :" HorizontalAlignment="Left" Height="30" Margin="197,404,0,-38" VerticalAlignment="Top" Width="96" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Sexo :" HorizontalAlignment="Left" Height="30" Margin="451,409,0,-43" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Seguros BeLife - Listados Clientes" HorizontalAlignment="Left" Margin="-33,-36,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
         <mah:Flyout x:Name="FlyMenu" Width="176" Margin="-169,-76,0,-157">
             <mah:Flyout.Background>
                 <SolidColorBrush Color="#FF55317A" Opacity="0.9"/>
@@ -73,7 +77,7 @@
             </Grid>
 
         </mah:Flyout>
-        <Button HorizontalAlignment="Left" Margin="1024,-76,-7,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+        <Button HorizontalAlignment="Left" Margin="953,-76,-7,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.Column="1">
             <Image Source="Images/contrast_icon.png" RenderTransformOrigin="0.5,0.5" Height="34" Width="45">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -85,7 +89,7 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <Button x:Name="btnFiltrar" HorizontalAlignment="Left" Margin="802,429,0,-100" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587" Click="btnFiltrar_Click">
+        <Button x:Name="btnFiltrar" HorizontalAlignment="Left" Margin="731,429,0,-100" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587" Click="btnFiltrar_Click" Grid.Column="1">
             <Label  Content="Filtrar" Foreground="White" Height="26"  Margin="0,30                    ,0,0" />
         </Button>
     </Grid>

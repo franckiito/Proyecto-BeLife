@@ -51,7 +51,7 @@
                   IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource EstadoTemplate}"/>
         <ComboBox x:Name="cboSexo" HorizontalAlignment="Left" Margin="128,182,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Foreground="{x:Null}" Background="{x:Null}"
                   IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}"/>
-        <Label Content="Datos del cliente" HorizontalAlignment="Left" Height="27" Margin="-58,-70,0,0" VerticalAlignment="Top" Width="146" FontSize="16"/>
+        <Label Content="Seguros BeLife - Mantenedor Clientes" HorizontalAlignment="Left" Height="27" Margin="-58,-70,0,0" VerticalAlignment="Top" Width="300" FontSize="16"/>
         <Button x:Name="btnBuscar" HorizontalAlignment="Left" Margin="348,-20,0,0" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Grid.ColumnSpan="4" Click="btnBuscar_Click">
             <Label Content="Buscar" Margin="0,50
                    ,0,0" Foreground="White"/>
