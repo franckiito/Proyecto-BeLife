@@ -60,10 +60,17 @@ namespace BeLife.Negocio
         {
             BeLifeEntity bbdd = new BeLifeEntity();
 
-            List<Entity.Sexo> listaDatos = bbdd.Sexo.ToList<Entity.Sexo>();
-            List<Sexo> list = SyncList(listaDatos);
+            try
+            {
+                List<Entity.Sexo> listaDatos = bbdd.Sexo.ToList<Entity.Sexo>();
+                List<Sexo> list = SyncList(listaDatos);
 
-            return list;
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer los sexos. " + ex.Message);
+            }
         }
 
         /// <summary>

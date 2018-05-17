@@ -13,8 +13,16 @@ namespace BeLife.Negocio
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public Sexo Sexo { get; set; }
-        public EstadoCivil EstadoCivil { get; set; }
+        public Sexo Sexo = new Sexo();
+        public EstadoCivil EstadoCivil = new EstadoCivil();
+        public string SexoCliente
+        {
+            get { return Sexo.Descripcion; }
+        }
+        public string EstadoCliente
+        {
+            get { return EstadoCivil.Descripcion; }
+        }
 
         public Cliente()
         {
@@ -42,10 +50,10 @@ namespace BeLife.Negocio
             try
             {
                 BeLifeEntity bbdd = new BeLifeEntity();
-                Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
+                Entity.Cliente cli = new Entity.Cliente();
 
                 //Ve si no existe el cliente para poder crearlo.
-                if (cli == null)
+                if (!this.Read())
                 {
                     //Sincroniza datos 
                     CommonBC.Syncronize(this, cli);
@@ -98,6 +106,7 @@ namespace BeLife.Negocio
                 }
                 else
                 {
+                    return false;
                     throw new Exception("El Cliente Rut : " + Rut + "  no existe." );
                 }
             }

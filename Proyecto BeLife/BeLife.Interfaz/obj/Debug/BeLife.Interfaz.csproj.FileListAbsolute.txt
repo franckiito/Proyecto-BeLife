@@ -90,3 +90,6 @@ C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\VentanaPrincipal.g.cs
 C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\ListadoClientes.baml
 C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\ListadoContratos.baml
 C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\VentanaPrincipal.baml
+C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\Resources\Icons.baml
+C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\Resources\IconsNonShared.baml
+C:\Desarrollo\Proyecto BeLife\BeLife.Interfaz\obj\Debug\Principal.g.cs

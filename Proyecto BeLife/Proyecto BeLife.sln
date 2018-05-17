@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeLife.Negocio", "BeLife.Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeLife.Interfaz", "BeLife.Interfaz\BeLife.Interfaz.csproj", "{2D552E07-D713-40D4-B5D6-B35D6B4F73EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfBeLife", "WpfBeLife\WpfBeLife.csproj", "{0C3F6E19-0CB8-41EB-9B0F-9AC49BE6564F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2D552E07-D713-40D4-B5D6-B35D6B4F73EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D552E07-D713-40D4-B5D6-B35D6B4F73EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D552E07-D713-40D4-B5D6-B35D6B4F73EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C3F6E19-0CB8-41EB-9B0F-9AC49BE6564F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C3F6E19-0CB8-41EB-9B0F-9AC49BE6564F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C3F6E19-0CB8-41EB-9B0F-9AC49BE6564F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C3F6E19-0CB8-41EB-9B0F-9AC49BE6564F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
