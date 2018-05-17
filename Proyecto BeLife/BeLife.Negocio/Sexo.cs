@@ -43,11 +43,12 @@ namespace BeLife.Negocio
                 else
                 {
                     return false;
+                    //throw new Exception("El Id : {0}, no existe." + Id);
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al leer sexo.");
+                throw new Exception("Error al leer sexo." + ex.Message);
             }
         }
 

@@ -95,7 +95,6 @@ namespace BeLife.Interfaz
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
@@ -260,7 +259,26 @@ namespace BeLife.Interfaz
 
         private void btnBuscarCliente_Click(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                Cliente cliente = new Cliente()
+                {
+                    Rut = txtRut.Text
+                };
+                if (cliente.Read())
+                {
+                    txtNombres.Text = cliente.Nombres;
+                    txtApellidos.Text = cliente.Apellidos;
+                    FechaNacimiento.SelectedDate = cliente.FechaNacimiento;
+                    CargaSexo(cliente.Sexo.Id);
+                    CargaEstado(cliente.EstadoCivil.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+
         }
 
         private void CargaEstado(int idEstadoCivil)
@@ -279,7 +297,7 @@ namespace BeLife.Interfaz
 
         private void CargaSexo(int idSexo)
         {
-            Negocio.Sexo sexo = new Negocio.Sexo();
+            Sexo sexo = new Sexo();
 
             sexo.Id = idSexo ;
 
@@ -295,12 +313,69 @@ namespace BeLife.Interfaz
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                Cliente cliente = new Cliente()
+                {
+                    Rut = txtRut.Text,
+                    Nombres = txtNombres.Text,
+                    Apellidos = txtApellidos.Text,
+                    FechaNacimiento = (DateTime)FechaNacimiento.SelectedDate
+                };
+
+                Sexo sexo = new Sexo();
+                sexo.Id = SexoList.SelectedIndex + 1;
+                if (sexo.Read())
+                {
+                    cliente.Sexo = sexo;
+                }
+                else
+                {
+                    throw new Exception("Sexo Invalido.");
+                }
+
+                EstadoCivil estado = new EstadoCivil();
+                estado.Id = EstadoCivilList.SelectedIndex + 1;
+                if (estado.Read())
+                {
+                    cliente.EstadoCivil = estado;
+                }
+                else
+                {
+                    throw new Exception("Estado Invalido.");
+                }
+
+                if (cliente.Update())
+                {
+                    MessageBox.Show("Cliente actualizado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LimpiaDatos();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                Cliente cliente = new Cliente()
+                {
+                    Rut = txtRut.Text
+                };
+                if (cliente.Delete())
+                {
+                    MessageBox.Show("El cliente con rut " + cliente.Rut + " fue eliminado." , "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LimpiaDatos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         private void btnIrPrincipal_Click(object sender, RoutedEventArgs e)

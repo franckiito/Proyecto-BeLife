@@ -41,18 +41,20 @@ namespace BeLife.Negocio
 
             try
             {
-                if (!Read())
+                BeLifeEntity bbdd = new BeLifeEntity();
+                Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
+
+                //Ve si no existe el cliente para poder crearlo.
+                if (cli == null)
                 {
-
-                    BeLifeEntity bbdd = new BeLifeEntity();
-                    Entity.Cliente cli = new Entity.Cliente();
-
-                    //Sincroniza datos y guarda los cambios
+                    //Sincroniza datos 
                     CommonBC.Syncronize(this, cli);
                     CommonBC.Syncronize(this.Sexo, cli.Sexo);
                     cli.IdSexo = this.Sexo.Id;
                     CommonBC.Syncronize(this.EstadoCivil, cli.EstadoCivil);
                     cli.IdEstado = this.EstadoCivil.Id;
+
+                    //Guarda los cambios
                     bbdd.Cliente.Add(cli);
                     bbdd.SaveChanges();
                     crea = true;
@@ -66,7 +68,7 @@ namespace BeLife.Negocio
             catch (Exception ex)
             {
 
-                throw new Exception("Error. " + ex.Message);
+                throw new Exception("Error Crear Cliente. " + ex.Message);
             }
 
             return crea;
@@ -87,18 +89,22 @@ namespace BeLife.Negocio
 
                 if (cli != null)
                 {
+                    //Sincroniza datos 
                     CommonBC.Syncronize(cli, this);
+                    CommonBC.Syncronize(cli.Sexo, Sexo);
+                    CommonBC.Syncronize(cli.EstadoCivil, EstadoCivil);
+
                     return true;
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("El Cliente Rut : " + Rut + "  no existe." );
                 }
             }
-            catch (Exception)
+            catch (Exception ex )
             {
 
-                throw;
+                throw new Exception("Error Read Cliente. " + ex.Message);
             }
             
 
@@ -110,24 +116,28 @@ namespace BeLife.Negocio
             BeLifeEntity bbdd = new BeLifeEntity();
             try
             {
-                //trae el contrato con el mismo numero de contrato
+                //Trae un cliente.
                 Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
                 if (cli != null)
                 {
-                    //sincroniza la clase de la aplicacion con la entidad de BD y modifica los cambios
+                    //sincroniza la clase de negocio con la entidad de BD.
                     CommonBC.Syncronize(this,cli);
+                    cli.IdSexo = this.Sexo.Id;
+                    cli.IdEstado = this.EstadoCivil.Id;
+
+                    //Modifica los cambios.
                     bbdd.SaveChanges();
                     return true;
                 }
                 else
                 {
-                    throw new Exception("El cliente ya existe.");
+                    throw new Exception("El cliente no existe.");
                 }
             }
             catch (Exception ex)
             {
 
-                throw new Exception("Error. " + ex.Message);
+                throw new Exception("Error Actualizar Cliente. " + ex.Message);
             }
         }
 
@@ -147,13 +157,12 @@ namespace BeLife.Negocio
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("El cliente no existe.");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception("Error Delete Cliente. " + ex.Message);
             }
         }
 
@@ -180,58 +189,195 @@ namespace BeLife.Negocio
         {
             List<Cliente> list = new List<Cliente>();
 
-            foreach (var x in listaDatos)
+            try
             {
-                Cliente cliente = new Cliente();
-                CommonBC.Syncronize(x, cliente);
-
-                Sexo sexo = new Sexo();
-                sexo.Id = x.IdSexo;
-                if (sexo.Read())
+                foreach (var x in listaDatos)
                 {
-                    cliente.Sexo = sexo;
-                }
-                else
-                {
-                    throw new Exception("Error al leer el sexo.");
-                }
+                    Cliente cliente = new Cliente();
+                    CommonBC.Syncronize(x, cliente);
 
-                EstadoCivil estado = new EstadoCivil();
-                estado.Id = x.IdEstado;
-                if (estado.Read())
-                {
-                    cliente.EstadoCivil = estado;
-                }
-                else
-                {
-                    throw new Exception("Error al leer el sexo.");
-                }
+                    Sexo sexo = new Sexo();
+                    sexo.Id = x.IdSexo;
+                    if (sexo.Read())
+                    {
+                        cliente.Sexo = sexo;
+                    }
+                    else
+                    {
+                        throw new Exception("Error al leer el sexo.");
+                    }
 
-                list.Add(cliente);
+                    EstadoCivil estado = new EstadoCivil();
+                    estado.Id = x.IdEstado;
+                    if (estado.Read())
+                    {
+                        cliente.EstadoCivil = estado;
+                    }
+                    else
+                    {
+                        throw new Exception("Error al leer el Estado.");
+                    }
 
+                    list.Add(cliente);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Sincronizar Lista. " + ex.Message);
             }
 
             return list;
         }
 
 
-
+        /// <summary>
+        /// Retorna los clientes con el Sexo que sea igual al parametro id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<Cliente> ReadAllBySexo(int id)
         {
+
+            try
+            {
+                BeLifeEntity bbdd = new BeLifeEntity();
+                List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Sexo.Id == id).ToList<Entity.Cliente>();
+                List<Cliente> list = SyncList(listaC);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error ReadAllBySexo. " + ex.Message);
+            }
             
-            BeLifeEntity bbdd = new BeLifeEntity();
-            List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Sexo.Id == id).ToList<Entity.Cliente>();
-            List<Cliente> list = SyncList(listaC);
-            return list;
 
         }
 
+        /// <summary>
+        /// Retorna los clientes con el estado civil que sea igual al parametro id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<Cliente> ReadAllByEstadoCivil(int id)
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
-            List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.EstadoCivil.Id == id).ToList<Entity.Cliente>();
-            List<Cliente> list = SyncList(listaC);
-            return list;
+            try
+            {
+                BeLifeEntity bbdd = new BeLifeEntity();
+                List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.EstadoCivil.Id == id).ToList<Entity.Cliente>();
+                List<Cliente> list = SyncList(listaC);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error ReadAllByEstadoCivil. " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna una lista de los clientes que tengan el mismo rut del parametro.
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <returns></returns>
+        public List<Cliente> ReadAll(string rut)
+        {
+            try
+            {
+                BeLifeEntity bbdd = new BeLifeEntity();
+                List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Rut == rut).ToList<Entity.Cliente>();
+                List<Cliente> list = SyncList(listaC);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error ReadAllByEstadoCivil. " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna una lista de todos los clientes que tengan el mismo rut y sexo que los parametros
+        /// </summary>
+        /// <param name="idSexo"></param>
+        /// <param name="rut"></param>
+        /// <returns></returns>
+        public List<Cliente> ReadAllRutSexo(string rut, int idSexo  )
+        {
+            try
+            {
+                BeLifeEntity bbdd = new BeLifeEntity();
+                List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Rut == rut).ToList<Entity.Cliente>();
+                listaC = listaC.Where(cli => cli.IdSexo == idSexo ).ToList<Entity.Cliente>();
+                List<Cliente> list = SyncList(listaC);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error ReadAllByEstadoCivil. " + ex.Message);
+            }
+        }
+
+        //
+        public List<Cliente> ReadAllRutEstado(string rut, int idEstado)
+        {
+            try
+            {
+                BeLifeEntity bbdd = new BeLifeEntity();
+                List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Rut == rut).ToList<Entity.Cliente>();
+                listaC = listaC.Where(cli => cli.IdEstado == idEstado).ToList<Entity.Cliente>();
+                List<Cliente> list = SyncList(listaC);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error ReadAllByEstadoCivil. " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna una lista de todos los clientes que tengan el mismo Rut, Sexo y Estado que los parametros
+        /// </summary>
+        /// <param name="idSexo"></param>
+        /// <param name="idEstado"></param>
+        /// <param name="rut"></param>
+        /// <returns></returns>
+        public List<Cliente> ReadAll(string rut, int idSexo, int idEstado)
+        {
+            try
+            {
+                BeLifeEntity bbdd = new BeLifeEntity();
+                List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Rut == rut).ToList<Entity.Cliente>();
+                listaC = listaC.Where(cli => cli.IdSexo == idSexo).ToList<Entity.Cliente>();
+                listaC = listaC.Where(cli => cli.IdEstado == idEstado).ToList<Entity.Cliente>();
+                
+                List<Cliente> list = SyncList(listaC);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error ReadAllByEstadoCivil. " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna una lista de todos los Clientes con el mismo Sexo y Estado que los parametros.
+        /// </summary>
+        /// <param name="idSexo"></param>
+        /// <param name="idEstado"></param>
+        /// <returns></returns>
+        public List<Cliente> ReadAll(int idSexo, int idEstado)
+        {
+            try
+            {
+                BeLifeEntity bbdd = new BeLifeEntity();
+                List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.IdSexo == idSexo).ToList<Entity.Cliente>();
+                listaC = listaC.Where(cli => cli.IdEstado == idEstado).ToList<Entity.Cliente>();
+                List<Cliente> list = SyncList(listaC);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error ReadAllByEstadoCivil. " + ex.Message);
+            }
         }
 
     }

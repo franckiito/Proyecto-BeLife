@@ -1,4 +1,5 @@
 ﻿
+using BeLife.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +76,60 @@ namespace BeLife.Interfaz
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                //Lee los controles de la interfaz.
+                string rut = txtRut.Text;
+
+                Sexo sexo = new Sexo();
+                sexo.Id = SexoList.SelectedIndex + 1;
+
+                EstadoCivil estado = new EstadoCivil();
+                estado.Id = EstadoCivilList.SelectedIndex + 1;
+
+                Cliente cliente = new Cliente();
+
+                //Solo Rut
+                if (String.IsNullOrEmpty(rut) == false && !sexo.Read() && !estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAll(rut);
+                }
+                //Solo Sexo
+                if (String.IsNullOrEmpty(rut) != false && sexo.Read() && !estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAllBySexo(sexo.Id);
+                }
+                //Solo Estado
+                if (String.IsNullOrEmpty(rut) != false && !sexo.Read() && estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAllByEstadoCivil(estado.Id);
+                }
+                //Rut y Sexo
+                if (String.IsNullOrEmpty(rut) == false && sexo.Read() && !estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAllRutSexo(rut, sexo.Id);
+                }
+                //Rut y Estado
+                if (String.IsNullOrEmpty(rut) == false && !sexo.Read() && estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAllRutEstado(rut, estado.Id);
+                }
+                //Sexo y Estado
+                if (String.IsNullOrEmpty(rut) != false && sexo.Read() && estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAll(sexo.Id, estado.Id);
+                }
+                //Rut, Sexo y Estado
+                if (String.IsNullOrEmpty(rut) == false && sexo.Read() && estado.Read())
+                {
+                    ClientesList.ItemsSource = cliente.ReadAll(rut, sexo.Id, estado.Id);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
 
