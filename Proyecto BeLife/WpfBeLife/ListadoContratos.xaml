@@ -9,29 +9,24 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListadoContratos" Background="White" Width="1271" Height="629">
     <Grid Margin="164,78,23,157">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="35*"/>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="457*"/>
-        </Grid.ColumnDefinitions>
         <Button x:Name="BtnMenuLateral" HorizontalAlignment="Left" Margin="-164,-78,0,0" VerticalAlignment="Top" Width="58" Click="BtnMenuLateral_Click" Height="49" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Height="39" Width="34" Source="Images/MenuLateral.png"/>
         </Button>
-        <Rectangle HorizontalAlignment="Left" Height="121" Margin="-33,391,0,-118" Stroke="#FF833288" VerticalAlignment="Top" Width="348" Grid.ColumnSpan="3"/>
-        <Rectangle HorizontalAlignment="Left" Height="121" Margin="145,391,0,-118" Stroke="#FF833288" VerticalAlignment="Top" Width="646" Grid.Column="2"/>
-        <ComboBox HorizontalAlignment="Left" Margin="240,422,0,-54" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White" Grid.Column="2"/>
-        <ComboBox HorizontalAlignment="Left" Margin="240,475,0,-107" VerticalAlignment="Top" Width="166" BorderBrush="#FF833288" Foreground="#FF833288" Background="White" Grid.Column="2"/>
-        <Label Content="Número Contrato:" HorizontalAlignment="Left" Height="30" Margin="-9,394,0,-30" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.ColumnSpan="2"/>
-        <DataGrid HorizontalAlignment="Left" Height="360" Margin="-33,0,0,0" VerticalAlignment="Top" Width="992" BorderBrush="#FF833288" Foreground="#FF833288" Background="#FFBDBDBD" BorderThickness="1" HorizontalGridLinesBrush="#FF833288" VerticalGridLinesBrush="#FF1B1BA1" GridLinesVisibility="Vertical" OpacityMask="#FF833288" Grid.ColumnSpan="3"/>
-        <Label Content="Seguros BeLife - Listado Contratos" HorizontalAlignment="Left" Margin="-33,-36,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="3" Width="277"/>
-        <Button x:Name="BtnFiltrarRut" HorizontalAlignment="Left" Margin="19,422,0,-95" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587" Grid.Column="2" >
+        <Rectangle HorizontalAlignment="Left" Height="121" Margin="-33,391,0,-142" Stroke="#FF833288" VerticalAlignment="Top" Width="348"/>
+        <Rectangle HorizontalAlignment="Left" Height="121" Margin="315,391,-2,-142" Stroke="#FF833288" VerticalAlignment="Top" Width="646"/>
+        <ComboBox HorizontalAlignment="Left" Margin="410,422,0,-54" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"/>
+        <ComboBox HorizontalAlignment="Left" Margin="410,475,0,-107" VerticalAlignment="Top" Width="166" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"/>
+        <Label Content="Número Contrato:" HorizontalAlignment="Left" Height="30" Margin="-9,394,0,-54" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <DataGrid HorizontalAlignment="Left" Height="360" Margin="-33,0,0,0" VerticalAlignment="Top" Width="992" BorderBrush="#FF833288" Foreground="#FF833288" Background="#FFBDBDBD" BorderThickness="1" HorizontalGridLinesBrush="#FF833288" VerticalGridLinesBrush="#FF1B1BA1" GridLinesVisibility="Vertical" OpacityMask="#FF833288"/>
+        <Label Content="Listado contratos" HorizontalAlignment="Left" Margin="-33,-36,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="BtnFiltrarRut" HorizontalAlignment="Left" Margin="189,422,0,-95" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587" >
             <Label Content="Filtrar" Foreground="White" Height="26"  Margin="0,30
                    ,0,0" />
         </Button>
-        <TextBox x:Name="TxtRut" HorizontalAlignment="Left" Height="30" Margin="-9,424,0,-60" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="2"/>
-        <Label Content="Plan ID :" HorizontalAlignment="Left" Height="30" Margin="238,394,0,-30" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="2"/>
-        <Label Content="Plan ID :" HorizontalAlignment="Left" Height="30" Margin="240,448,0,-84" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="2"/>
-        <Button x:Name="BtnFiltrar" HorizontalAlignment="Left" Margin="556,422,0,-95" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587" Grid.Column="2">
+        <TextBox x:Name="TxtRut" HorizontalAlignment="Left" Height="30" Margin="-9,424,0,-84" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167" BorderBrush="#91469a" BorderThickness="2"/>
+        <Label Content="Plan ID :" HorizontalAlignment="Left" Height="30" Margin="408,394,0,-54" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <Label Content="Plan ID :" HorizontalAlignment="Left" Height="30" Margin="410,448,0,-84" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <Button x:Name="BtnFiltrar" HorizontalAlignment="Left" Margin="726,422,0,-95" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587">
             <Label  Content="Filtrar" Foreground="White" Height="26"  Margin="0,30
                    ,0,0" />
         </Button>
@@ -52,7 +47,7 @@
             </Grid>
 
         </mah:Flyout>
-        <Button HorizontalAlignment="Left" Margin="860,-78,-21,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.Column="2">
+        <Button HorizontalAlignment="Left" Margin="1030,-78,-21,0" VerticalAlignment="Top" Width="75" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <Image Source="Images/contrast_icon.png" RenderTransformOrigin="0.5,0.5" Height="34" Width="45">
                 <Image.RenderTransform>
                     <TransformGroup>

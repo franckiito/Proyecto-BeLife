@@ -44,7 +44,7 @@ namespace WpfBeLife {
     public partial class MantenedorContratos : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
         
-        #line 13 "..\..\MantenedorContratos.xaml"
+        #line 18 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnMenuLateral;
         
@@ -52,9 +52,17 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 17 "..\..\MantenedorContratos.xaml"
+        #line 22 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox TxtRut;
+        internal System.Windows.Controls.TextBox txtNumeroContrato;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 29 "..\..\MantenedorContratos.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox cboDeclaracion;
         
         #line default
         #line hidden
@@ -62,7 +70,7 @@ namespace WpfBeLife {
         
         #line 30 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox TxtObservacion;
+        internal System.Windows.Controls.ComboBox cboVigente;
         
         #line default
         #line hidden
@@ -70,15 +78,31 @@ namespace WpfBeLife {
         
         #line 32 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox TxtObservacion_Copy;
+        internal System.Windows.Controls.DatePicker FechaInicio;
         
         #line default
         #line hidden
         
         
-        #line 36 "..\..\MantenedorContratos.xaml"
+        #line 33 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox TxtObservacion_Copy1;
+        internal System.Windows.Controls.DatePicker FechaTermino;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 35 "..\..\MantenedorContratos.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox TxtObservacion;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 37 "..\..\MantenedorContratos.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtRut;
         
         #line default
         #line hidden
@@ -86,7 +110,15 @@ namespace WpfBeLife {
         
         #line 38 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox TxtObservacion_Copy2;
+        internal System.Windows.Controls.ComboBox cboPlan;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 41 "..\..\MantenedorContratos.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtPrimaAnual;
         
         #line default
         #line hidden
@@ -94,21 +126,29 @@ namespace WpfBeLife {
         
         #line 43 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox TxtRut_Copy;
+        internal System.Windows.Controls.TextBox txtPrimaMensual;
         
         #line default
         #line hidden
         
         
-        #line 44 "..\..\MantenedorContratos.xaml"
+        #line 48 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox TxtRut_Copy3;
+        internal System.Windows.Controls.TextBox txtApellido;
         
         #line default
         #line hidden
         
         
-        #line 45 "..\..\MantenedorContratos.xaml"
+        #line 49 "..\..\MantenedorContratos.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtNombre;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 50 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal MahApps.Metro.Controls.Flyout FlyMenu;
         
@@ -116,7 +156,7 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 52 "..\..\MantenedorContratos.xaml"
+        #line 57 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnClientes;
         
@@ -124,7 +164,7 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 53 "..\..\MantenedorContratos.xaml"
+        #line 58 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnMantCliMenu;
         
@@ -132,7 +172,7 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 55 "..\..\MantenedorContratos.xaml"
+        #line 60 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnListContr;
         
@@ -140,7 +180,7 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 56 "..\..\MantenedorContratos.xaml"
+        #line 61 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnListCliMenu;
         
@@ -148,7 +188,7 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 57 "..\..\MantenedorContratos.xaml"
+        #line 62 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnMantContr;
         
@@ -156,7 +196,7 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 73 "..\..\MantenedorContratos.xaml"
+        #line 78 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnBuscarContr;
         
@@ -164,7 +204,7 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 76 "..\..\MantenedorContratos.xaml"
+        #line 81 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnActualizarContr;
         
@@ -172,7 +212,7 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 79 "..\..\MantenedorContratos.xaml"
+        #line 84 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnEliminarContr;
         
@@ -180,7 +220,7 @@ namespace WpfBeLife {
         #line hidden
         
         
-        #line 82 "..\..\MantenedorContratos.xaml"
+        #line 87 "..\..\MantenedorContratos.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button BtnCrearContr;
         
@@ -220,85 +260,100 @@ namespace WpfBeLife {
             case 1:
             this.BtnMenuLateral = ((System.Windows.Controls.Button)(target));
             
-            #line 13 "..\..\MantenedorContratos.xaml"
+            #line 18 "..\..\MantenedorContratos.xaml"
             this.BtnMenuLateral.Click += new System.Windows.RoutedEventHandler(this.BtnMenuLateral_Click);
             
             #line default
             #line hidden
             return;
             case 2:
-            this.TxtRut = ((System.Windows.Controls.TextBox)(target));
+            this.txtNumeroContrato = ((System.Windows.Controls.TextBox)(target));
             return;
             case 3:
-            this.TxtObservacion = ((System.Windows.Controls.TextBox)(target));
+            this.cboDeclaracion = ((System.Windows.Controls.ComboBox)(target));
             return;
             case 4:
-            this.TxtObservacion_Copy = ((System.Windows.Controls.TextBox)(target));
+            this.cboVigente = ((System.Windows.Controls.ComboBox)(target));
             return;
             case 5:
-            this.TxtObservacion_Copy1 = ((System.Windows.Controls.TextBox)(target));
+            this.FechaInicio = ((System.Windows.Controls.DatePicker)(target));
             return;
             case 6:
-            this.TxtObservacion_Copy2 = ((System.Windows.Controls.TextBox)(target));
+            this.FechaTermino = ((System.Windows.Controls.DatePicker)(target));
             return;
             case 7:
-            this.TxtRut_Copy = ((System.Windows.Controls.TextBox)(target));
+            this.TxtObservacion = ((System.Windows.Controls.TextBox)(target));
             return;
             case 8:
-            this.TxtRut_Copy3 = ((System.Windows.Controls.TextBox)(target));
+            this.txtRut = ((System.Windows.Controls.TextBox)(target));
             return;
             case 9:
-            this.FlyMenu = ((MahApps.Metro.Controls.Flyout)(target));
+            this.cboPlan = ((System.Windows.Controls.ComboBox)(target));
             return;
             case 10:
-            this.BtnClientes = ((System.Windows.Controls.Button)(target));
+            this.txtPrimaAnual = ((System.Windows.Controls.TextBox)(target));
             return;
             case 11:
+            this.txtPrimaMensual = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 12:
+            this.txtApellido = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 13:
+            this.txtNombre = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 14:
+            this.FlyMenu = ((MahApps.Metro.Controls.Flyout)(target));
+            return;
+            case 15:
+            this.BtnClientes = ((System.Windows.Controls.Button)(target));
+            return;
+            case 16:
             this.BtnMantCliMenu = ((System.Windows.Controls.Button)(target));
             
-            #line 53 "..\..\MantenedorContratos.xaml"
+            #line 58 "..\..\MantenedorContratos.xaml"
             this.BtnMantCliMenu.Click += new System.Windows.RoutedEventHandler(this.BtnMantCliMenu_Click);
             
             #line default
             #line hidden
             return;
-            case 12:
+            case 17:
             this.BtnListContr = ((System.Windows.Controls.Button)(target));
             
-            #line 55 "..\..\MantenedorContratos.xaml"
+            #line 60 "..\..\MantenedorContratos.xaml"
             this.BtnListContr.Click += new System.Windows.RoutedEventHandler(this.BtnListContr_Click);
             
             #line default
             #line hidden
             return;
-            case 13:
+            case 18:
             this.BtnListCliMenu = ((System.Windows.Controls.Button)(target));
             
-            #line 56 "..\..\MantenedorContratos.xaml"
+            #line 61 "..\..\MantenedorContratos.xaml"
             this.BtnListCliMenu.Click += new System.Windows.RoutedEventHandler(this.BtnListCliMenu_Click);
             
             #line default
             #line hidden
             return;
-            case 14:
+            case 19:
             this.BtnMantContr = ((System.Windows.Controls.Button)(target));
             
-            #line 57 "..\..\MantenedorContratos.xaml"
+            #line 62 "..\..\MantenedorContratos.xaml"
             this.BtnMantContr.Click += new System.Windows.RoutedEventHandler(this.BtnMantContr_Click);
             
             #line default
             #line hidden
             return;
-            case 15:
+            case 20:
             this.BtnBuscarContr = ((System.Windows.Controls.Button)(target));
             return;
-            case 16:
+            case 21:
             this.BtnActualizarContr = ((System.Windows.Controls.Button)(target));
             return;
-            case 17:
+            case 22:
             this.BtnEliminarContr = ((System.Windows.Controls.Button)(target));
             return;
-            case 18:
+            case 23:
             this.BtnCrearContr = ((System.Windows.Controls.Button)(target));
             return;
             }
