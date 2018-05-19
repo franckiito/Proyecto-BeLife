@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeLife.Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,59 @@ namespace WpfBeLife
 
         }
 
-        
+        private void BtnCrearContr_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Contrato contrato = new Contrato()
+                {
+                    Numero = txtNumeroContrato.Text,
+                    Creacion = (DateTime)FechaInicio.SelectedDate,
+                    Termino = (DateTime)FechaTermino.SelectedDate,
+                    InicioVigencia = DateTime.Today,
+                    FinVigencia = DateTime.Today,
+                    PrimaAnual = float.Parse(txtPrimaAnual.Text),
+                    PrimaMensual = float.Parse(txtPrimaMensual.Text),
+                    Observaciones = txtObservacion.Text
+                };
+
+                Cliente cliente = new Cliente() {
+                    Rut = txtRut.Text
+                };
+
+                if (cliente.Read())
+                {
+                    txtNombre.Text = cliente.Nombres;
+                    txtApellido.Text = cliente.Apellidos;
+                }
+
+                if (contrato.Create())
+                {
+                    MessageBox.Show("Contrato agregado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LimpiaDatos();
+                }
+                else
+                {
+                    MessageBox.Show("El Contrato no se pudo agregar.", "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
+        private void LimpiaDatos()
+        {
+            txtNumeroContrato.Text = "";
+            FechaInicio.SelectedDate = null;
+            FechaTermino.SelectedDate = null;
+            cboPlan.SelectedIndex = -1;
+            txtPrimaAnual.Text = "";
+            txtPrimaMensual.Text = "";
+            txtObservacion.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+        }
     }
 }

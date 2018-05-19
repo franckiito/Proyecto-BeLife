@@ -53,25 +53,38 @@
                   IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}"/>
         <Label Content="Datos del cliente" HorizontalAlignment="Left" Height="27" Margin="-58,-70,0,0" VerticalAlignment="Top" Width="146" FontSize="16"/>
         <Button x:Name="btnBuscar" HorizontalAlignment="Left" Margin="348,-20,0,0" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Grid.ColumnSpan="4" Click="btnBuscar_Click">
-            <Label Content="Buscar" Margin="0,50
-                   ,0,0" Foreground="White"/>
+            <Button.Content>
+                <StackPanel>
+                    <Image Height="59" VerticalAlignment="Top" Width="50" Stretch="UniformToFill" Source="/Images/ClientSearch.png"   />
+                    <Label Content="Buscar" Foreground="White"/>
+                </StackPanel>
+            </Button.Content>
         </Button>
-        <Button x:Name="btnActualiza" HorizontalAlignment="Left" Margin="348,389,0,-103" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Click="btnActualiza_Click" Grid.ColumnSpan="4">
-            <Label Content="Actualizar" Margin="0,50
-                   ,0,0" Foreground="White"/>
+        <Button x:Name="btnActualiza" HorizontalAlignment="Left" Margin="348,389,0,-103" VerticalAlignment="Top" Width="100" Height="93" BorderBrush="#FF833288" Background="#FF664587" Click="btnActualiza_Click" Grid.ColumnSpan="4">
+            <Button.Content>
+                <StackPanel>
+                    <Image Height="59" VerticalAlignment="Top" Width="50" Stretch="UniformToFill" Source="/Images/ClientUpdate.png"   />
+                    <Label Content="Actualizar" Foreground="White"/>
+                </StackPanel>
+            </Button.Content>
         </Button>
-        <Button x:Name="btnElimina" HorizontalAlignment="Left" Margin="165,389,0,-103" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Click="btnElimina_Click" >
-            <Label Content="Eliminar" Margin="0,50
-                   ,0,0" Foreground="White"/>
+        <Button x:Name="btnElimina" HorizontalAlignment="Left" Margin="165,389,0,-103" VerticalAlignment="Top" Width="100" Height="93" BorderBrush="#FF833288" Background="#FF664587" Click="btnElimina_Click" >
+            <Button.Content>
+                <StackPanel>
+                    <Image Height="59" VerticalAlignment="Top" Width="50" Stretch="UniformToFill" Source="/Images/ClientDelete.png"   />
+                    <Label Content="Eliminar" Foreground="White"/>
+                </StackPanel>
+            </Button.Content>
         </Button>
-        <Button x:Name="BtnRegistrar" HorizontalAlignment="Left" Margin="-28,389,0,-103" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" IsMouseCapturedChanged="Button_IsMouseCapturedChanged" Click="BtnRegistrar_Click" Background="#FF664587" >
-            <Label Content="Registrar" Margin="0,50
-                   ,0,0" Foreground="White"/>
+        <Button x:Name="BtnRegistrar" HorizontalAlignment="Left" Margin="-28,389,0,-103" VerticalAlignment="Center" Width="100" Height="93" BorderBrush="#FF833288" IsMouseCapturedChanged="Button_IsMouseCapturedChanged" Click="BtnRegistrar_Click" Background="#FF664587" >
+            <Button.Content>
+                <StackPanel>
+                    <Image Height="59" VerticalAlignment="Top" Width="50" Stretch="UniformToFill" Source="/Images/ClientAdd.png"   />
+                    <Label Content="Registrar" Foreground="White"/>
+                </StackPanel>
+            </Button.Content>
         </Button>
-        <Image HorizontalAlignment="Left" Height="50" Margin="-1,402,0,-73" VerticalAlignment="Top" Width="46" Source="Images/ClientAdd.png"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="374,401,0,-72" VerticalAlignment="Top" Width="52" Source="Images/ClientUpdate.png"/>
-        <Image HorizontalAlignment="Left" Height="52" Margin="371,-10,0,0" VerticalAlignment="Top" Width="52" Source="Images/ClientSearch.png"/>
-        <Image HorizontalAlignment="Left" Height="51" Margin="190,400,0,-72" VerticalAlignment="Top" Width="52" Source="Images/ClientDelete.png"/>
+        
         <Border BorderBrush="#FFB4B4B4" BorderThickness="1" HorizontalAlignment="Left" Height="222" Margin="125,-43,0,0" VerticalAlignment="Top" Width="390" CornerRadius="10" Grid.Column="3"/>
         <Label Content="Datos contrato" HorizontalAlignment="Left" Height="32" Margin="125,-75,0,0" VerticalAlignment="Top" Width="146" FontSize="16" Grid.Column="3"/>
         <Label Content="Nombre plan            :" HorizontalAlignment="Left" Height="30" Margin="145,90,0,0" VerticalAlignment="Top" Width="152" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="3"/>

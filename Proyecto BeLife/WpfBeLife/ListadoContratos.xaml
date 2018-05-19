@@ -18,7 +18,7 @@
         <ComboBox HorizontalAlignment="Left" Margin="410,475,0,-107" VerticalAlignment="Top" Width="166" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"/>
         <Label Content="Número Contrato:" HorizontalAlignment="Left" Height="30" Margin="-9,394,0,-54" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <DataGrid HorizontalAlignment="Left" Height="360" Margin="-33,0,0,0" VerticalAlignment="Top" Width="992" BorderBrush="#FF833288" Foreground="#FF833288" Background="#FFBDBDBD" BorderThickness="1" HorizontalGridLinesBrush="#FF833288" VerticalGridLinesBrush="#FF1B1BA1" GridLinesVisibility="Vertical" OpacityMask="#FF833288"/>
-        <Label Content="Listado contratos" HorizontalAlignment="Left" Margin="-33,-36,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Seguros Belife - Listado contratos" HorizontalAlignment="Left" Margin="-33,-36,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="BtnFiltrarRut" HorizontalAlignment="Left" Margin="189,422,0,-95" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587" >
             <Label Content="Filtrar" Foreground="White" Height="26"  Margin="0,30
                    ,0,0" />

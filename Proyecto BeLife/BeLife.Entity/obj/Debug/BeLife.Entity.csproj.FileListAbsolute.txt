@@ -9,3 +9,4 @@ C:\Desarrollo\Proyecto BeLife\BeLife.Entity\obj\Debug\BeLife.Entity.csproj.CoreC
 C:\Desarrollo\Proyecto BeLife\BeLife.Entity\obj\Debug\BeLife.Entity.csproj.CopyComplete
 C:\Desarrollo\Proyecto BeLife\BeLife.Entity\obj\Debug\BeLife.Entity.dll
 C:\Desarrollo\Proyecto BeLife\BeLife.Entity\obj\Debug\BeLife.Entity.pdb
+C:\Desarrollo\Proyecto BeLife\BeLife.Entity\obj\Debug\BeLife.Entity.csprojResolveAssemblyReference.cache

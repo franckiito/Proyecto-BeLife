@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BeLife.Negocio
 {
-    class Contrato
+    public class Contrato
     {
         public string Numero { get; set; }
         public DateTime Creacion { get; set; }
