@@ -31,7 +31,7 @@ namespace BeLife.Negocio
         /// <returns>EstadoCivil estado</returns>
         public bool Read()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
                 Entity.EstadoCivil e = bbdd.EstadoCivil.Where(x => x.Id == this.Id).FirstOrDefault();
@@ -57,7 +57,7 @@ namespace BeLife.Negocio
         /// <returns>List<EstadoCivil></returns>
         public List<EstadoCivil> ReadAll()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
 
             List<Entity.EstadoCivil> Estados = bbdd.EstadoCivil.ToList<Entity.EstadoCivil>();
             List<EstadoCivil> list = SyncList(Estados);

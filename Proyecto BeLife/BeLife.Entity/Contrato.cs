@@ -15,13 +15,14 @@ namespace BeLife.Entity
     public partial class Contrato
     {
         public string Numero { get; set; }
-        public System.DateTime FechaCreacion { get; set; }
+        public System.DateTime Creacion { get; set; }
+        public System.DateTime Termino { get; set; }
         public string RutCliente { get; set; }
         public string CodigoPlan { get; set; }
-        public System.DateTime FechaInicioVigencia { get; set; }
-        public System.DateTime FechaFinVigencia { get; set; }
-        public bool Vigente { get; set; }
-        public bool DeclaracionSalud { get; set; }
+        public System.DateTime InicioVigencia { get; set; }
+        public System.DateTime FinVigencia { get; set; }
+        public bool EstaVigente { get; set; }
+        public bool ConDeclaracionDeSalud { get; set; }
         public double PrimaAnual { get; set; }
         public double PrimaMensual { get; set; }
         public string Observaciones { get; set; }

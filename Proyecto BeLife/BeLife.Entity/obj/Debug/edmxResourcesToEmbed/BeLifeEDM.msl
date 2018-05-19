@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BeLifeModelStoreContainer" CdmEntityContainer="BeLifeEntity">
+  <EntityContainerMapping StorageEntityContainer="BeLifeModelStoreContainer" CdmEntityContainer="BeLifeEntities">
     <EntitySetMapping Name="Cliente">
       <EntityTypeMapping TypeName="BeLifeModel.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
@@ -17,13 +17,14 @@
       <EntityTypeMapping TypeName="BeLifeModel.Contrato">
         <MappingFragment StoreEntitySet="Contrato">
           <ScalarProperty Name="Numero" ColumnName="Numero" />
-          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Creacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Termino" ColumnName="FechaTermino" />
           <ScalarProperty Name="RutCliente" ColumnName="RutCliente" />
           <ScalarProperty Name="CodigoPlan" ColumnName="CodigoPlan" />
-          <ScalarProperty Name="FechaInicioVigencia" ColumnName="FechaInicioVigencia" />
-          <ScalarProperty Name="FechaFinVigencia" ColumnName="FechaFinVigencia" />
-          <ScalarProperty Name="Vigente" ColumnName="Vigente" />
-          <ScalarProperty Name="DeclaracionSalud" ColumnName="DeclaracionSalud" />
+          <ScalarProperty Name="InicioVigencia" ColumnName="FechaInicioVigencia" />
+          <ScalarProperty Name="FinVigencia" ColumnName="FechaFinVigencia" />
+          <ScalarProperty Name="EstaVigente" ColumnName="Vigente" />
+          <ScalarProperty Name="ConDeclaracionDeSalud" ColumnName="DeclaracionSalud" />
           <ScalarProperty Name="PrimaAnual" ColumnName="PrimaAnual" />
           <ScalarProperty Name="PrimaMensual" ColumnName="PrimaMensual" />
           <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
@@ -41,7 +42,7 @@
     <EntitySetMapping Name="Plan">
       <EntityTypeMapping TypeName="BeLifeModel.Plan">
         <MappingFragment StoreEntitySet="Plan">
-          <ScalarProperty Name="IdPlan" ColumnName="IdPlan" />
+          <ScalarProperty Name="Id" ColumnName="IdPlan" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="PrimaBase" ColumnName="PrimaBase" />
           <ScalarProperty Name="PolizaActual" ColumnName="PolizaActual" />

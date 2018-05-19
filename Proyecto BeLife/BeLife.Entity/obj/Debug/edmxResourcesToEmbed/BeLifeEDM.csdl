@@ -21,13 +21,14 @@
       <PropertyRef Name="CodigoPlan" />
     </Key>
     <Property Name="Numero" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Termino" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="RutCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CodigoPlan" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="FechaInicioVigencia" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="FechaFinVigencia" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Vigente" Type="Boolean" Nullable="false" />
-    <Property Name="DeclaracionSalud" Type="Boolean" Nullable="false" />
+    <Property Name="InicioVigencia" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FinVigencia" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EstaVigente" Type="Boolean" Nullable="false" />
+    <Property Name="ConDeclaracionDeSalud" Type="Boolean" Nullable="false" />
     <Property Name="PrimaAnual" Type="Double" Nullable="false" />
     <Property Name="PrimaMensual" Type="Double" Nullable="false" />
     <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -44,9 +45,9 @@
   </EntityType>
   <EntityType Name="Plan">
     <Key>
-      <PropertyRef Name="IdPlan" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="IdPlan" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PrimaBase" Type="Double" Nullable="false" />
     <Property Name="PolizaActual" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
@@ -101,14 +102,14 @@
     <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Plan">
-        <PropertyRef Name="IdPlan" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Contrato">
         <PropertyRef Name="CodigoPlan" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="BeLifeEntity" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="BeLifeEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Cliente" EntityType="Self.Cliente" />
     <EntitySet Name="Contrato" EntityType="Self.Contrato" />
     <EntitySet Name="EstadoCivil" EntityType="Self.EstadoCivil" />

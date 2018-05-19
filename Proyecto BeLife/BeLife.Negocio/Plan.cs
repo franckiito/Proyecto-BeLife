@@ -34,11 +34,11 @@ namespace BeLife.Negocio
         /// <param name="id">string Id del Plan</param>
         /// <returns>Plan plan</returns>
         public bool Read()
-        {           
-            BeLifeEntity bbdd = new BeLifeEntity();
+        {
+            BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
-                Entity.Plan pla = bbdd.Plan.Where(x => x.IdPlan == this.Id).FirstOrDefault();
+                Entity.Plan pla = bbdd.Plan.Where(x => x.Id == this.Id).FirstOrDefault();
                 if (pla != null)
                 {
                     CommonBC.Syncronize(pla, this);
@@ -62,7 +62,7 @@ namespace BeLife.Negocio
         /// <returns>List<Plan></returns>
         public List<Plan> ReadAll()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             List<Entity.Plan> listaDatos = bbdd.Plan.ToList<Entity.Plan>();
             List<Plan> list = SyncList(listaDatos);
             return list;

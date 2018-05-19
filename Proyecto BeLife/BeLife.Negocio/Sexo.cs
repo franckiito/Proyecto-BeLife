@@ -31,7 +31,7 @@ namespace BeLife.Negocio
         /// <returns>Sexo sexo</returns>
         public bool Read()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
                 Entity.Sexo s = bbdd.Sexo.Where(x => x.Id == this.Id).FirstOrDefault();
@@ -58,7 +58,7 @@ namespace BeLife.Negocio
         /// <returns>List<Sexo></returns>
         public List<Sexo> ReadAll()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
 
             try
             {

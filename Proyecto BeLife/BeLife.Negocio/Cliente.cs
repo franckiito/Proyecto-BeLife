@@ -49,7 +49,7 @@ namespace BeLife.Negocio
 
             try
             {
-                BeLifeEntity bbdd = new BeLifeEntity();
+                BeLifeEntities bbdd = new BeLifeEntities();
                 Entity.Cliente cli = new Entity.Cliente();
 
                 //Ve si no existe el cliente para poder crearlo.
@@ -89,8 +89,8 @@ namespace BeLife.Negocio
         /// <returns></returns>
         public bool Read()
         {
-            
-            BeLifeEntity bbdd = new BeLifeEntity();
+
+            BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
                 Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
@@ -122,7 +122,7 @@ namespace BeLife.Negocio
 
         public bool Update()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
                 //Trae un cliente.
@@ -152,7 +152,7 @@ namespace BeLife.Negocio
 
         public bool Delete()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
                 //trae el contrato con el mismo numero de contrato
@@ -181,12 +181,19 @@ namespace BeLife.Negocio
         /// <returns>List<Cliente></returns>
         public List<Cliente> ReadAll()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
 
-            List<Entity.Cliente> listaDatos = bbdd.Cliente.ToList<Entity.Cliente>();
-            List<Cliente> list = SyncList(listaDatos);
+                List<Entity.Cliente> listaDatos = bbdd.Cliente.ToList<Entity.Cliente>();
+                List<Cliente> list = SyncList(listaDatos);
 
-            return list;
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer los Clientes. " + ex.Message);
+            }
         }
 
         /// <summary>
@@ -250,7 +257,7 @@ namespace BeLife.Negocio
 
             try
             {
-                BeLifeEntity bbdd = new BeLifeEntity();
+                BeLifeEntities bbdd = new BeLifeEntities();
                 List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Sexo.Id == id).ToList<Entity.Cliente>();
                 List<Cliente> list = SyncList(listaC);
                 return list;
@@ -272,7 +279,7 @@ namespace BeLife.Negocio
         {
             try
             {
-                BeLifeEntity bbdd = new BeLifeEntity();
+                BeLifeEntities bbdd = new BeLifeEntities();
                 List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.EstadoCivil.Id == id).ToList<Entity.Cliente>();
                 List<Cliente> list = SyncList(listaC);
                 return list;
@@ -292,7 +299,7 @@ namespace BeLife.Negocio
         {
             try
             {
-                BeLifeEntity bbdd = new BeLifeEntity();
+                BeLifeEntities bbdd = new BeLifeEntities();
                 List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Rut == rut).ToList<Entity.Cliente>();
                 List<Cliente> list = SyncList(listaC);
                 return list;
@@ -313,7 +320,7 @@ namespace BeLife.Negocio
         {
             try
             {
-                BeLifeEntity bbdd = new BeLifeEntity();
+                BeLifeEntities bbdd = new BeLifeEntities();
                 List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Rut == rut).ToList<Entity.Cliente>();
                 listaC = listaC.Where(cli => cli.IdSexo == idSexo ).ToList<Entity.Cliente>();
                 List<Cliente> list = SyncList(listaC);
@@ -330,7 +337,7 @@ namespace BeLife.Negocio
         {
             try
             {
-                BeLifeEntity bbdd = new BeLifeEntity();
+                BeLifeEntities bbdd = new BeLifeEntities();
                 List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Rut == rut).ToList<Entity.Cliente>();
                 listaC = listaC.Where(cli => cli.IdEstado == idEstado).ToList<Entity.Cliente>();
                 List<Cliente> list = SyncList(listaC);
@@ -353,7 +360,7 @@ namespace BeLife.Negocio
         {
             try
             {
-                BeLifeEntity bbdd = new BeLifeEntity();
+                BeLifeEntities bbdd = new BeLifeEntities();
                 List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.Rut == rut).ToList<Entity.Cliente>();
                 listaC = listaC.Where(cli => cli.IdSexo == idSexo).ToList<Entity.Cliente>();
                 listaC = listaC.Where(cli => cli.IdEstado == idEstado).ToList<Entity.Cliente>();
@@ -377,7 +384,7 @@ namespace BeLife.Negocio
         {
             try
             {
-                BeLifeEntity bbdd = new BeLifeEntity();
+                BeLifeEntities bbdd = new BeLifeEntities();
                 List<Entity.Cliente> listaC = bbdd.Cliente.Where(cli => cli.IdSexo == idSexo).ToList<Entity.Cliente>();
                 listaC = listaC.Where(cli => cli.IdEstado == idEstado).ToList<Entity.Cliente>();
                 List<Cliente> list = SyncList(listaC);

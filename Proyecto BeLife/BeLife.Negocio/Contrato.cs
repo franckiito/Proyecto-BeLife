@@ -9,11 +9,11 @@ namespace BeLife.Negocio
 {
     class Contrato
     {
-        public string NumeroContrato { get; set; }
+        public string Numero { get; set; }
         public DateTime Creacion { get; set; }
         public DateTime Termino { get; set; }
-        public Cliente Titular { get; set; }
-        public Plan PlanAsociado { get; set; }
+        public Cliente Titular = new Cliente();
+        public Plan PlanAsociado = new Plan();
         public string Poliza { get; set; } 
         public DateTime InicioVigencia { get; set; }
         public DateTime FinVigencia{ get; set; }
@@ -30,7 +30,7 @@ namespace BeLife.Negocio
 
         private void Init()
         {
-            NumeroContrato = string.Empty;
+            Numero = DateTime.Now.ToString("YYYYMMDDHHmmSS");
             Creacion = DateTime.Today;
             Termino = DateTime.Today;
             Titular = new Cliente();
@@ -51,7 +51,7 @@ namespace BeLife.Negocio
         public bool Create()
         {
             //Connexion a la base de datos
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             if (!this.Read())
             {
                 try
@@ -83,11 +83,11 @@ namespace BeLife.Negocio
         /// <returns></returns>
         public bool Read()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
                 //busca en la BD el contrato por numero
-                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.NumeroContrato).FirstOrDefault();
+                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.Numero).FirstOrDefault();
                 if(con != null)
                 {
                     //pasa los datos desde la entidad extraidad desde la BD a la clase de la aplicacion
@@ -108,11 +108,11 @@ namespace BeLife.Negocio
 
         public bool Update()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
                 //trae el contrato con el mismo numero de contrato
-                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.NumeroContrato).FirstOrDefault();
+                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.Numero).FirstOrDefault();
                 if (con != null)
                 {
                     //sincroniza la clase de la aplicacion con la entidad de BD y modifica los cambios
@@ -134,11 +134,11 @@ namespace BeLife.Negocio
 
         public bool Delete()
         {
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
                 //trae el contrato con el mismo numero de contrato de la clase
-                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.NumeroContrato).FirstOrDefault();
+                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.Numero).FirstOrDefault();
                 if (con != null)
                 {
                     //elimina el contrato de la BD y guarda los cambios
@@ -165,7 +165,7 @@ namespace BeLife.Negocio
         public List<Contrato> ReadAll()
         {
             List<Contrato> contrato = new List<Contrato>();
-            BeLifeEntity bbdd = new BeLifeEntity();
+            BeLifeEntities bbdd = new BeLifeEntities();
             List<Entity.Contrato> listaDatos = bbdd.Contrato.ToList<Entity.Contrato>();
             List<Contrato> list = SyncList(listaDatos);            
             return list;
@@ -193,8 +193,8 @@ namespace BeLife.Negocio
 
         public List<Contrato> ReadAllByNumeroContrato(string num)
         {
-            
-            BeLifeEntity bbdd = new BeLifeEntity();
+
+            BeLifeEntities bbdd = new BeLifeEntities();
             List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x=> x.Numero == num).ToList<Entity.Contrato>();
             List<Contrato> list = SyncList(listaDatos);
             return list;
@@ -202,8 +202,8 @@ namespace BeLife.Negocio
 
         public List<Contrato> ReadAllByRut(string rut)
         {
-            
-            BeLifeEntity bbdd = new BeLifeEntity();
+
+            BeLifeEntities bbdd = new BeLifeEntities();
             List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x=> x.RutCliente == rut).ToList<Entity.Contrato>();
             List<Contrato> list = SyncList(listaDatos);
             return list;
@@ -211,8 +211,8 @@ namespace BeLife.Negocio
 
         public List<Contrato> ReadAllByPoliza(string pol)
         {
-            
-            BeLifeEntity bbdd = new BeLifeEntity();
+
+            BeLifeEntities bbdd = new BeLifeEntities();
             List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.Plan.PolizaActual == pol).ToList<Entity.Contrato>();
             List<Contrato> list = SyncList(listaDatos);
             return list;

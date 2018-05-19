@@ -13,10 +13,10 @@ namespace BeLife.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BeLifeEntity : DbContext
+    public partial class BeLifeEntities : DbContext
     {
-        public BeLifeEntity()
-            : base("name=BeLifeEntity")
+        public BeLifeEntities()
+            : base("name=BeLifeEntities")
         {
         }
     
