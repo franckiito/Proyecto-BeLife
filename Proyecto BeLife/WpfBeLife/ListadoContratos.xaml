@@ -8,27 +8,40 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListadoContratos" Background="White" Width="1271" Height="629">
+    <Page.Resources>
+        <DataTemplate x:Key="PolizaTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding PolizaActual}"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </Page.Resources>
+
     <Grid Margin="164,78,23,157">
         <Button x:Name="BtnMenuLateral" HorizontalAlignment="Left" Margin="-164,-78,0,0" VerticalAlignment="Top" Width="58" Click="BtnMenuLateral_Click" Height="49" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Height="39" Width="34" Source="Images/MenuLateral.png"/>
         </Button>
-        <Rectangle HorizontalAlignment="Left" Height="121" Margin="-33,391,0,-142" Stroke="#FF833288" VerticalAlignment="Top" Width="348"/>
-        <Rectangle HorizontalAlignment="Left" Height="121" Margin="315,391,-2,-142" Stroke="#FF833288" VerticalAlignment="Top" Width="646"/>
-        <ComboBox HorizontalAlignment="Left" Margin="410,422,0,-54" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"/>
-        <ComboBox HorizontalAlignment="Left" Margin="410,475,0,-107" VerticalAlignment="Top" Width="166" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="121" Margin="-33,391,0,-118" Stroke="#FF833288" VerticalAlignment="Top" Width="994"/>
+        <ComboBox x:Name="cboPoliza" HorizontalAlignment="Left" Margin="510,424,0,-56" VerticalAlignment="Top" Width="166" BorderBrush="#FF833288" Foreground="#FF833288" Background="White" 
+                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource PolizaTemplate}"/>
         <Label Content="Número Contrato:" HorizontalAlignment="Left" Height="30" Margin="-9,394,0,-54" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <DataGrid HorizontalAlignment="Left" Height="360" Margin="-33,0,0,0" VerticalAlignment="Top" Width="992" BorderBrush="#FF833288" Foreground="#FF833288" Background="#FFBDBDBD" BorderThickness="1" HorizontalGridLinesBrush="#FF833288" VerticalGridLinesBrush="#FF1B1BA1" GridLinesVisibility="Vertical" OpacityMask="#FF833288"/>
+        <DataGrid x:Name="grdContratos" HorizontalAlignment="Left" Height="360" Margin="-33,0,0,0" VerticalAlignment="Top" Width="992" BorderBrush="#FF833288" Foreground="#FF833288" Background="#FFBDBDBD" BorderThickness="1" HorizontalGridLinesBrush="#FF833288" VerticalGridLinesBrush="#FF1B1BA1" GridLinesVisibility="Vertical" OpacityMask="#FF833288"/>
         <Label Content="Seguros Belife - Listado contratos" HorizontalAlignment="Left" Margin="-33,-36,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="BtnFiltrarRut" HorizontalAlignment="Left" Margin="189,422,0,-95" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587" >
-            <Label Content="Filtrar" Foreground="White" Height="26"  Margin="0,30
-                   ,0,0" />
+        <TextBox x:Name="txtNumeroContrato" HorizontalAlignment="Left" Height="30" Margin="-9,424,0,-84" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167" BorderBrush="#91469a" BorderThickness="1"/>
+        <Label Content="Rut Cliente" HorizontalAlignment="Left" Height="30" Margin="258,394,0,-30" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <Label Content="Poliza" HorizontalAlignment="Left" Height="30" Margin="510,394,0,-30" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <Button x:Name="btnBorrarFiltro" HorizontalAlignment="Left" Margin="716,424,0,-81" VerticalAlignment="Top" Width="110" Height="51" Background="#FF664587" Click="btnBorrarFiltro_Click">
+            <StackPanel>
+                <Label Content="Borrar Filtro" Foreground="White"/>
+            </StackPanel>
         </Button>
-        <TextBox x:Name="TxtRut" HorizontalAlignment="Left" Height="30" Margin="-9,424,0,-84" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167" BorderBrush="#91469a" BorderThickness="2"/>
-        <Label Content="Plan ID :" HorizontalAlignment="Left" Height="30" Margin="408,394,0,-54" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Label Content="Plan ID :" HorizontalAlignment="Left" Height="30" Margin="410,448,0,-84" VerticalAlignment="Top" Width="129" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Button x:Name="BtnFiltrar" HorizontalAlignment="Left" Margin="726,422,0,-95" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587">
-            <Label  Content="Filtrar" Foreground="White" Height="26"  Margin="0,30
-                   ,0,0" />
+        <Button x:Name="BtnFiltrar" HorizontalAlignment="Left" Margin="854,401,0,-93" VerticalAlignment="Top" Width="88" Height="86" Background="#FF664587" Click="BtnFiltrar_Click">
+            <Button.Content>
+                <StackPanel>
+                    <Image HorizontalAlignment="Left" Height="49"  VerticalAlignment="Top" Width="48" Source="Images/ContractSearch.png" />
+                    <Label Content="Filtrar" Foreground="White"/>
+                </StackPanel>
+            </Button.Content>
         </Button>
 
         <mah:Flyout x:Name="FlyMenu" Width="177" Margin="-164,-78,0,-157">
@@ -59,6 +72,7 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
+        <TextBox x:Name="txtRutCliente" HorizontalAlignment="Left" Height="30" Margin="258,424,0,-60" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167" BorderBrush="#91469a" BorderThickness="1"/>
     </Grid>
 
 

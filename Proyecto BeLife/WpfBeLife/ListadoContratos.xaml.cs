@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeLife.Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,29 @@ namespace WpfBeLife
         public ListadoContratos()
         {
             InitializeComponent();
+            LimpiaDatos();
+            CargaContratos();
+        }
+
+        private void CargaContratos()
+        {
+            Contrato contrato = new Contrato();
+            grdContratos.ItemsSource = contrato.ReadAll();
+        }
+
+        private void LimpiaDatos()
+        {
+            txtNumeroContrato.Text = "";
+            txtRutCliente.Text = "";
+            CargarPlan();
+        }
+
+        private void CargarPlan()
+        {
+            Plan plan = new Plan();
+            cboPoliza.ItemsSource = plan.ReadAll();
+            cboPoliza.Items.Refresh();
+            cboPoliza.SelectedIndex = -1;
         }
 
         private void BtnMantCliMenu_Click(object sender, RoutedEventArgs e)
@@ -54,6 +78,75 @@ namespace WpfBeLife
         {
             FlyMenu.IsOpen = true;
 
+        }
+
+        private void btnBorrarFiltro_Click(object sender, RoutedEventArgs e)
+        {
+            txtNumeroContrato.Text = "";
+            txtRutCliente.Text = "";
+            cboPoliza.SelectedIndex = -1;
+        }
+
+        private void BtnFiltrar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //Lee los controles de la interfaz.
+                string numeroContrato = txtNumeroContrato.Text;
+                string rutCliente = txtRutCliente.Text;
+
+                Plan plan = new Plan();
+                plan = (Plan)cboPoliza.SelectedValue;
+
+                Contrato contrato = new Contrato();
+
+                //Solo Numero Contrato
+                if (String.IsNullOrEmpty(numeroContrato) == false && String.IsNullOrEmpty(rutCliente) != false && !plan.Read())
+                {
+                    grdContratos.ItemsSource = contrato.ReadAllByNumeroContrato(numeroContrato);
+                }
+                //Solo Rut Cliente
+                if (String.IsNullOrEmpty(numeroContrato) != false && String.IsNullOrEmpty(rutCliente) == false && !plan.Read())
+                {
+                    grdContratos.ItemsSource = contrato.ReadAllByRutCliente(rutCliente);
+                }
+                //Solo Poliza
+                if (String.IsNullOrEmpty(numeroContrato) != false && String.IsNullOrEmpty(rutCliente) != false && plan.Read())
+                {
+                    grdContratos.ItemsSource = contrato.ReadAllByPoliza(plan.PolizaActual);
+                }
+                //Numero contrato y Rut
+                if (String.IsNullOrEmpty(numeroContrato) == false && String.IsNullOrEmpty(rutCliente) == false && !plan.Read())
+                {
+                    grdContratos.ItemsSource = contrato.ReadAllByNumByRut(numeroContrato, rutCliente);
+                }
+                //Numero contrato y Poliza
+                if (String.IsNullOrEmpty(numeroContrato) == false && String.IsNullOrEmpty(rutCliente) != false && plan.Read())
+                {
+                    grdContratos.ItemsSource = contrato.ReadAllByNumByPol(numeroContrato, plan.PolizaActual);
+                }
+                //Rut y Poliza
+                if (String.IsNullOrEmpty(numeroContrato) != false && String.IsNullOrEmpty(rutCliente) == false && plan.Read())
+                {
+                    grdContratos.ItemsSource = contrato.ReadAllByRutByPol(rutCliente, plan.PolizaActual);
+                }
+                //Rut, Sexo y Estado
+                if (String.IsNullOrEmpty(numeroContrato) == false && String.IsNullOrEmpty(rutCliente) == false && plan.Read())
+                {
+                    grdContratos.ItemsSource = contrato.ReadAllByAll(numeroContrato, rutCliente, plan.PolizaActual);
+                }
+                //NINGUNO
+                if (String.IsNullOrEmpty(numeroContrato) != false && String.IsNullOrEmpty(rutCliente) != false && !plan.Read())
+                {
+                    grdContratos.ItemsSource = contrato.ReadAll();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
     }
 }

@@ -13,7 +13,7 @@
 
         <DataTemplate x:Key="PlanTemplate">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding Descripcion}"/>
+                <TextBlock Text="{Binding Nombre}"/>
             </StackPanel>
         </DataTemplate>
 
@@ -31,7 +31,8 @@
         </Button>
 
         <TextBox x:Name="txtNumeroContrato" HorizontalAlignment="Left" Height="30" Margin="169,-25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="4"/>
-        <Border BorderBrush="#FFB4B4B4" BorderThickness="1" HorizontalAlignment="Left" Height="537" Margin="-17,-58,0,-109" VerticalAlignment="Top" Width="606" CornerRadius="10" Grid.ColumnSpan="4"/>
+        <Border BorderBrush="#FFB4B4B4" BorderThickness="1" HorizontalAlignment="Left" Height="537" Margin="-17,-58,0,-109" VerticalAlignment="Top" Width="606" CornerRadius="10" Grid.ColumnSpan="4">
+        </Border>
         <Label Content="Número contrato   :" HorizontalAlignment="Left" Height="30" Margin="13,-25,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Fecha termino        :" HorizontalAlignment="Left" Height="30" Margin="14,54,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Fecha Inicio            :" HorizontalAlignment="Left" Height="30" Margin="14,10,0,0" VerticalAlignment="Top" Width="149" FontSize="14" FontWeight="Bold" Foreground="#FF833288"/>
@@ -44,7 +45,8 @@
         <TextBox x:Name="txtObservacion" HorizontalAlignment="Left" Height="60" Margin="169,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="327" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="4"/>
         <Label Content="Rut cliente              :" HorizontalAlignment="Left" Height="30" Margin="14,90,0,0" VerticalAlignment="Top" Width="149" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="30" Margin="169,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="4"/>
-        <ComboBox x:Name="cboPlan" HorizontalAlignment="Left" Margin="169,195,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Background="{x:Null}" Foreground="{x:Null}" Grid.ColumnSpan="4"
+        <Label x:Name="RutMensaje" Content="" HorizontalAlignment="Left" Margin="32,92,0,254" Grid.Column="3"/>
+        <ComboBox x:Name="cboPlan" HorizontalAlignment="Left" Margin="169,195,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Foreground="#FF833288" Background="White" Grid.ColumnSpan="4"
                   IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource PlanTemplate}"/>
         <Label Content="Código plan            :" HorizontalAlignment="Left" Height="30" Margin="13,195,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Prima anual            :" HorizontalAlignment="Left" Height="30" Margin="13,230,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
@@ -106,7 +108,7 @@
         <Image HorizontalAlignment="Left" Height="55" Margin="15,376,0,-61" VerticalAlignment="Top" Width="48" Source="Images/ContractDelete.png" Grid.ColumnSpan="2" Grid.Column="1"/>
         <Image HorizontalAlignment="Left" Height="59" Margin="119,376,0,-65" VerticalAlignment="Top" Width="48" Source="Images/ContractUpdate.png" Grid.Column="3"/>
         <Image HorizontalAlignment="Left" Height="49" Margin="119,-29,0,0" VerticalAlignment="Top" Width="48" Source="Images/ContractSearch.png" Grid.Column="3"/>
-        <CheckBox x:Name="CheckVigente" HorizontalAlignment="Left" Margin="180,131,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <CheckBox x:Name="CheckVigente" HorizontalAlignment="Left" Margin="180,131,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
         <CheckBox x:Name="CheckDeclaracionSalud" HorizontalAlignment="Left" Margin="180,166,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
     </Grid>

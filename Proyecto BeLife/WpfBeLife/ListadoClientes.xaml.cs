@@ -147,5 +147,12 @@ namespace WpfBeLife
                 MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+
+        private void btnBorrarFiltro_Click(object sender, RoutedEventArgs e)
+        {
+            txtRut.Text = "";
+            cboEstado.SelectedIndex = -1;
+            cboSexo.SelectedIndex = -1;
+        }
     }
 }

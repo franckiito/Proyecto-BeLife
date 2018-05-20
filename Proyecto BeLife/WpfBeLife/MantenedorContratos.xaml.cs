@@ -24,6 +24,7 @@ namespace WpfBeLife
         public MantenedorContratos()
         {
             InitializeComponent();
+            CargarPlan();
         }
 
         private void BtnMantCliMenu_Click(object sender, RoutedEventArgs e)
@@ -61,21 +62,6 @@ namespace WpfBeLife
         {
             try
             {
-                Contrato contrato = new Contrato()
-                {
-                    Numero = txtNumeroContrato.Text,
-                    Creacion = (DateTime)FechaInicio.SelectedDate,
-                    Termino = (DateTime)FechaTermino.SelectedDate,
-                    InicioVigencia = DateTime.Today,
-                    FinVigencia = DateTime.Today,
-                    PrimaAnual = float.Parse(txtPrimaAnual.Text),
-                    PrimaMensual = float.Parse(txtPrimaMensual.Text),
-                    Observaciones = txtObservacion.Text,
-                    EstaVigente = (bool)CheckVigente.IsChecked,
-                    ConDeclaracionDeSalud = (bool)CheckDeclaracionSalud.IsChecked
-
-
-                };
 
                 Cliente cliente = new Cliente() {
                     Rut = txtRut.Text
@@ -86,6 +72,19 @@ namespace WpfBeLife
                     txtNombre.Text = cliente.Nombres;
                     txtApellido.Text = cliente.Apellidos;
                 }
+
+                Contrato contrato = new Contrato()
+                {
+                    Creacion = DateTime.Today,
+                    Termino = (DateTime)FechaTermino.SelectedDate,
+                    InicioVigencia = DateTime.Today,
+                    FinVigencia = DateTime.Today,
+                    PrimaMensual = float.Parse(txtPrimaMensual.Text),
+                    Observaciones = txtObservacion.Text,
+                    EstaVigente = (bool)CheckVigente.IsChecked,
+                    ConDeclaracionDeSalud = (bool)CheckDeclaracionSalud.IsChecked
+
+                };
 
                 if (contrato.Create())
                 {
@@ -190,10 +189,11 @@ namespace WpfBeLife
                     PrimaAnual = float.Parse(txtPrimaAnual.Text),
                     PrimaMensual = float.Parse(txtPrimaMensual.Text),
                     Observaciones = txtObservacion.Text,
-                    EstaVigente = (bool)CheckVigente.IsChecked,
-                    ConDeclaracionDeSalud = (bool)CheckDeclaracionSalud.IsChecked
+                    EstaVigente = false,
+                    ConDeclaracionDeSalud = false
                     
                 };
+
                 if (con.Update())
                 {
                     MessageBox.Show("Cliente actualizado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -207,10 +207,11 @@ namespace WpfBeLife
             }
         }
 
-        private void CargarcboPlan()
+        private void CargarPlan()
         {
-            Plan pl = new Plan();
-            cboPlan.ItemsSource = pl.ReadAll();
+            Plan plan = new Plan();
+            cboPlan.ItemsSource = plan.ReadAll();
+            cboPlan.Items.Refresh();
             cboPlan.SelectedIndex = -1;
         }
     }

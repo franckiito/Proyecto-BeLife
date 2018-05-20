@@ -51,15 +51,15 @@
         </Button>
         <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="30" Margin="-13,420,0,-54" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="2"/>
         <Rectangle HorizontalAlignment="Left" Height="121" Margin="-33,391,0,-116" Stroke="#FF833288" VerticalAlignment="Top" Width="992" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="210.5,429,0,-59" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
+        <ComboBox x:Name="cboEstado" HorizontalAlignment="Left" Margin="137,425,0,-55" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
                   IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource EstadoTemplate}" Grid.Column="1"/>
-        <ComboBox x:Name="cboSexo" HorizontalAlignment="Left" Margin="463.5,429,0,-59" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
+        <ComboBox x:Name="cboSexo" HorizontalAlignment="Left" Margin="349,425,0,-55" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
                   IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}" Grid.Column="1"/>
         <DataGrid x:Name="grdClientes" HorizontalAlignment="Left" Height="360" Margin="-33,0,0,0" VerticalAlignment="Top" Width="992" BorderBrush="#FF833288" Foreground="#FF833288" Background="#FFBDBDBD" BorderThickness="1" HorizontalGridLinesBrush="#FF833288" VerticalGridLinesBrush="#FF1B1BA1" GridLinesVisibility="Vertical" OpacityMask="#FF833288"
                   IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource ClienteTemplate}" Grid.ColumnSpan="2"/>
         <Label Content="Rut :" HorizontalAlignment="Left" Height="30" Margin="-13,391,0,-25" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.ColumnSpan="2"/>
-        <Label Content="Estado civil :" HorizontalAlignment="Left" Height="30" Margin="210.5,404,0,-38" VerticalAlignment="Top" Width="96" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="1"/>
-        <Label Content="Sexo :" HorizontalAlignment="Left" Height="30" Margin="463.5,404,0,-38" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Estado civil :" HorizontalAlignment="Left" Height="30" Margin="137,400,0,-34" VerticalAlignment="Top" Width="96" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Sexo :" HorizontalAlignment="Left" Height="30" Margin="349,400,0,-34" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="1"/>
         <Label Content="Seguros Belife - Listado clientes" HorizontalAlignment="Left" Margin="-33,-36,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
         <mah:Flyout x:Name="FlyMenu" Width="176" Margin="-169,-76,0,-157">
             <mah:Flyout.Background>
@@ -89,8 +89,18 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <Button x:Name="btnFiltrar" HorizontalAlignment="Left" Margin="741.5,429,0,-100" VerticalAlignment="Top" Width="84" Height="67" Background="#FF664587" Click="btnFiltrar_Click" Grid.Column="1">
-            <Label  Content="Filtrar" Foreground="White" Height="26"  Margin="0,30                    ,0,0" />
+        <Button x:Name="btnFiltrar" HorizontalAlignment="Left" Margin="771,404,0,-101" VerticalAlignment="Top" Width="100" Height="93" Background="#FF664587" Click="btnFiltrar_Click" Grid.Column="1">
+            <Button.Content>
+                <StackPanel>
+                    <Image Height="59" VerticalAlignment="Top" Width="50" Stretch="UniformToFill" Source="/Images/ClientSearch.png"   />
+                    <Label Content="Filtrar" Foreground="White"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button x:Name="btnBorrarFiltro" HorizontalAlignment="Left" Margin="597,420,0,-75" VerticalAlignment="Top" Width="110" Height="51" Background="#FF664587"  Grid.Column="1" Click="btnBorrarFiltro_Click">
+            <StackPanel>
+                <Label Content="Borrar Filtro" Foreground="White"/>
+            </StackPanel>
         </Button>
     </Grid>
 </Page>

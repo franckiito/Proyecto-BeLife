@@ -12,9 +12,29 @@ namespace BeLife.Negocio
         public string Numero { get; set; }
         public DateTime Creacion { get; set; }
         public DateTime Termino { get; set; }
+
+        //Relacion de composicion con la Clase Cliente.
         public Cliente Titular = new Cliente();
+
+        public string NombreCliente
+        {
+            get
+            {
+                string _nom = Titular.Nombres + " " + Titular.Apellidos;
+                return _nom;
+            }
+        }
+
+        //Relacion de composicion con la Clase Plan.
         public Plan PlanAsociado = new Plan();
-        public string Poliza { get; set; } 
+
+        public string Poliza
+        {
+            get
+            {
+                return PlanAsociado.PolizaActual;
+            }
+        } 
         public DateTime InicioVigencia { get; set; }
         public DateTime FinVigencia{ get; set; }
         public bool EstaVigente { get; set; }
@@ -22,6 +42,13 @@ namespace BeLife.Negocio
         public double PrimaAnual { get; set; }
         public double PrimaMensual { get; set; }
         public string Observaciones { get; set; }
+
+        //Relacion de dependencia: no forma parte de la clase, es utilizada para hacer alguna de sus operaciones
+        public void Tarificador()
+        {
+            Tarificador tarificador = new Tarificador();
+            tarificador.CalcularPrima();
+        }
 
         public Contrato()
         {
@@ -32,10 +59,10 @@ namespace BeLife.Negocio
         {
             Numero = DateTime.Now.ToString("YYYYMMDDHHmmSS");
             Creacion = DateTime.Today;
-            Termino = DateTime.Today;
+            Termino = DateTime.Today.AddYears(1);
             Titular = new Cliente();
             PlanAsociado = new Plan();
-            Poliza = string.Empty;
+            //Poliza = string.Empty;
             InicioVigencia = DateTime.Today;
             FinVigencia = DateTime.Today;
             EstaVigente = false;
@@ -59,6 +86,12 @@ namespace BeLife.Negocio
                     //sincronizacion de los datos, desde negocio a BD
                     Entity.Contrato con = new Entity.Contrato();
                     CommonBC.Syncronize(this, con);
+                    CommonBC.Syncronize(this.Titular, con.Cliente);
+                    con.RutCliente = this.Titular.Rut;
+                    CommonBC.Syncronize(this.PlanAsociado, con.Plan);
+                    con.CodigoPlan = this.PlanAsociado.Id;
+                    
+
                     //agrega el contrato a DB y guarda los cambios
                     bbdd.Contrato.Add(con);
                     bbdd.SaveChanges();
@@ -106,6 +139,10 @@ namespace BeLife.Negocio
             }
         }
 
+        /// <summary>
+        /// Actualiza el registro contrato.
+        /// </summary>
+        /// <returns></returns>
         public bool Update()
         {
             BeLifeEntities bbdd = new BeLifeEntities();
@@ -132,6 +169,10 @@ namespace BeLife.Negocio
             }
         }
 
+        /// <summary>
+        /// Elimina un registro de la tabla contrato.
+        /// </summary>
+        /// <returns></returns>
         public bool Delete()
         {
             BeLifeEntities bbdd = new BeLifeEntities();
@@ -159,16 +200,25 @@ namespace BeLife.Negocio
         }
 
         /// <summary>
-        /// Retorna todos los registros de la tabla Sexo.
+        /// Retorna todos los registros de la tabla Contrato.
         /// </summary>
         /// <returns>List<Sexo></returns>
         public List<Contrato> ReadAll()
         {
-            List<Contrato> contrato = new List<Contrato>();
-            BeLifeEntities bbdd = new BeLifeEntities();
-            List<Entity.Contrato> listaDatos = bbdd.Contrato.ToList<Entity.Contrato>();
-            List<Contrato> list = SyncList(listaDatos);            
-            return list;
+            try
+            {
+                List<Contrato> contrato = new List<Contrato>();
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Contrato> listaDatos = bbdd.Contrato.ToList<Entity.Contrato>();
+
+
+                List<Contrato> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al Listar todos los Contratos. " + ex.Message);
+            }
         }
 
         /// <summary>
@@ -178,45 +228,200 @@ namespace BeLife.Negocio
         /// <returns>List<Sexo></returns>
         private List<Contrato> SyncList(List<Entity.Contrato> listaDatos)
         {
-            List<Contrato> list = new List<Contrato>();
-
-            foreach (var x in listaDatos)
+            try
             {
-                Contrato contrato = new Contrato();
-                CommonBC.Syncronize(x, contrato);
-                list.Add(contrato);
+                List<Contrato> list = new List<Contrato>();
 
+                foreach (var x in listaDatos)
+                {
+                    Contrato contrato = new Contrato();
+                    CommonBC.Syncronize(x, contrato);
+
+                    //Asigna las propiedades del cliente a Titular.
+                    Cliente cliente = new Cliente();
+                    cliente.Rut = x.RutCliente;
+                    if (cliente.Read())
+                    {
+                        contrato.Titular = cliente;
+                    }
+                    else
+                    {
+                        throw new Exception("Error al leer el Cliente.");
+                    }
+
+                    //Asigna las propiedades del Plan a PlanAsociado.
+                    Plan plan = new Plan();
+                    plan.Id = x.CodigoPlan;
+                    if (plan.Read())
+                    {
+                        contrato.PlanAsociado = plan;
+                    }
+                    else
+                    {
+                        throw new Exception("Error al leer el Plan.");
+                    }
+
+                    list.Add(contrato);
+
+                }
+
+                return list;
             }
-
-            return list;
+            catch (Exception ex)
+            {
+                throw new Exception("Error al sincronizar listas. " + ex.Message);
+            }
         }
 
+        /// <summary>
+        /// Retorna una lista con los contratos que tengan el mismo numero contrato que el parametro
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
         public List<Contrato> ReadAllByNumeroContrato(string num)
         {
-
-            BeLifeEntities bbdd = new BeLifeEntities();
-            List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x=> x.Numero == num).ToList<Entity.Contrato>();
-            List<Contrato> list = SyncList(listaDatos);
-            return list;
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.Numero == num).ToList<Entity.Contrato>();
+                List<Contrato> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar ReadAllByNumeroContrato. " + ex);
+            }
         }
 
-        public List<Contrato> ReadAllByRut(string rut)
+        /// <summary>
+        /// Retorna una lista con los contratos que tengan el mismo RutCliente que el parametro
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <returns></returns>
+        public List<Contrato> ReadAllByRutCliente(string rut)
         {
-
-            BeLifeEntities bbdd = new BeLifeEntities();
-            List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x=> x.RutCliente == rut).ToList<Entity.Contrato>();
-            List<Contrato> list = SyncList(listaDatos);
-            return list;
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.RutCliente == rut).ToList<Entity.Contrato>();
+                List<Contrato> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar ReadAllByRut. " + ex);
+            }
         }
 
+        /// <summary>
+        /// Retorna una lista con los contratos que tengan la misma Poliza que el parametro
+        /// </summary>
+        /// <param name="pol"></param>
+        /// <returns></returns>
         public List<Contrato> ReadAllByPoliza(string pol)
         {
-
-            BeLifeEntities bbdd = new BeLifeEntities();
-            List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.Plan.PolizaActual == pol).ToList<Entity.Contrato>();
-            List<Contrato> list = SyncList(listaDatos);
-            return list;
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.Plan.PolizaActual == pol).ToList<Entity.Contrato>();
+                List<Contrato> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar ReadAllByPoliza. " + ex);
+            }
         }
 
+        /// <summary>
+        /// Retorna una lista con los contratos que tengan el mismo numero de contrato, rut cliente y Poliza que los parametros
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="rut"></param>
+        /// <param name="pol"></param>
+        /// <returns></returns>
+        public List<Contrato> ReadAllByAll(string num, string rut, string pol)
+        {
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.Numero == num).ToList<Entity.Contrato>();
+                listaDatos = listaDatos.Where(x => x.RutCliente == rut).ToList<Entity.Contrato>();
+                listaDatos = listaDatos.Where(x => x.Plan.PolizaActual == pol).ToList<Entity.Contrato>();
+                List<Contrato> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar ReadAllByAll. " + ex);
+            }
+        }
+
+        /// <summary>
+        /// Retorna una lista con los contratos que tengan el mismo numero de contrato y rut cliente que los parametros.
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="rut"></param>
+        /// <param name="pol"></param>
+        /// <returns></returns>
+        public List<Contrato> ReadAllByNumByRut(string num, string rut)
+        {
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.Numero == num).ToList<Entity.Contrato>();
+                listaDatos = listaDatos.Where(x => x.RutCliente == rut).ToList<Entity.Contrato>();
+                List<Contrato> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar ReadAllByNumByRut. " + ex);
+            }
+        }
+
+        /// <summary>
+        /// Retorna una lista con los contratos que tengan el mismo numero de contrato y Poliza que los parametros.
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="pol"></param>
+        /// <returns></returns>
+        public List<Contrato> ReadAllByNumByPol(string num, string pol)
+        {
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.Numero == num).ToList<Entity.Contrato>();
+                listaDatos = listaDatos.Where(x => x.Plan.PolizaActual == pol).ToList<Entity.Contrato>();
+                List<Contrato> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar ReadAllByNumByPol. " + ex);
+            }
+        }
+
+        /// <summary>
+        /// Retorna una lista con los contratos que tengan el mismo Rut Cliente y Poliza que los parametros.
+        /// </summary>
+        /// <param name="rut"></param>
+        /// <param name="pol"></param>
+        /// <returns></returns>
+        public List<Contrato> ReadAllByRutByPol(string rut, string pol)
+        {
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Contrato> listaDatos = bbdd.Contrato.Where(x => x.RutCliente == rut).ToList<Entity.Contrato>();
+                listaDatos = listaDatos.Where(x => x.Plan.PolizaActual == pol).ToList<Entity.Contrato>();
+                List<Contrato> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar ReadAllByRutByPol. " + ex);
+            }
+        }
     }
 }
