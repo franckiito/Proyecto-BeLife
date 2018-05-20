@@ -65,7 +65,7 @@ namespace BeLife.Negocio
             //Poliza = string.Empty;
             InicioVigencia = DateTime.Today;
             FinVigencia = DateTime.Today;
-            EstaVigente = false;
+            EstaVigente = true;
             ConDeclaracionDeSalud = false;
             PrimaAnual = 0;
             PrimaMensual = 0;

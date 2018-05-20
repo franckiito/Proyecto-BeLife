@@ -16,7 +16,7 @@ namespace BeLife.Entity
     {
         public string Numero { get; set; }
         public System.DateTime Creacion { get; set; }
-        public System.DateTime Termino { get; set; }
+        public Nullable<System.DateTime> Termino { get; set; }
         public string RutCliente { get; set; }
         public string CodigoPlan { get; set; }
         public System.DateTime InicioVigencia { get; set; }
