@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Usuario\Source\Repos\Proyecto-BeLife\Proyecto BeLife\WpfBeLife\obj\Debug\
+C:\Users\Usuario\Source\Repos\Proyecto-BeLife\Proyecto BeLife\WpfBeLife\obj\Release\
 WpfBeLife
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Usuario\Source\Repos\Proyecto-BeLife\Proyecto BeLife\WpfBeLife\App.xaml
 7-1621979839
 
 91588201243
-20201918717
+20-2106327075
 ListadoClientes.xaml;ListadoContratos.xaml;MantenedorClientes.xaml;MantenedorContratos.xaml;Principal.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
 
-False
+True
 

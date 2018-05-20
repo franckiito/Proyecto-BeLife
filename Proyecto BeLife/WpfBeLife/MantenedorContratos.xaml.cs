@@ -70,7 +70,11 @@ namespace WpfBeLife
                     FinVigencia = DateTime.Today,
                     PrimaAnual = float.Parse(txtPrimaAnual.Text),
                     PrimaMensual = float.Parse(txtPrimaMensual.Text),
-                    Observaciones = txtObservacion.Text
+                    Observaciones = txtObservacion.Text,
+                    EstaVigente = (bool)CheckVigente.IsChecked,
+                    ConDeclaracionDeSalud = (bool)CheckDeclaracionSalud.IsChecked
+
+
                 };
 
                 Cliente cliente = new Cliente() {
@@ -110,6 +114,104 @@ namespace WpfBeLife
             txtObservacion.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
+            CheckVigente.IsChecked = false;
+            CheckDeclaracionSalud.IsChecked = false;
+        }
+
+        private void BtnBuscarContr_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Contrato con = new Contrato()
+                {
+                    Numero = txtNumeroContrato.Text
+                };
+                if (con.Read())
+                {
+                    txtNumeroContrato.Text = con.Numero;
+                    FechaInicio.SelectedDate = con.Creacion;
+                    FechaTermino.SelectedDate = con.Termino;
+                    cboPlan.SelectedIndex = int.Parse(con.PlanAsociado.Id);
+                    txtPrimaAnual.Text = con.PrimaAnual+"";
+                    txtPrimaMensual.Text = con.PrimaMensual+"";
+                    txtObservacion.Text = con.Observaciones;
+                    txtNombre.Text = con.Titular.Nombres;
+                    txtApellido.Text = con.Titular.Apellidos;
+                    CheckVigente.IsChecked = con.EstaVigente;
+                    CheckDeclaracionSalud.IsChecked = con.ConDeclaracionDeSalud;
+                    MessageBox.Show("Datos del Contrato fueron cargados correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Datos del contrato no fueron encontrados.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
+        private void BtnEliminarContr_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Contrato con = new Contrato()
+                {
+                    Numero = txtNumeroContrato.Text
+                };
+                if (con.Delete())
+                {
+                    MessageBox.Show("El contrato de numero " + con.Numero + " fue eliminado.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LimpiaDatos();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            
+        }
+
+        private void BtnActualizarContr_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Contrato con = new Contrato()
+                {
+                    Numero = txtNumeroContrato.Text,
+                    Creacion = (DateTime)FechaInicio.SelectedDate,
+                    Termino = (DateTime)FechaTermino.SelectedDate,
+                    InicioVigencia = DateTime.Today,
+                    FinVigencia = DateTime.Today,
+                    PrimaAnual = float.Parse(txtPrimaAnual.Text),
+                    PrimaMensual = float.Parse(txtPrimaMensual.Text),
+                    Observaciones = txtObservacion.Text,
+                    EstaVigente = (bool)CheckVigente.IsChecked,
+                    ConDeclaracionDeSalud = (bool)CheckDeclaracionSalud.IsChecked
+                    
+                };
+                if (con.Update())
+                {
+                    MessageBox.Show("Cliente actualizado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LimpiaDatos();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
+        private void CargarcboPlan()
+        {
+            Plan pl = new Plan();
+            cboPlan.ItemsSource = pl.ReadAll();
+            cboPlan.SelectedIndex = -1;
         }
     }
 }

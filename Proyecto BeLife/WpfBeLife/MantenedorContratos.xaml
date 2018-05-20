@@ -21,43 +21,42 @@
 
     <Grid Margin="79,102,58,157">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="265*"/>
+            <ColumnDefinition Width="223*"/>
+            <ColumnDefinition Width="42*"/>
             <ColumnDefinition Width="41*"/>
-            <ColumnDefinition Width="829*"/>
+            <ColumnDefinition Width="828*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="BtnMenuLateral" HorizontalAlignment="Left" Margin="-80,-102,0,0" VerticalAlignment="Top" Width="58" Click="BtnMenuLateral_Click" Height="49" Background="{x:Null}" BorderBrush="{x:Null}">
             <Image Height="39" Width="34" Source="Images/MenuLateral.png"/>
         </Button>
 
-        <TextBox x:Name="txtNumeroContrato" HorizontalAlignment="Left" Height="30" Margin="169,-25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="3"/>
-        <Border BorderBrush="#FFB4B4B4" BorderThickness="1" HorizontalAlignment="Left" Height="537" Margin="-17,-58,0,-109" VerticalAlignment="Top" Width="606" CornerRadius="10" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="txtNumeroContrato" HorizontalAlignment="Left" Height="30" Margin="169,-25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="4"/>
+        <Border BorderBrush="#FFB4B4B4" BorderThickness="1" HorizontalAlignment="Left" Height="537" Margin="-17,-58,0,-109" VerticalAlignment="Top" Width="606" CornerRadius="10" Grid.ColumnSpan="4"/>
         <Label Content="Número contrato   :" HorizontalAlignment="Left" Height="30" Margin="13,-25,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Fecha termino        :" HorizontalAlignment="Left" Height="30" Margin="14,54,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Fecha Inicio            :" HorizontalAlignment="Left" Height="30" Margin="14,10,0,0" VerticalAlignment="Top" Width="149" FontSize="14" FontWeight="Bold" Foreground="#FF833288"/>
         <Label Content="Declaración salud   :" HorizontalAlignment="Left" Height="30" Margin="13,160,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Vigente&#x9;&#x9;    :  " HorizontalAlignment="Left" Height="30" Margin="13,125,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <ComboBox x:Name="cboDeclaracion" HorizontalAlignment="Left" Margin="169,164,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Background="{x:Null}" Foreground="{x:Null}" Grid.ColumnSpan="3"/>
-        <ComboBox x:Name="cboVigente" HorizontalAlignment="Left" Margin="169,129,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Foreground="{x:Null}" Background="{x:Null}" Grid.ColumnSpan="3"/>
         <Label Content="Seguros Belife - Mantenedor Contratos" HorizontalAlignment="Left" Height="27" Margin="-17,-85,0,0" VerticalAlignment="Top" Width="146" FontSize="16"/>
-        <DatePicker x:Name="FechaInicio" HorizontalAlignment="Left" Margin="169,14,0,0" VerticalAlignment="Top" Width="150" Foreground="#FF833288" BorderBrush="#FF833288" Background="#FFE2E2E2" Grid.ColumnSpan="3"/>
-        <DatePicker x:Name="FechaTermino" HorizontalAlignment="Left" Margin="169,54,0,0" VerticalAlignment="Top" Width="150" Foreground="#FF833288" BorderBrush="#FF833288" Background="#FFE2E2E2" Grid.ColumnSpan="3"/>
+        <DatePicker x:Name="FechaInicio" HorizontalAlignment="Left" Margin="169,14,0,0" VerticalAlignment="Top" Width="150" Foreground="#FF833288" BorderBrush="#FF833288" Background="#FFE2E2E2" Grid.ColumnSpan="4"/>
+        <DatePicker x:Name="FechaTermino" HorizontalAlignment="Left" Margin="169,54,0,0" VerticalAlignment="Top" Width="150" Foreground="#FF833288" BorderBrush="#FF833288" Background="#FFE2E2E2" Grid.ColumnSpan="4"/>
         <Label Content="Observación           :" HorizontalAlignment="Left" Height="30" Margin="14,300,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold" RenderTransformOrigin="0.543,-0.4"/>
-        <TextBox x:Name="txtObservacion" HorizontalAlignment="Left" Height="60" Margin="169,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="327" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="txtObservacion" HorizontalAlignment="Left" Height="60" Margin="169,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="327" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="4"/>
         <Label Content="Rut cliente              :" HorizontalAlignment="Left" Height="30" Margin="14,90,0,0" VerticalAlignment="Top" Width="149" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="30" Margin="169,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="3"/>
-        <ComboBox x:Name="cboPlan" HorizontalAlignment="Left" Margin="169,195,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Background="{x:Null}" Foreground="{x:Null}" Grid.ColumnSpan="3"
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="30" Margin="169,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="4"/>
+        <ComboBox x:Name="cboPlan" HorizontalAlignment="Left" Margin="169,195,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Background="{x:Null}" Foreground="{x:Null}" Grid.ColumnSpan="4"
                   IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource PlanTemplate}"/>
         <Label Content="Código plan            :" HorizontalAlignment="Left" Height="30" Margin="13,195,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Prima anual            :" HorizontalAlignment="Left" Height="30" Margin="13,230,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <TextBox x:Name="txtPrimaAnual" HorizontalAlignment="Left" Height="30" Margin="169,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="txtPrimaAnual" HorizontalAlignment="Left" Height="30" Margin="169,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="4"/>
         <Label Content="Prima mensual      :" HorizontalAlignment="Left" Height="30" Margin="13,265,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <TextBox x:Name="txtPrimaMensual" HorizontalAlignment="Left" Height="30" Margin="169,265,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="3"/>
-        <Border BorderBrush="#FFB4B4B4" BorderThickness="1" HorizontalAlignment="Left" Height="222" Margin="307,-58,0,0" VerticalAlignment="Top" Width="388" CornerRadius="10" Grid.Column="2"/>
-        <Label Content="Datos cliente" HorizontalAlignment="Left" Height="32" Margin="307,-90,0,0" VerticalAlignment="Top" Width="146" FontSize="16" Grid.Column="2"/>
-        <Label Content="Apellido cliente       :" HorizontalAlignment="Left" Height="30" Margin="338,23,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="2"/>
-        <Label Content="Nombre cliente        :" HorizontalAlignment="Left" Height="30" Margin="338,-25,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="2"/>
-        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="30" Margin="506,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.Column="2"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="30" Margin="506,-25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.Column="2"/>
+        <TextBox x:Name="txtPrimaMensual" HorizontalAlignment="Left" Height="30" Margin="169,265,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.ColumnSpan="4"/>
+        <Border BorderBrush="#FFB4B4B4" BorderThickness="1" HorizontalAlignment="Left" Height="222" Margin="307,-58,0,0" VerticalAlignment="Top" Width="388" CornerRadius="10" Grid.Column="3"/>
+        <Label Content="Datos cliente" HorizontalAlignment="Left" Height="32" Margin="307,-90,0,0" VerticalAlignment="Top" Width="146" FontSize="16" Grid.Column="3"/>
+        <Label Content="Apellido cliente       :" HorizontalAlignment="Left" Height="30" Margin="338,23,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="3"/>
+        <Label Content="Nombre cliente        :" HorizontalAlignment="Left" Height="30" Margin="338,-25,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="3"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="30" Margin="506,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.Column="3"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="30" Margin="506,-25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" Grid.Column="3"/>
         <mah:Flyout x:Name="FlyMenu" Width="177" Margin="-79,-102,0,-157">
             <mah:Flyout.Background>
                 <SolidColorBrush Color="#FF55317A" Opacity="0.9"/>
@@ -74,7 +73,7 @@
             </Grid>
 
         </mah:Flyout>
-        <Button HorizontalAlignment="Left" Margin="811,-102,-56,0" VerticalAlignment="Top" Width="74" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.Column="2">
+        <Button HorizontalAlignment="Left" Margin="811,-102,-57,0" VerticalAlignment="Top" Width="74" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.Column="3">
             <Image Source="Images/contrast_icon.png" RenderTransformOrigin="0.5,0.5" Height="34" Width="45">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -86,13 +85,13 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <Button x:Name="BtnBuscarContr" HorizontalAlignment="Left" Margin="93,-37,0,0" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Grid.Column="2">
+        <Button x:Name="BtnBuscarContr" HorizontalAlignment="Left" Margin="93,-37,0,0" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Grid.Column="3" Click="BtnBuscarContr_Click">
             <Label Content="Buscar" Margin="0,50                    ,0,0" Foreground="White"/>
         </Button>
-        <Button x:Name="BtnActualizarContr" HorizontalAlignment="Left" Margin="93,372,0,-95" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Grid.Column="2">
+        <Button x:Name="BtnActualizarContr" HorizontalAlignment="Left" Margin="93,372,0,-95" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Grid.Column="3" Click="BtnActualizarContr_Click">
             <Label Content="Actualizar" Margin="0,50                    ,0,0" Foreground="White"/>
         </Button>
-        <Button x:Name="BtnEliminarContr" HorizontalAlignment="Left" Margin="215,372,0,-95" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Grid.ColumnSpan="3">
+        <Button x:Name="BtnEliminarContr" HorizontalAlignment="Left" Margin="215,372,0,-95" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Grid.ColumnSpan="4" Click="BtnEliminarContr_Click">
             <Label Content="Eliminar" Margin="0,50                    ,0,0" Foreground="White"/>
         </Button>
         <Button x:Name="BtnCrearContr" HorizontalAlignment="Left" Margin="22,372,0,-95" Width="100" BorderBrush="#FF833288" Background="#FF664587" Click="BtnCrearContr_Click" >
@@ -103,10 +102,12 @@
                 </StackPanel>
             </Button.Content>
         </Button>
-        
-        <Image HorizontalAlignment="Left" Height="55" Margin="238,376,0,-61" VerticalAlignment="Top" Width="48" Source="Images/ContractDelete.png" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="Left" Height="59" Margin="119,376,0,-65" VerticalAlignment="Top" Width="48" Source="Images/ContractUpdate.png" Grid.Column="2"/>
-        <Image HorizontalAlignment="Left" Height="49" Margin="119,-29,0,0" VerticalAlignment="Top" Width="48" Source="Images/ContractSearch.png" Grid.Column="2"/>
+
+        <Image HorizontalAlignment="Left" Height="55" Margin="15,376,0,-61" VerticalAlignment="Top" Width="48" Source="Images/ContractDelete.png" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="59" Margin="119,376,0,-65" VerticalAlignment="Top" Width="48" Source="Images/ContractUpdate.png" Grid.Column="3"/>
+        <Image HorizontalAlignment="Left" Height="49" Margin="119,-29,0,0" VerticalAlignment="Top" Width="48" Source="Images/ContractSearch.png" Grid.Column="3"/>
+        <CheckBox x:Name="CheckVigente" HorizontalAlignment="Left" Margin="180,131,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <CheckBox x:Name="CheckDeclaracionSalud" HorizontalAlignment="Left" Margin="180,166,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Page>

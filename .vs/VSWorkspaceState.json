@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Proyecto BeLife",
-    "\\Proyecto BeLife\\BeLife.Entity",
-    "\\Proyecto BeLife\\BeLife.Negocio"
+    "\\Proyecto BeLife\\WpfBeLife"
   ],
-  "SelectedNode": "\\Proyecto BeLife\\BeLife.Negocio\\Contrato.cs",
+  "SelectedNode": "\\Proyecto BeLife\\WpfBeLife\\Principal.xaml.cs",
   "PreviewInSolutionExplorer": false
 }
