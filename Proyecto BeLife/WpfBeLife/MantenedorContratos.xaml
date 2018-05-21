@@ -13,7 +13,7 @@
 
         <DataTemplate x:Key="PlanTemplate">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding Nombre}"/>
+                <TextBlock Text="{Binding Id}"/>
             </StackPanel>
         </DataTemplate>
 
@@ -31,18 +31,20 @@
         <Border BorderBrush="#FFB4B4B4" BorderThickness="1" HorizontalAlignment="Left" Height="537" Margin="-17,-58,0,-109" VerticalAlignment="Top" Width="606" CornerRadius="10"/>
         <Label Content="Número contrato   :" HorizontalAlignment="Left" Height="30" Margin="13,-25,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Fecha Inicio vigencia" HorizontalAlignment="Left" Height="30" Margin="14,10,0,0" VerticalAlignment="Top" Width="149" FontSize="14" FontWeight="Bold" Foreground="#FF833288"/>
-        <Label Content="Declaración salud   :" HorizontalAlignment="Left" Height="30" Margin="13,160,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Label Content="Vigente&#x9;&#x9;    :  " HorizontalAlignment="Left" Height="30" Margin="13,125,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <Label Content="Declaración salud   :" HorizontalAlignment="Left" Height="30" Margin="13,96,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <Label Content="Poliza  :" HorizontalAlignment="Left" Height="30" Margin="14,166,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <TextBox x:Name="txtPoliza" HorizontalAlignment="Left" Height="30" Margin="169,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" IsEnabled="False" 
+                 />
         <Label Content="Seguros Belife - Mantenedor Contratos" HorizontalAlignment="Left" Height="27" Margin="-17,-85,0,0" VerticalAlignment="Top" Width="146" FontSize="16"/>
         <DatePicker x:Name="InicioVigencia" HorizontalAlignment="Left" Margin="169,14,0,0" VerticalAlignment="Top" Width="150" Foreground="#FF833288" BorderBrush="#FF833288" Background="#FFE2E2E2" Height="26"/>
         <Label Content="Observación           :" HorizontalAlignment="Left" Height="30" Margin="14,300,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold" RenderTransformOrigin="0.543,-0.4"/>
         <TextBox x:Name="txtObservacion" HorizontalAlignment="Left" Height="60" Margin="169,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="327" BorderBrush="#91469a" BorderThickness="2"/>
-        <Label Content="Rut cliente              :" HorizontalAlignment="Left" Height="30" Margin="14,90,0,0" VerticalAlignment="Top" Width="149" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="30" Margin="169,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2"/>
-        <Label x:Name="RutMensaje" Content="" HorizontalAlignment="Left" Margin="338,92,0,254" Width="10"/>
-        <ComboBox x:Name="cboPlan" HorizontalAlignment="Left" Margin="169,195,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
-                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource PlanTemplate}" Height="26"/>
-        <Label Content="Código plan            :" HorizontalAlignment="Left" Height="30" Margin="13,195,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <Label Content="Rut cliente              :" HorizontalAlignment="Left" Height="30" Margin="13,58,0,0" VerticalAlignment="Top" Width="149" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="30" Margin="168,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" LostFocus="txtRut_LostFocus" />
+        <Label x:Name="RutMensaje" HorizontalAlignment="Left" Margin="338,58,0,288" Width="10"/>
+        <ComboBox x:Name="cboPlan" HorizontalAlignment="Left" Margin="169,131,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
+                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource PlanTemplate}" Height="26"   />
+        <Label Content="Código plan            :" HorizontalAlignment="Left" Height="30" Margin="13,131,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Prima anual            :" HorizontalAlignment="Left" Height="30" Margin="13,230,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <TextBox x:Name="txtPrimaAnual" HorizontalAlignment="Left" Height="30" Margin="169,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2"/>
         <Label Content="Prima mensual      :" HorizontalAlignment="Left" Height="30" Margin="13,265,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
@@ -51,8 +53,8 @@
         <Label Content="Datos cliente" HorizontalAlignment="Left" Height="32" Margin="613,-90,0,0" VerticalAlignment="Top" Width="146" FontSize="16"/>
         <Label Content="Apellido cliente       :" HorizontalAlignment="Left" Height="30" Margin="644,23,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Nombre cliente        :" HorizontalAlignment="Left" Height="30" Margin="644,-25,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="30" Margin="812,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="30" Margin="812,-25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="30" Margin="812,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" IsEnabled="False"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="30" Margin="812,-25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" IsEnabled="False"/>
         <mah:Flyout x:Name="FlyMenu" Width="177" Margin="-257,-102,0,-157">
             <mah:Flyout.Background>
                 <SolidColorBrush Color="#FF55317A" Opacity="0.9"/>
@@ -102,8 +104,7 @@
         <Image HorizontalAlignment="Left" Height="55" Margin="271,376,0,-61" VerticalAlignment="Top" Width="48" Source="Images/ContractDelete.png"/>
         <Image HorizontalAlignment="Left" Height="59" Margin="425,376,0,-65" VerticalAlignment="Top" Width="48" Source="Images/ContractUpdate.png"/>
         <Image HorizontalAlignment="Left" Height="49" Margin="425,-29,0,0" VerticalAlignment="Top" Width="48" Source="Images/ContractSearch.png"/>
-        <CheckBox x:Name="CheckVigente" HorizontalAlignment="Left" Margin="180,131,0,0" VerticalAlignment="Top" Height="18" Width="24" />
-        <CheckBox x:Name="CheckDeclaracionSalud" HorizontalAlignment="Left" Margin="180,166,0,0" VerticalAlignment="Top" Height="18" Width="24"/>
+        <CheckBox x:Name="CheckDeclaracionSalud" HorizontalAlignment="Left" Margin="180,102,0,0" VerticalAlignment="Top" Height="18" Width="24"/>
 
     </Grid>
 </Page>

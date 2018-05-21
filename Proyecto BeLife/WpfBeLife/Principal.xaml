@@ -68,7 +68,6 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1104,120,-1025,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Page>

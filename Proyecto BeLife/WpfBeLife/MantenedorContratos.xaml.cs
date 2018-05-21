@@ -21,10 +21,21 @@ namespace WpfBeLife
     /// </summary>
     public partial class MantenedorContratos : Page
     {
+        Validaciones validaciones = new Validaciones();
         public MantenedorContratos()
         {
             InitializeComponent();
-            CargarPlan();
+            txtNumeroContrato.Text = validaciones.GeneraNumeroContrato();
+            CargaPlanes();
+        }
+
+        private void CargaPlanes()
+        {
+            Plan plan = new Plan();
+            cboPlan.ItemsSource = plan.ReadAll();
+            cboPlan.Items.Refresh();
+
+            cboPlan.SelectedIndex = -1;
         }
 
         private void BtnMantCliMenu_Click(object sender, RoutedEventArgs e)
@@ -62,38 +73,58 @@ namespace WpfBeLife
         {
             try
             {
-
-                Cliente cliente = new Cliente() {
-                    Rut = txtRut.Text
-                };
-
-                if (cliente.Read())
+                if (ValidaDatosContrato())
                 {
-                    txtNombre.Text = cliente.Nombres;
-                    txtApellido.Text = cliente.Apellidos;
-                }
+                    
+                    Contrato contrato = new Contrato()
+                    {
+                        Creacion = DateTime.Today,
+                        InicioVigencia = (DateTime)InicioVigencia.SelectedDate,
+                        PrimaMensual = float.Parse(txtPrimaMensual.Text),
+                        PrimaAnual = float.Parse(txtPrimaAnual.Text),
+                        Observaciones = txtObservacion.Text,
+                        ConDeclaracionDeSalud = (bool)CheckDeclaracionSalud.IsChecked
+                    };
 
-                Contrato contrato = new Contrato()
-                {
-                    Creacion = DateTime.Today,
-                    Termino = (DateTime)FechaTermino.SelectedDate,
-                    InicioVigencia = DateTime.Today,
-                    FinVigencia = DateTime.Today,
-                    PrimaMensual = float.Parse(txtPrimaMensual.Text),
-                    Observaciones = txtObservacion.Text,
-                    EstaVigente = (bool)CheckVigente.IsChecked,
-                    ConDeclaracionDeSalud = (bool)CheckDeclaracionSalud.IsChecked
+                    contrato.Termino = validaciones.GeneraTermino(contrato.InicioVigencia);
+                    contrato.FinVigencia = validaciones.GeneraTermino(contrato.InicioVigencia);
 
-                };
+                    Cliente cliente = new Cliente()
+                    {
+                        Rut = txtRut.Text
+                    };
 
-                if (contrato.Create())
-                {
-                    MessageBox.Show("Contrato agregado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LimpiaDatos();
-                }
-                else
-                {
-                    MessageBox.Show("El Contrato no se pudo agregar.", "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    if (cliente.Read())
+                    {
+                        contrato.Titular = cliente;
+
+                        Plan plan = new Plan();
+                        plan = (Plan)cboPlan.SelectedItem;
+
+                        if (plan.Read())
+                        {
+                            contrato.PlanAsociado = plan;
+
+                            if (contrato.Create())
+                            {
+                                MessageBox.Show("Contrato agregado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                                LimpiaDatos();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Contrato no se pudo agregar.", "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al cargar plan.", "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Rut :" + cliente.Rut + " no existe, no se puede crear el contrato.", "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -125,15 +156,13 @@ namespace WpfBeLife
                 if (con.Read())
                 {
                     txtNumeroContrato.Text = con.Numero;
-                    FechaInicio.SelectedDate = con.Creacion;
-                    FechaTermino.SelectedDate = con.Termino;
+                    InicioVigencia.SelectedDate = con.Creacion;
                     cboPlan.SelectedIndex = int.Parse(con.PlanAsociado.Id);
                     txtPrimaAnual.Text = con.PrimaAnual+"";
                     txtPrimaMensual.Text = con.PrimaMensual+"";
                     txtObservacion.Text = con.Observaciones;
                     txtNombre.Text = con.Titular.Nombres;
                     txtApellido.Text = con.Titular.Apellidos;
-                    CheckVigente.IsChecked = con.EstaVigente;
                     CheckDeclaracionSalud.IsChecked = con.ConDeclaracionDeSalud;
                     MessageBox.Show("Datos del Contrato fueron cargados correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -199,12 +228,86 @@ namespace WpfBeLife
             }
         }
 
-        private void CargarPlan()
+        private void txtRut_LostFocus(object sender, RoutedEventArgs e)
         {
-            Plan plan = new Plan();
-            cboPlan.ItemsSource = plan.ReadAll();
-            cboPlan.Items.Refresh();
-            cboPlan.SelectedIndex = -1;
+
+            try
+            {
+                if (validaciones.ValidaRut(txtRut.Text))
+                {
+                    Cliente cliente = new Cliente()
+                    {
+                        Rut = txtRut.Text
+                    };
+                    if (cliente.Read())
+                    {
+                        txtNombre.Text = cliente.Nombres;
+                        txtApellido.Text = cliente.Apellidos;
+                        txtRut.BorderBrush = new SolidColorBrush(Colors.Green);
+                    }
+                    else
+                    {
+                        txtRut.BorderBrush = new SolidColorBrush(Colors.Red);
+                        RutMensaje.Content = "No existe el rut ingresado en la Base de datos";
+                    }
+                }
+                else
+                {
+                    txtRut.BorderBrush = new SolidColorBrush(Colors.Red);
+                    RutMensaje.Content = "Rut Invalido";
+                }
+                
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        public bool ValidaDatosContrato()
+        {
+            bool valida = true;
+            try
+            { 
+
+                if (!validaciones.ValidaNumeroContrato(txtNumeroContrato.Text))
+                {
+                    valida = false;
+                }
+                if (!validaciones.ValidaInicioVigencia((DateTime)InicioVigencia.SelectedDate))
+                {
+                    valida = false;
+                }
+                if (!validaciones.ValidaRut(txtRut.Text))
+                {
+                    valida = false;
+                }
+                if (!validaciones.ValidaComboBoxPlan(cboPlan.SelectedIndex))
+                {
+                    valida = false;
+                }
+                if (!validaciones.ValidaPolizaAnual(txtPrimaAnual.Text))
+                {
+                    valida = false;
+                }
+                if (!validaciones.ValidaPolizaMensual(txtPrimaMensual.Text))
+                {
+                    valida = false;
+                }
+                if (!validaciones.ValidaObservaciones(txtObservacion.Text))
+                {
+                    valida = false;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return valida;
         }
     }
 }

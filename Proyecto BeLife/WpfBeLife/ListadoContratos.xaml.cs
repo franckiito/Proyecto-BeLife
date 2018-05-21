@@ -96,7 +96,11 @@ namespace WpfBeLife
                 string rutCliente = txtRutCliente.Text;
 
                 Plan plan = new Plan();
-                plan = (Plan)cboPoliza.SelectedValue;
+                
+                if(cboPoliza.SelectedIndex >= 0)
+                {
+                    plan = (Plan)cboPoliza.SelectedItem;
+                }
 
                 Contrato contrato = new Contrato();
 

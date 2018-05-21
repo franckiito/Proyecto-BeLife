@@ -8,6 +8,7 @@ namespace BeLife.Negocio
 {
     public class Validaciones
     {
+        
 
         /// <summary>
         /// Retorna True si el rut es valido y no es nulo.
@@ -211,6 +212,179 @@ namespace BeLife.Negocio
                 {
                     valida = false;
                     throw new Exception("Debe seleccionar un item del combobox Sexo.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        
+        /// <summary>
+        /// Retorna el numero de contrato generado por la la fecha actual.
+        /// </summary>
+        /// <returns></returns>
+        public string GeneraNumeroContrato()
+        {
+            return DateTime.Now.ToString("yyyyMMddHHmmss");
+        }
+
+        public DateTime GeneraTermino(DateTime fecha)
+        {
+            return fecha.AddMonths(+1);
+        }
+
+        /// <summary>
+        /// Retorna true si el numero de contrato es valido.
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
+        public bool ValidaNumeroContrato(string numero)
+        {
+            try
+            {
+                bool valida = true;
+
+                if (string.IsNullOrEmpty(numero))
+                {
+                    valida = false;
+                    throw new Exception("Debe Ingresar Numero Contrato.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna trye cuando la fecha incio Vigencia es valida.
+        /// </summary>
+        /// <param name="fecha"></param>
+        /// <returns></returns>
+        public bool ValidaInicioVigencia(DateTime fecha)
+        {
+            try
+            {
+                bool valida = true;
+                if (fecha == null)
+                {
+                    valida = false;
+                    throw new Exception("Debe ingresar fecha inicio vigencia.");
+                }
+                if ( fecha < DateTime.Now ) 
+                {
+                    valida = false;
+                    throw new Exception("La fecha inicio vigencia no puede ser menor a la fecha actual.");
+                }
+                if((DateTime.Now.Month - fecha.Month) >= 1)
+                {
+                    valida = false;
+                    throw new Exception("La fecha inicio vigencia no puede tener mas de un mes de anticipo");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Valida Fecha Inicio Vigencia. " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna true cuando se ha seleccionado un combobox.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool ValidaComboBoxPlan(int index)
+        {
+            try
+            {
+                bool valida = true;
+
+                if (index < 0)
+                {
+                    valida = false;
+                    throw new Exception("Debe seleccionar un item del combobox Plan.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna true si la poliza anual es valida.
+        /// </summary>
+        /// <param name="pol"></param>
+        /// <returns></returns>
+        public bool ValidaPolizaAnual(string pol)
+        {
+            try
+            {
+                bool valida = true;
+
+                if (string.IsNullOrEmpty(pol))
+                {
+                    valida = false;
+                    throw new Exception("Debe Ingresar Poliza Anual.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna true si la poliza mensual es valida.
+        /// </summary>
+        /// <param name="pol"></param>
+        /// <returns></returns>
+        public bool ValidaPolizaMensual(string pol)
+        {
+            try
+            {
+                bool valida = true;
+
+                if (string.IsNullOrEmpty(pol))
+                {
+                    valida = false;
+                    throw new Exception("Debe Ingresar Poliza Mensual.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna true si la observacion es valida.
+        /// </summary>
+        /// <param name="observacion"></param>
+        /// <returns></returns>
+        public bool ValidaObservaciones(string observacion)
+        {
+            try
+            {
+                bool valida = true;
+
+                if (string.IsNullOrEmpty(observacion))
+                {
+                    valida = false;
+                    throw new Exception("Debe ingresar observacion.");
                 }
 
                 return valida;

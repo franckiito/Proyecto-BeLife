@@ -22,7 +22,7 @@
     </Key>
     <Property Name="Numero" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Creacion" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Termino" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Termino" Type="DateTime" Precision="3" />
     <Property Name="RutCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CodigoPlan" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="InicioVigencia" Type="DateTime" Nullable="false" Precision="3" />

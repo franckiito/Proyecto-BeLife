@@ -16,11 +16,11 @@ namespace BeLife.Negocio
         public DateTime FechaNacimiento { get; set; }
         public Sexo Sexo = new Sexo();
         public EstadoCivil EstadoCivil = new EstadoCivil();
-        public string SexoCliente
+        public string Genero
         {
             get { return Sexo.Descripcion; }
         }
-        public string EstadoCliente
+        public string Estado
         {
             get { return EstadoCivil.Descripcion; }
         }
@@ -156,19 +156,27 @@ namespace BeLife.Negocio
             BeLifeEntities bbdd = new BeLifeEntities();
             try
             {
-                //trae el contrato con el mismo numero de contrato
-                Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
-                if (cli != null)
+                Entity.Contrato contrato = bbdd.Contrato.Where(con => con.RutCliente == Rut).FirstOrDefault();
+                if(contrato == null)
                 {
-                    //sincroniza la clase de la aplicacion con la entidad de BD y modifica los cambios
-                    bbdd.Cliente.Remove(cli);
-                    bbdd.SaveChanges();
-                    return true;
+                    Entity.Cliente cli = bbdd.Cliente.Where(x => x.Rut == this.Rut).FirstOrDefault();
+                    if (cli != null)
+                    {
+                        //sincroniza la clase de la aplicacion con la entidad de BD y modifica los cambios
+                        bbdd.Cliente.Remove(cli);
+                        bbdd.SaveChanges();
+                        return true;
+                    }
+                    else
+                    {
+                        throw new Exception("El cliente no existe.");
+                    }
                 }
                 else
                 {
-                    throw new Exception("El cliente no existe.");
+                    throw new Exception("El cliente tiene un contrato asociado.");
                 }
+
             }
             catch (Exception ex)
             {

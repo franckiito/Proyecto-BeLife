@@ -69,7 +69,7 @@ namespace WpfBeLife
         {
             try
             {
-                if (ValidaDatos())
+                if (ValidaDatosCliente())
                 {
                     Cliente cliente = new Cliente()
                     {
@@ -113,7 +113,11 @@ namespace WpfBeLife
 
         }
 
-        public bool ValidaDatos()
+        /// <summary>
+        /// Retorna true si todos los campos son validados.
+        /// </summary>
+        /// <returns></returns>
+        public bool ValidaDatosCliente()
         {
             try
             {
@@ -210,7 +214,7 @@ namespace WpfBeLife
         {
             try
             {
-                if (ValidaDatos())
+                if (ValidaDatosCliente())
                 {
                     Cliente cliente = new Cliente()
                     {
