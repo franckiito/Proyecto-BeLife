@@ -55,7 +55,7 @@
         <Label Content="Nombre cliente        :" HorizontalAlignment="Left" Height="30" Margin="644,-25,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="30" Margin="812,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" IsEnabled="False"/>
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="30" Margin="812,-25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" IsEnabled="False"/>
-        <mah:Flyout x:Name="FlyMenu" Width="177" Margin="-257,-102,0,-157">
+        <mah:Flyout x:Name="FlyMenu" Width="177" Margin="-80,-102,0,-157">
             <mah:Flyout.Background>
                 <SolidColorBrush Color="#FF55317A" Opacity="0.9"/>
             </mah:Flyout.Background>

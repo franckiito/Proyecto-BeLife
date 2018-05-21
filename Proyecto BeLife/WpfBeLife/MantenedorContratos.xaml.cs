@@ -373,8 +373,8 @@ namespace WpfBeLife
                         float recargo;
                         recargo = float.Parse(txtPrimaAnual.Text);
 
-                        txtPrimaAnual.Text = (plan.PrimaBase + recargo).ToString();
-                        txtPrimaMensual.Text = ((plan.PrimaBase + recargo) / 12).ToString();
+                        txtPrimaAnual.Text = Math.Round((plan.PrimaBase + recargo),3).ToString();
+                        txtPrimaMensual.Text = Math.Round(((plan.PrimaBase + recargo) / 12),3).ToString();
                     }
                 }
             }
