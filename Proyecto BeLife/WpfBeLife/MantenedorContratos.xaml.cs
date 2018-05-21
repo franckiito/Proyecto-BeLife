@@ -133,42 +133,53 @@ namespace WpfBeLife
             }
         }
 
+        
+
         private void LimpiaDatos()
         {
             txtNumeroContrato.Text = "";
-            InicioVigencia.SelectedDate = null;
+            InicioVigencia.SelectedDate = DateTime.Today;
             cboPlan.SelectedIndex = -1;
             txtPrimaAnual.Text = "";
             txtPrimaMensual.Text = "";
             txtObservacion.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
+            txtPoliza.Text = "";
+            txtRut.Text = "";
+            CheckDeclaracionSalud.IsChecked = false;
         }
 
         private void BtnBuscarContr_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Contrato con = new Contrato()
+                if (validaciones.ValidaNumeroContrato(txtNumeroContrato.Text)) 
                 {
-                    Numero = txtNumeroContrato.Text
-                };
-                if (con.Read())
-                {
-                    txtNumeroContrato.Text = con.Numero;
-                    InicioVigencia.SelectedDate = con.Creacion;
-                    cboPlan.SelectedIndex = int.Parse(con.PlanAsociado.Id);
-                    txtPrimaAnual.Text = con.PrimaAnual+"";
-                    txtPrimaMensual.Text = con.PrimaMensual+"";
-                    txtObservacion.Text = con.Observaciones;
-                    txtNombre.Text = con.Titular.Nombres;
-                    txtApellido.Text = con.Titular.Apellidos;
-                    CheckDeclaracionSalud.IsChecked = con.ConDeclaracionDeSalud;
-                    MessageBox.Show("Datos del Contrato fueron cargados correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Datos del contrato no fueron encontrados.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Contrato con = new Contrato()
+                    {
+                        Numero = txtNumeroContrato.Text
+                    };
+                    if (con.Read())
+                    {
+                        txtNumeroContrato.Text = con.Numero;
+                        InicioVigencia.SelectedDate = con.Creacion;
+                        cboPlan.SelectedValue = con.PlanAsociado.Id;
+                        txtPrimaAnual.Text = con.PrimaAnual + "";
+                        txtPrimaMensual.Text = con.PrimaMensual + "";
+                        txtObservacion.Text = con.Observaciones;
+                        txtRut.Text = con.Titular.Rut;
+                        txtNombre.Text = con.Titular.Nombres;
+                        txtApellido.Text = con.Titular.Apellidos;
+                        CheckDeclaracionSalud.IsChecked = con.ConDeclaracionDeSalud;
+
+
+                        MessageBox.Show("Datos del Contrato fueron cargados correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Datos del contrato no fueron encontrados.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
 
             }
@@ -205,20 +216,23 @@ namespace WpfBeLife
         {
             try
             {
-                Contrato con = new Contrato()
+                if (ValidaDatosContrato())
                 {
-                    Numero = txtNumeroContrato.Text,
-                    Creacion = DateTime.Today,
-                    InicioVigencia = (DateTime)InicioVigencia.SelectedDate,
-                    PrimaAnual = float.Parse(txtPrimaAnual.Text),
-                    PrimaMensual = float.Parse(txtPrimaMensual.Text),
-                    Observaciones = txtObservacion.Text
-                };
+                    Contrato contrato = new Contrato()
+                    {
+                        Numero = txtNumeroContrato.Text,
+                        InicioVigencia = (DateTime)InicioVigencia.SelectedDate,
+                        PrimaAnual = float.Parse(txtPrimaAnual.Text),
+                        PrimaMensual = float.Parse(txtPrimaMensual.Text),
+                        Observaciones = txtObservacion.Text
+                    };
 
-                if (con.Update())
-                {
-                    MessageBox.Show("Cliente actualizado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LimpiaDatos();
+                    if (contrato.Update())
+                    {
+                        MessageBox.Show("Contrato Actualizado correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                        LimpiaDatos();
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -304,10 +318,31 @@ namespace WpfBeLife
             }
             catch (Exception ex)
             {
-
+                valida = false;
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return valida;
+        }
+
+        private void cboPlan_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                if (cboPlan.SelectedIndex != -1)
+                {
+                    Plan plan = new Plan();
+                    plan = (Plan)cboPlan.SelectedItem;
+
+                    if (plan.Read())
+                    {
+                        txtPoliza.Text = plan.PolizaActual;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

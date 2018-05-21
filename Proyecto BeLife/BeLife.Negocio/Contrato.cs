@@ -127,17 +127,19 @@ namespace BeLife.Negocio
                 {
                     //pasa los datos desde la entidad extraidad desde la BD a la clase de la aplicacion
                     CommonBC.Syncronize(con, this);
+                    CommonBC.Syncronize(con.Cliente, this.Titular);
+                    CommonBC.Syncronize(con.Plan, this.PlanAsociado);
+
                     return true;
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("El contrato : " + Numero + "  no existe.");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception("Error Read Contrato." + ex.Message);
             }
         }
 
@@ -154,20 +156,28 @@ namespace BeLife.Negocio
                 Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.Numero).FirstOrDefault();
                 if (con != null)
                 {
-                    //sincroniza la clase de la aplicacion con la entidad de BD y modifica los cambios
-                    CommonBC.Syncronize(this, con);
-                    bbdd.SaveChanges();
-                    return true;
+                    if(DateTime.Now > con.FinVigencia)
+                    {
+                        throw new Exception(" No se pueden hacer más modificaciones al contrato, ya acabo la fecha termino.");
+                    }
+                    else
+                    {
+                        //sincroniza la clase de la aplicacion con la entidad de BD y modifica los cambios
+                        CommonBC.Syncronize(this, con);
+
+                        bbdd.SaveChanges();
+                        return true;
+                    }
+                    
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("El contrato : " + Numero + "  no existe.");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception("Error update Contrato. " + ex.Message);
             }
         }
 
@@ -184,20 +194,19 @@ namespace BeLife.Negocio
                 Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.Numero).FirstOrDefault();
                 if (con != null)
                 {
-                    //elimina el contrato de la BD y guarda los cambios
-                    bbdd.Contrato.Remove(con);
+                    //Cambia estado vigencia contrato de la BD y guarda los cambios
+                    con.EstaVigente = false;
                     bbdd.SaveChanges();
                     return true;
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("El contrato : " + Numero + "  no existe.");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception("Error delete Contrato. " + ex.Message);
             }
         }
 

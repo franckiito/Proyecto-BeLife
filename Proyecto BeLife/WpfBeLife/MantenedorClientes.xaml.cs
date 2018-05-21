@@ -119,10 +119,9 @@ namespace WpfBeLife
         /// <returns></returns>
         public bool ValidaDatosCliente()
         {
+            bool valida = true;
             try
             {
-                bool valida = true;
-
                 if (!validaciones.ValidaRut(txtRut.Text))
                 {
                     valida = false;
@@ -147,12 +146,14 @@ namespace WpfBeLife
                     valida = false;
                 }
 
-                return valida;
+                
             }
             catch (Exception ex)
             {
+                valida = false;
                 throw new Exception(ex.Message);
             }
+            return valida;
         }
 
         /// <summary>

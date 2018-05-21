@@ -43,7 +43,7 @@
         <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="30" Margin="168,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" LostFocus="txtRut_LostFocus" />
         <Label x:Name="RutMensaje" HorizontalAlignment="Left" Margin="338,58,0,288" Width="10"/>
         <ComboBox x:Name="cboPlan" HorizontalAlignment="Left" Margin="169,131,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
-                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource PlanTemplate}" Height="26"   />
+                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource PlanTemplate}" Height="26" SelectionChanged="cboPlan_SelectionChanged"   />
         <Label Content="Código plan            :" HorizontalAlignment="Left" Height="30" Margin="13,131,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Prima anual            :" HorizontalAlignment="Left" Height="30" Margin="13,230,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <TextBox x:Name="txtPrimaAnual" HorizontalAlignment="Left" Height="30" Margin="169,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2"/>
@@ -84,13 +84,29 @@
             </Image>
         </Button>
         <Button x:Name="BtnBuscarContr" HorizontalAlignment="Left" Margin="399,-37,0,0" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Click="BtnBuscarContr_Click">
-            <Label Content="Buscar" Margin="0,50                    ,0,0" Foreground="White"/>
+            <Button.Content>
+                <StackPanel>
+                    <Image VerticalAlignment="Top" Width="48" Source="Images/ContractSearch.png"/>
+                    <Label Content="Buscar" Foreground="White"/>
+                </StackPanel>
+            </Button.Content>
         </Button>
         <Button x:Name="BtnActualizarContr" HorizontalAlignment="Left" Margin="399,372,0,-95" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Click="BtnActualizarContr_Click">
-            <Label Content="Actualizar" Margin="0,50                    ,0,0" Foreground="White"/>
+            <Button.Content>
+                <StackPanel>
+                    <Image Height="59"  VerticalAlignment="Top" Width="48" Source="Images/ContractUpdate.png"/>
+                    <Label Content="Actualizar"  Foreground="White"/>
+                </StackPanel>
+            </Button.Content>
         </Button>
         <Button x:Name="BtnEliminarContr" HorizontalAlignment="Left" Margin="215,372,0,-95" VerticalAlignment="Top" Width="98" Height="93" BorderBrush="#FF833288" Background="#FF664587" Click="BtnEliminarContr_Click">
-            <Label Content="Eliminar" Margin="0,50                    ,0,0" Foreground="White"/>
+            <Button.Content>
+                <StackPanel>
+                    <Image  Height="55"  VerticalAlignment="Top" Width="48" Source="Images/ContractDelete.png"/>
+                    <Label Content="Eliminar" Foreground="White"/>
+                </StackPanel>
+            </Button.Content>
+            
         </Button>
         <Button x:Name="BtnCrearContr" HorizontalAlignment="Left" Margin="22,372,0,-95" Width="100" BorderBrush="#FF833288" Background="#FF664587" Click="BtnCrearContr_Click" >
             <Button.Content>
@@ -101,9 +117,6 @@
             </Button.Content>
         </Button>
 
-        <Image HorizontalAlignment="Left" Height="55" Margin="271,376,0,-61" VerticalAlignment="Top" Width="48" Source="Images/ContractDelete.png"/>
-        <Image HorizontalAlignment="Left" Height="59" Margin="425,376,0,-65" VerticalAlignment="Top" Width="48" Source="Images/ContractUpdate.png"/>
-        <Image HorizontalAlignment="Left" Height="49" Margin="425,-29,0,0" VerticalAlignment="Top" Width="48" Source="Images/ContractSearch.png"/>
         <CheckBox x:Name="CheckDeclaracionSalud" HorizontalAlignment="Left" Margin="180,102,0,0" VerticalAlignment="Top" Height="18" Width="24"/>
 
     </Grid>

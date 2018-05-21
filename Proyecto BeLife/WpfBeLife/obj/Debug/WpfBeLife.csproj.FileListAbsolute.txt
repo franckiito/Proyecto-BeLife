@@ -285,19 +285,17 @@ C:\Users\Usuario\Source\Repos\Proyecto-BeLife\Proyecto BeLife\WpfBeLife\obj\Debu
 C:\Users\Usuario\Source\Repos\Proyecto-BeLife\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.csproj.CopyComplete
 C:\Users\Usuario\Source\Repos\Proyecto-BeLife\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.exe
 C:\Users\Usuario\Source\Repos\Proyecto-BeLife\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.pdb
-C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.csprojResolveAssemblyReference.cache
+C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\WpfBeLife.exe.config
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\WpfBeLife.exe
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\WpfBeLife.pdb
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\BeLife.Negocio.dll
-C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\BeLife.Negocio.pdb
-C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.exe
-C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\WpfBeLife.exe.config
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\ControlzEx.dll
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\EntityFramework.dll
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\EntityFramework.SqlServer.dll
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\MahApps.Metro.dll
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\System.Windows.Interactivity.dll
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\BeLife.Entity.dll
+C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\BeLife.Negocio.pdb
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\BeLife.Negocio.dll.config
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\ControlzEx.pdb
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\EntityFramework.xml
@@ -306,6 +304,7 @@ C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\MahApps.Metro.pdb
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\MahApps.Metro.xml
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\BeLife.Entity.pdb
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\bin\Debug\BeLife.Entity.dll.config
+C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.csprojResolveAssemblyReference.cache
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\Resources\Icons.baml
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\Resources\IconsNonShared.baml
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\ListadoClientes.g.cs
@@ -327,4 +326,5 @@ C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.Properties.Resources
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.csproj.GenerateResource.cache
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.csproj.CoreCompileInputs.cache
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.csproj.CopyComplete
+C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.exe
 C:\Desarrollo\Proyecto BeLife\WpfBeLife\obj\Debug\WpfBeLife.pdb

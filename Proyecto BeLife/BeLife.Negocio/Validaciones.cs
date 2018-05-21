@@ -228,7 +228,7 @@ namespace BeLife.Negocio
         /// <returns></returns>
         public string GeneraNumeroContrato()
         {
-            return DateTime.Now.ToString("yyyyMMddHHmmss");
+            return DateTime.Now.ToString("yyyyMMddhhmmss");
         }
 
         public DateTime GeneraTermino(DateTime fecha)
@@ -268,9 +268,9 @@ namespace BeLife.Negocio
         /// <returns></returns>
         public bool ValidaInicioVigencia(DateTime fecha)
         {
+            bool valida = true;
             try
             {
-                bool valida = true;
                 if (fecha == null)
                 {
                     valida = false;
@@ -281,18 +281,18 @@ namespace BeLife.Negocio
                     valida = false;
                     throw new Exception("La fecha inicio vigencia no puede ser menor a la fecha actual.");
                 }
-                if((DateTime.Now.Month - fecha.Month) >= 1)
+                if((fecha.Month - DateTime.Now.Month) >= 1)
                 {
                     valida = false;
                     throw new Exception("La fecha inicio vigencia no puede tener mas de un mes de anticipo");
                 }
-
-                return valida;
+                
             }
             catch (Exception ex)
             {
                 throw new Exception("Valida Fecha Inicio Vigencia. " + ex.Message);
             }
+            return valida;
         }
 
         /// <summary>

@@ -17,7 +17,6 @@ C:\Desarrollo\Proyecto BeLife\BeLife.Entity\bin\Debug\EntityFramework.dll
 C:\Desarrollo\Proyecto BeLife\BeLife.Entity\bin\Debug\EntityFramework.SqlServer.dll
 C:\Desarrollo\Proyecto BeLife\BeLife.Entity\bin\Debug\EntityFramework.xml
 C:\Desarrollo\Proyecto BeLife\BeLife.Entity\bin\Debug\EntityFramework.SqlServer.xml
-C:\Desarrollo\Proyecto BeLife\BeLife.Entity\obj\Debug\BeLife.Entity.csprojResolveAssemblyReference.cache
 C:\Desarrollo\Proyecto BeLife\BeLife.Entity\obj\Debug\BeLife.Entity.csproj.CoreCompileInputs.cache
 C:\Desarrollo\Proyecto BeLife\BeLife.Entity\obj\Debug\BeLife.Entity.csproj.CopyComplete
 C:\Desarrollo\Proyecto BeLife\BeLife.Entity\obj\Debug\BeLife.Entity.dll
