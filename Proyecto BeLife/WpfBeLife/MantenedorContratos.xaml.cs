@@ -26,6 +26,7 @@ namespace WpfBeLife
         {
             InitializeComponent();
             txtNumeroContrato.Text = validaciones.GeneraNumeroContrato();
+            InicioVigencia.SelectedDate = DateTime.Today;
             CargaPlanes();
         }
 
@@ -75,14 +76,15 @@ namespace WpfBeLife
             {
                 if (ValidaDatosContrato())
                 {
-                    
+
                     Contrato contrato = new Contrato()
                     {
+                        Numero = txtNumeroContrato.Text,
                         Creacion = DateTime.Today,
                         InicioVigencia = (DateTime)InicioVigencia.SelectedDate,
-                        PrimaMensual = float.Parse(txtPrimaMensual.Text),
-                        PrimaAnual = float.Parse(txtPrimaAnual.Text),
                         Observaciones = txtObservacion.Text,
+                        PrimaAnual = float.Parse(txtPrimaAnual.Text),
+                        PrimaMensual = float.Parse(txtPrimaMensual.Text),
                         ConDeclaracionDeSalud = (bool)CheckDeclaracionSalud.IsChecked
                     };
 
@@ -194,15 +196,19 @@ namespace WpfBeLife
         {
             try
             {
-                Contrato con = new Contrato()
+                if (validaciones.ValidaNumeroContrato(txtNumeroContrato.Text))
                 {
-                    Numero = txtNumeroContrato.Text
-                };
-                if (con.Delete())
-                {
-                    MessageBox.Show("El contrato de numero " + con.Numero + " fue eliminado.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LimpiaDatos();
+                    Contrato con = new Contrato()
+                    {
+                        Numero = txtNumeroContrato.Text
+                    };
+                    if (con.Delete())
+                    {
+                        MessageBox.Show("El contrato de numero " + con.Numero + " fue eliminado.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                        LimpiaDatos();
+                    }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -237,7 +243,6 @@ namespace WpfBeLife
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
@@ -258,6 +263,19 @@ namespace WpfBeLife
                         txtNombre.Text = cliente.Nombres;
                         txtApellido.Text = cliente.Apellidos;
                         txtRut.BorderBrush = new SolidColorBrush(Colors.Green);
+
+                        Tarificador tarificador = new Tarificador()
+                        {
+                            Cliente = cliente
+                        };
+                        Contrato contrato = new Contrato();
+                        contrato.Tarificar();
+
+                        txtPrimaAnual.Text = contrato.PrimaAnual.ToString();
+
+                        //Carga los datos del plan y hace la suma del recargo mas la prima, asigna valor a primaMensual
+                        CargaDatosPlan();
+
                     }
                     else
                     {
@@ -328,20 +346,37 @@ namespace WpfBeLife
         {
             try
             {
-                if (cboPlan.SelectedIndex != -1)
-                {
-                    Plan plan = new Plan();
-                    plan = (Plan)cboPlan.SelectedItem;
 
-                    if (plan.Read())
-                    {
-                        txtPoliza.Text = plan.PolizaActual;
-                    }
-                }
+                CargaDatosPlan();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void CargaDatosPlan() {
+            if (cboPlan.SelectedIndex != -1)
+            {
+                Plan plan = new Plan();
+                plan = (Plan)cboPlan.SelectedItem;
+
+                if (plan.Read())
+                {
+                    txtPoliza.Text = plan.PolizaActual;
+                    txtNombrePlan.Text = plan.Nombre;
+                    txtPrimaBase.Text = plan.PrimaBase.ToString();
+
+                    //Se considera que primero tiene que estar calculado el recargo para sumarle la prima.
+                    if (!string.IsNullOrEmpty(txtPrimaAnual.Text))
+                    {
+                        float recargo;
+                        recargo = float.Parse(txtPrimaAnual.Text);
+
+                        txtPrimaAnual.Text = (plan.PrimaBase + recargo).ToString();
+                        txtPrimaMensual.Text = ((plan.PrimaBase + recargo) / 12).ToString();
+                    }
+                }
             }
         }
     }

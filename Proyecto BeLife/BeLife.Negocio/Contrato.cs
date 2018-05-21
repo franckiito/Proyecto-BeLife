@@ -13,6 +13,13 @@ namespace BeLife.Negocio
         public string Numero { get; set; }
         public DateTime Creacion { get; set; }
         public DateTime Termino { get; set; }
+        public DateTime InicioVigencia { get; set; }
+        public DateTime FinVigencia{ get; set; }
+        public bool EstaVigente { get; set; }
+        public bool ConDeclaracionDeSalud { get; set; }
+        public double PrimaAnual { get; set; }
+        public double PrimaMensual { get; set; }
+        public string Observaciones { get; set; }
 
         //Relacion de composicion con la Clase Cliente.
         public Cliente Titular = new Cliente();
@@ -35,20 +42,13 @@ namespace BeLife.Negocio
             {
                 return PlanAsociado.PolizaActual;
             }
-        } 
-        public DateTime InicioVigencia { get; set; }
-        public DateTime FinVigencia{ get; set; }
-        public bool EstaVigente { get; set; }
-        public bool ConDeclaracionDeSalud { get; set; }
-        public double PrimaAnual { get; set; }
-        public double PrimaMensual { get; set; }
-        public string Observaciones { get; set; }
+        }
 
         //Relacion de dependencia: no forma parte de la clase, es utilizada para hacer alguna de sus operaciones
-        public void Tarificador()
+        public void Tarificar()
         {
             Tarificador tarificador = new Tarificador();
-            tarificador.CalcularPrima();
+            PrimaAnual = tarificador.CalcularRecargo();
         }
 
         public Contrato()
@@ -58,7 +58,7 @@ namespace BeLife.Negocio
 
         private void Init()
         {
-            Numero = DateTime.Now.ToString("YYYYMMDDHHmmSS");
+            Numero = "";
             Creacion = DateTime.Today;
             Termino = DateTime.Today;
             Titular = new Cliente();
@@ -80,36 +80,51 @@ namespace BeLife.Negocio
         {
             //Connexion a la base de datos
             BeLifeEntities bbdd = new BeLifeEntities();
-            if (!this.Read())
+            try
             {
-                try
+                Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.Numero).FirstOrDefault();
+                if (con == null)
                 {
-                    //sincronizacion de los datos, desde negocio a BD
-                    Entity.Contrato con = new Entity.Contrato();
-                    CommonBC.Syncronize(this, con);
-                    CommonBC.Syncronize(this.Titular, con.Cliente);
-                    con.RutCliente = this.Titular.Rut;
-                    CommonBC.Syncronize(this.PlanAsociado, con.Plan);
-                    con.CodigoPlan = this.PlanAsociado.Id;
-                    
+                    Entity.Contrato contrato = new Entity.Contrato();
+
+                    CommonBC.Syncronize(this, contrato);
+
+                    //con.Numero = Numero;
+                    //con.Creacion = Creacion;
+                    //con.Termino = Termino;
+                    //con.RutCliente = Titular.Rut;
+                    //con.CodigoPlan = PlanAsociado.Id;
+                    //con.InicioVigencia = InicioVigencia;
+                    //con.FinVigencia = FinVigencia;
+                    //con.EstaVigente = EstaVigente;
+                    //con.ConDeclaracionDeSalud = ConDeclaracionDeSalud;
+                    //con.PrimaAnual = PrimaAnual;
+                    //con.PrimaMensual = PrimaMensual;
+                    //con.Observaciones = Observaciones;
+
+                    CommonBC.Syncronize(this.Titular, contrato.Cliente);
+                    contrato.RutCliente = Titular.Rut;
+
+                    CommonBC.Syncronize(this.PlanAsociado, contrato.Plan);
+                    contrato.CodigoPlan = PlanAsociado.Id;
 
                     //agrega el contrato a DB y guarda los cambios
-                    bbdd.Contrato.Add(con);
+                    bbdd.Contrato.Add(contrato);
                     bbdd.SaveChanges();
                     return true;
                 }
-                catch (Exception ex)
+                else
                 {
-                    throw new Exception("ERROR!!! " + ex.Message);
-
+                    throw new Exception("El contrato : " + Numero + " ya existe.");
                 }
+                
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception("El contrato ya existe.");
+                throw new Exception("ERROR!!! " + ex.Message);
 
             }
-            
+
 
         }
         /// <summary>

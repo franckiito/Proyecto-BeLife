@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BeLife.Negocio
 {
-    class Tarificador
+    public class Tarificador
     {
         /// <summary>
         /// Composicion de Cliente. Un tarificador tiene un cliente.
@@ -23,34 +23,56 @@ namespace BeLife.Negocio
             Cliente = new Cliente();
         }
 
-        public double CalcularPrima()
+        public double CalcularRecargo()
         {
             double prima = 0;
             int edad = CalcularEdad(Cliente.FechaNacimiento, DateTime.Now);
 
-            if(edad >= 18 && edad <= 25)
+            try
             {
-                prima = 3.6;
+                if (edad >= 18 && edad <= 25)
+                {
+                    prima += 3.6;
+                }
+                if (edad >= 26 && edad <= 45)
+                {
+                    prima += 2.4;
+                }
+                if (edad > 45)
+                {
+                    prima += 6.0;
+                }
+                //sexo 1 = hombre
+                if (Cliente.Sexo.Id == 1)
+                {
+                    prima += 2.4;
+                }
+                else
+                {
+                    prima += 1.2;
+                }
+                //Soltero
+                if (Cliente.EstadoCivil.Id == 1)
+                {
+                    prima += 4.8;
+                }
+                else
+                {
+                    //Casado
+                    if (Cliente.EstadoCivil.Id == 2)
+                    {
+                        prima += 2.4;
+                    }
+                    else
+                    {
+                        prima += 3.6;
+                    }
+                }
             }
-            if(edad >= 26 && edad <= 45)
+            catch (Exception ex)
             {
-                prima =2.4;
+                throw new Exception(ex.Message);
             }
-            if (edad > 45)
-            {
-                prima = 6.0;
-            }
-            //sexo 1 = hombre
-            if (Cliente.Sexo.Id == 1)
-            {
-                prima = 2.4;
-            }
-            //sexo 1 = Mujer
-            if (Cliente.Sexo.Id == 2)
-            {
-                prima = 2.4;
-            }
-            
             
 
             return prima;

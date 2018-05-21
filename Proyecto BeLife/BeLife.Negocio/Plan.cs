@@ -46,13 +46,12 @@ namespace BeLife.Negocio
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("El Plan no existe");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception("Error al leer Plan. " + ex.Message);
             }
         }
 
@@ -62,10 +61,17 @@ namespace BeLife.Negocio
         /// <returns>List<Plan></returns>
         public List<Plan> ReadAll()
         {
-            BeLifeEntities bbdd = new BeLifeEntities();
-            List<Entity.Plan> listaDatos = bbdd.Plan.ToList<Entity.Plan>();
-            List<Plan> list = SyncList(listaDatos);
-            return list;
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Plan> listaDatos = bbdd.Plan.ToList<Entity.Plan>();
+                List<Plan> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Leer Todos los planes. " + ex.Message);
+            }
         }
 
         /// <summary>
@@ -75,17 +81,24 @@ namespace BeLife.Negocio
         /// <returns>List<Sexo></returns>
         private List<Plan> SyncList(List<Entity.Plan> listaDatos)
         {
-            List<Plan> list = new List<Plan>();
-
-            foreach (var x in listaDatos)
+            try
             {
-                Plan plan = new Plan();
-                CommonBC.Syncronize(x, plan);
-                list.Add(plan);
+                List<Plan> list = new List<Plan>();
 
+                foreach (var x in listaDatos)
+                {
+                    Plan plan = new Plan();
+                    CommonBC.Syncronize(x, plan);
+                    list.Add(plan);
+
+                }
+
+                return list;
             }
-
-            return list;
+            catch (Exception ex)
+            {
+                throw new Exception("Error Sincronizar listas. " + ex.Message);
+            }
         }
 
     }

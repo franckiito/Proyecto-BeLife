@@ -56,7 +56,7 @@
         <ComboBox x:Name="cboSexo" HorizontalAlignment="Left" Margin="349,425,0,-55" VerticalAlignment="Top" Width="168" BorderBrush="#FF833288" Foreground="#FF833288" Background="White"
                   IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}" Grid.Column="1"/>
         <DataGrid x:Name="grdClientes" HorizontalAlignment="Left" Height="360" Margin="-33,0,0,0" VerticalAlignment="Top" Width="992" BorderBrush="#FF833288" Foreground="#FF833288" Background="#FFBDBDBD" BorderThickness="1" HorizontalGridLinesBrush="#FF833288" VerticalGridLinesBrush="#FF1B1BA1" GridLinesVisibility="Vertical" OpacityMask="#FF833288"
-                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource ClienteTemplate}" Grid.ColumnSpan="2"/>
+                  IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource ClienteTemplate}" Grid.ColumnSpan="2"  />
         <Label Content="Rut :" HorizontalAlignment="Left" Height="30" Margin="-13,391,0,-25" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.ColumnSpan="2"/>
         <Label Content="Estado civil :" HorizontalAlignment="Left" Height="30" Margin="137,400,0,-34" VerticalAlignment="Top" Width="96" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="1"/>
         <Label Content="Sexo :" HorizontalAlignment="Left" Height="30" Margin="349,400,0,-34" VerticalAlignment="Top" Width="74" FontSize="14" Foreground="#FF833288" FontWeight="Bold" Grid.Column="1"/>

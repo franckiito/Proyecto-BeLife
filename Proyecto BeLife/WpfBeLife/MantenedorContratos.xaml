@@ -32,10 +32,10 @@
         <Label Content="Número contrato   :" HorizontalAlignment="Left" Height="30" Margin="13,-25,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
         <Label Content="Fecha Inicio vigencia" HorizontalAlignment="Left" Height="30" Margin="14,10,0,0" VerticalAlignment="Top" Width="149" FontSize="14" FontWeight="Bold" Foreground="#FF833288"/>
         <Label Content="Declaración salud   :" HorizontalAlignment="Left" Height="30" Margin="13,96,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <Label Content="Poliza  :" HorizontalAlignment="Left" Height="30" Margin="14,166,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
-        <TextBox x:Name="txtPoliza" HorizontalAlignment="Left" Height="30" Margin="169,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" IsEnabled="False" 
+        <Label Content="Poliza  :" HorizontalAlignment="Left" Height="30" Margin="644,265,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <TextBox x:Name="txtPoliza" HorizontalAlignment="Left" Height="30" Margin="799,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" IsEnabled="False" 
                  />
-        <Label Content="Seguros Belife - Mantenedor Contratos" HorizontalAlignment="Left" Height="27" Margin="-17,-85,0,0" VerticalAlignment="Top" Width="146" FontSize="16"/>
+        <Label Content="Seguros Belife - Mantenedor Contratos" HorizontalAlignment="Left" Height="27" Margin="-17,-85,0,0" VerticalAlignment="Top" Width="293" FontSize="16"/>
         <DatePicker x:Name="InicioVigencia" HorizontalAlignment="Left" Margin="169,14,0,0" VerticalAlignment="Top" Width="150" Foreground="#FF833288" BorderBrush="#FF833288" Background="#FFE2E2E2" Height="26"/>
         <Label Content="Observación           :" HorizontalAlignment="Left" Height="30" Margin="14,300,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold" RenderTransformOrigin="0.543,-0.4"/>
         <TextBox x:Name="txtObservacion" HorizontalAlignment="Left" Height="60" Margin="169,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="327" BorderBrush="#91469a" BorderThickness="2"/>
@@ -106,7 +106,7 @@
                     <Label Content="Eliminar" Foreground="White"/>
                 </StackPanel>
             </Button.Content>
-            
+
         </Button>
         <Button x:Name="BtnCrearContr" HorizontalAlignment="Left" Margin="22,372,0,-95" Width="100" BorderBrush="#FF833288" Background="#FF664587" Click="BtnCrearContr_Click" >
             <Button.Content>
@@ -118,6 +118,16 @@
         </Button>
 
         <CheckBox x:Name="CheckDeclaracionSalud" HorizontalAlignment="Left" Margin="180,102,0,0" VerticalAlignment="Top" Height="18" Width="24"/>
+        <Border BorderBrush="#FFB4B4B4" BorderThickness="1" HorizontalAlignment="Left" Height="236" Margin="613,250,0,-116" VerticalAlignment="Top" Width="388" CornerRadius="10">
+
+        </Border>
+        <Label Content="Datos Plan" HorizontalAlignment="Left" Height="32" Margin="613,193,0,0" VerticalAlignment="Top" Width="146" FontSize="16"/>
+        <Label Content="Nombre Plan  :" HorizontalAlignment="Left" Height="30" Margin="644,317,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <TextBox x:Name="txtNombrePlan" HorizontalAlignment="Left" Height="30" Margin="799,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" IsEnabled="False" 
+                 />
+        <Label Content="Prima Base  :" HorizontalAlignment="Left" Height="30" Margin="644,372,0,-32" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="#FF833288" FontWeight="Bold"/>
+        <TextBox x:Name="txtPrimaBase" HorizontalAlignment="Left" Height="30" Margin="799,372,0,-32" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="#91469a" BorderThickness="2" IsEnabled="False" 
+                 />
 
     </Grid>
 </Page>
