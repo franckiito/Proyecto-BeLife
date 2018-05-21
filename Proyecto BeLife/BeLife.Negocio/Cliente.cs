@@ -9,6 +9,7 @@ namespace BeLife.Negocio
 {
     public class Cliente
     {
+
         public string Rut { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }

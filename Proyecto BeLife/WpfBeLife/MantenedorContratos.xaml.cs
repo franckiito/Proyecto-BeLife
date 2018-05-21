@@ -105,16 +105,13 @@ namespace WpfBeLife
         private void LimpiaDatos()
         {
             txtNumeroContrato.Text = "";
-            FechaInicio.SelectedDate = null;
-            FechaTermino.SelectedDate = null;
+            InicioVigencia.SelectedDate = null;
             cboPlan.SelectedIndex = -1;
             txtPrimaAnual.Text = "";
             txtPrimaMensual.Text = "";
             txtObservacion.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
-            CheckVigente.IsChecked = false;
-            CheckDeclaracionSalud.IsChecked = false;
         }
 
         private void BtnBuscarContr_Click(object sender, RoutedEventArgs e)
@@ -182,16 +179,11 @@ namespace WpfBeLife
                 Contrato con = new Contrato()
                 {
                     Numero = txtNumeroContrato.Text,
-                    Creacion = (DateTime)FechaInicio.SelectedDate,
-                    Termino = (DateTime)FechaTermino.SelectedDate,
-                    InicioVigencia = DateTime.Today,
-                    FinVigencia = DateTime.Today,
+                    Creacion = DateTime.Today,
+                    InicioVigencia = (DateTime)InicioVigencia.SelectedDate,
                     PrimaAnual = float.Parse(txtPrimaAnual.Text),
                     PrimaMensual = float.Parse(txtPrimaMensual.Text),
-                    Observaciones = txtObservacion.Text,
-                    EstaVigente = false,
-                    ConDeclaracionDeSalud = false
-                    
+                    Observaciones = txtObservacion.Text
                 };
 
                 if (con.Update())

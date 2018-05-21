@@ -21,6 +21,7 @@ namespace WpfBeLife
     /// </summary>
     public partial class ListadoClientes : Page
     {
+
         public ListadoClientes()
         {
             InitializeComponent();
@@ -88,6 +89,7 @@ namespace WpfBeLife
         {
             try
             {
+
                 //Lee los controles de la interfaz.
                 string rut = txtRut.Text;
 

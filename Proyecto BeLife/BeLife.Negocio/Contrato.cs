@@ -9,6 +9,7 @@ namespace BeLife.Negocio
 {
     public class Contrato
     {
+
         public string Numero { get; set; }
         public DateTime Creacion { get; set; }
         public DateTime Termino { get; set; }
@@ -59,7 +60,7 @@ namespace BeLife.Negocio
         {
             Numero = DateTime.Now.ToString("YYYYMMDDHHmmSS");
             Creacion = DateTime.Today;
-            Termino = DateTime.Today.AddYears(1);
+            Termino = DateTime.Today;
             Titular = new Cliente();
             PlanAsociado = new Plan();
             //Poliza = string.Empty;
